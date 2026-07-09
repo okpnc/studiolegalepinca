@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="utf-8">
+  <title>Prenota - Studio Legale Pinca</title>
+  <meta content="width=device-width, initial-scale=1" name="viewport">
+  <link href="css/normalize.css" rel="stylesheet" type="text/css">
+  <link href="css/webflow.css" rel="stylesheet" type="text/css">
+  <link href="css/studiolegalepinca.webflow.css" rel="stylesheet" type="text/css">
+  <link href="images/favicon.png" rel="shortcut icon" type="image/x-icon">
+  <link href="images/webclip.png" rel="apple-touch-icon">
+  <link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet">
+  <style>
+    .nav-link { color: #fff; text-decoration: none; padding: 40px 28px; font-size: 15px; letter-spacing: .5px; transition: color .25s ease; }
+    .nav-link:hover { color: #c99669; }
+    .image-2 { max-width: 28svh !important; transition: max-width .4s ease; }
+    .header-menu-wrap { gap: 0; }
+    .navbar.nav-banner-visible {
+      background-color: rgba(50, 51, 54, 0.82);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      box-shadow: 0 2px 24px rgba(0,0,0,.18);
+    }
+    .prenota-hero {
+      background-color: #323336;
+      background-image: linear-gradient(rgba(50,51,54,.75), rgba(50,51,54,.9)), url('images/IMG_2180.jpg');
+      background-position: 50%;
+      background-size: cover;
+      padding: 140px 30px 80px;
+      text-align: center;
+    }
+    .prenota-hero-title {
+      color: #c99669;
+      font-size: 38px;
+      font-weight: 600;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      margin-bottom: 0;
+    }
+    .prenota-hero-divider {
+      width: 70px; height: 2px; background-color: #c99669; margin: 16px auto 24px;
+    }
+    .prenota-hero-text {
+      color: #ddd; font-size: 16px; line-height: 1.7; max-width: 700px; margin: 0 auto;
+    }
+    .prenota-info-section {
+      background-color: #f5f3f0;
+      padding: 60px 30px;
+    }
+    .prenota-info-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 30px;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+    .prenota-info-card {
+      background-color: #fff;
+      border: 1px solid #e8e4df;
+      border-top: 3px solid #ae000b;
+      border-radius: 10px;
+      padding: 32px 24px;
+      text-align: center;
+      transition: box-shadow .3s ease, transform .3s ease;
+    }
+    .prenota-info-card:hover {
+      box-shadow: 0 8px 28px rgba(0,0,0,.08);
+      transform: translateY(-3px);
+    }
+    .prenota-info-icon {
+      width: 48px; height: 48px; margin: 0 auto 16px;
+      border-radius: 50%; background-color: #f5f3f0;
+      display: flex; align-items: center; justify-content: center;
+      color: #ae000b; font-size: 22px; font-weight: 700;
+    }
+    .prenota-info-title {
+      color: #c99669; font-size: 13px; font-weight: 700;
+      letter-spacing: 2px; text-transform: uppercase; margin-bottom: 10px;
+    }
+    .prenota-info-value {
+      color: #323336; font-size: 18px; font-weight: 600;
+    }
+    .prenota-widget-section {
+      background-color: #f5f3f0;
+      padding: 20px 30px 80px;
+    }
+    .prenota-widget-container {
+      max-width: 900px;
+      margin: 0 auto;
+      background-color: #fff;
+      border: 1px solid #e8e4df;
+      border-radius: 12px;
+      box-shadow: 0 4px 24px rgba(0,0,0,.06);
+      overflow: hidden;
+    }
+    .prenota-widget-container .calendly-inline-widget {
+      border: none;
+    }
+    @media screen and (max-width: 991px) {
+      .prenota-info-grid { grid-template-columns: 1fr; gap: 20px; }
+      .image-2 { max-width: 20svh !important; }
+      .nav-link { padding: 20px 16px; font-size: 14px; }
+    }
+    @media screen and (max-width: 479px) {
+      .prenota-hero { padding: 110px 20px 60px; }
+      .prenota-hero-title { font-size: 28px; }
+      .prenota-info-section { padding: 40px 20px; }
+      .prenota-widget-section { padding: 10px 15px 50px; }
+      .prenota-widget-container { border-radius: 8px; }
+    }
+  </style>
+</head>
+<body>
+  <div data-animation="default" data-collapse="medium" data-duration="400" data-easing="ease" data-easing2="ease" role="banner" class="navbar w-nav nav-banner-visible">
+    <div class="w-layout-blockcontainer container-big w-container">
+      <div class="w-layout-hflex navbar-wrapper">
+        <a href="index.html" class="logo w-nav-brand"><img width="140" height="Auto" alt="Studio Legale Pinca" src="images/PINCA_logo_web_optimized.png" loading="lazy" class="image-2"></a>
+        <nav role="navigation" class="header-menu-wrap w-nav-menu">
+          <a href="chi-siamo.html" class="nav-link w-nav-link">Chi Siamo</a>
+          <a href="aree.html" class="nav-link w-nav-link">Aree di Attività</a>
+          <a href="contatti-2.html" class="nav-link w-nav-link">Contatti</a>
+          <a href="prenota.html" aria-current="page" class="nav-link w-nav-link w--current">Prenota</a>
+        </nav>
+      </div>
+    </div>
+  </div>
+
+  <section class="prenota-hero">
+    <h1 class="prenota-hero-title">Prenota un appuntamento</h1>
+    <div class="prenota-hero-divider"></div>
+    <p class="prenota-hero-text">Scegli il giorno e l'orario più comodo tra quelli disponibili. Gli appuntamenti online sono prenotabili il martedì e il giovedì, dalle ore 17:00 alle ore 21:00. Dopo la conferma riceverai i dettagli dell'appuntamento all'indirizzo e-mail indicato.</p>
+  </section>
+
+  <section class="prenota-info-section">
+    <div class="prenota-info-grid">
+      <div class="prenota-info-card">
+        <div class="prenota-info-icon">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+        </div>
+        <div class="prenota-info-title">Giorni disponibili</div>
+        <div class="prenota-info-value">Martedì e giovedì</div>
+      </div>
+      <div class="prenota-info-card">
+        <div class="prenota-info-icon">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+        </div>
+        <div class="prenota-info-title">Orario</div>
+        <div class="prenota-info-value">Dalle 17:00 alle 21:00</div>
+      </div>
+      <div class="prenota-info-card">
+        <div class="prenota-info-icon">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v6m0 0c-2.5 0-5 1-5 4v6c0 1 1 2 2 2h6c1 0 2-1 2-2v-6c0-3-2.5-4-5-4z"/></svg>
+        </div>
+        <div class="prenota-info-title">Durata</div>
+        <div class="prenota-info-value">30 minuti</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="prenota-widget-section">
+    <div class="prenota-widget-container">
+      <div class="calendly-inline-widget" data-url="https://calendly.com/nadia-altiero-studiolegalepinca/30min?background_color=f7f2ed&text_color=323336&primary_color=ae000b" style="min-width:320px;height:760px;"></div>
+    </div>
+  </section>
+
+  <section class="footer-light">
+    <div class="container-2">
+      <div class="footer-wrapper-two">
+        <a href="index.html" class="footer-brand w-inline-block"><img src="images/PINCA_logo_web_optimized.png" loading="lazy" width="100" height="100" alt="Studio Legale Pinca"></a>
+        <div class="footer-block-two">
+          <div class="footer-title">Su di noi</div>
+          <a href="chi-siamo.html" class="footer-link-two">Chi Siamo</a>
+        </div>
+        <div class="footer-block-two">
+          <div class="footer-title">Aree di attività</div>
+          <a href="aree.html" class="footer-link-two">Diritto Civile</a>
+          <a href="aree.html" class="footer-link-two">Diritto Penale</a>
+        </div>
+        <div class="footer-block-two">
+          <div class="footer-title">Contatti</div>
+          <a href="contatti-2.html" class="footer-link-two">Contatti</a>
+        </div>
+      </div>
+      <div class="footer-divider-two"></div>
+      <div class="footer-bottom">
+        <div class="footer-copyright">© 2025 Studio Legale Pinca. All rights reserved</div>
+        <div class="footer-social-block-two">
+          <a href="https://www.facebook.com/" target="_blank" class="footer-social-link w-inline-block"><img src="images/facebook.svg" loading="lazy" alt="Facebook" width="20"></a>
+          <a href="https://www.linkedin.com/" target="_blank" class="footer-social-link w-inline-block"><img src="images/Linkedin.svg" loading="lazy" alt="LinkedIn" width="20"></a>
+          <a href="https://instagram.com/" target="_blank" class="footer-social-link w-inline-block"><img src="images/instagram.svg" loading="lazy" alt="Instagram" width="20"></a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <script src="https://d3e54v103j8qbb.cloudfront.net/js/jquery-3.5.1.min.dc5e7f18c8.js?site=68dbe52f8f32c732e56a77fc" type="text/javascript" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
+  <script src="js/webflow.js" type="text/javascript"></script>
+  <script src="https://assets.calendly.com/assets/external/widget.js" type="text/javascript" async></script>
+</body>
+</html>

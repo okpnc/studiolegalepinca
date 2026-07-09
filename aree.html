@@ -9,6 +9,7 @@
   <link href="css/studiolegalepinca.webflow.css" rel="stylesheet" type="text/css">
   <link href="images/favicon.png" rel="shortcut icon" type="image/x-icon">
   <link href="images/webclip.png" rel="apple-touch-icon">
+  <link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet">
   <style>
     .nav-link { color: #fff; text-decoration: none; padding: 40px 28px; font-size: 15px; letter-spacing: .5px; transition: color .25s ease; }
     .nav-link:hover { color: #c99669; }
@@ -189,7 +190,7 @@
           <a href="chi-siamo.html" class="nav-link w-nav-link">Chi Siamo</a>
           <a href="aree.html" aria-current="page" class="nav-link w-nav-link w--current">Aree di Attività</a>
           <a href="contatti-2.html" class="nav-link w-nav-link">Contatti</a>
-          <a href="https://calendly.com/romeomike2003/30min" class="nav-link w-nav-link">Prenota</a>
+          <a href="prenota.html" class="nav-link w-nav-link">Prenota</a>
         </nav>
       </div>
     </div>
@@ -671,5 +672,24 @@
       if (!isOpen) item.classList.add('open');
     }
   </script>
+  <script src="https://assets.calendly.com/assets/external/widget.js" type="text/javascript" async></script>
+  <script type="text/javascript">
+    window.onload = function() {
+      if (typeof Calendly !== 'undefined') {
+        Calendly.initBadgeWidget({
+          url: 'https://calendly.com/nadia-altiero-studiolegalepinca/30min?background_color=f7f2ed&text_color=323336&primary_color=ae000b',
+          text: 'Prenota un appuntamento',
+          color: '#ae000b',
+          textColor: '#ffffff',
+          branding: true
+        });
+      }
+    }
+  </script>
+  <style>
+    @media screen and (max-width: 767px) {
+      .calendly-badge-widget { display: none !important; }
+    }
+  </style>
 </body>
 </html>

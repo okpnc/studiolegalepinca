@@ -142,6 +142,29 @@
   margin-left: 1vh;
   transition: max-width .4s ease;
 }
+#slides .slide._1 {
+  background-color: #1a0808;
+}
+#slides .slide._1 .container-pagina {
+  background-size: cover, cover !important;
+  background-position: 50% 50%, 50% 50% !important;
+}
+#slides .slide._3 .container-pagina {
+  background-size: cover, cover !important;
+  background-position: 50% 50%, 50% 50% !important;
+}
+#slides .slide._3 .container-pagina::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(49,13,13,.55), rgba(50,51,54,.45));
+  z-index: 0;
+  pointer-events: none;
+}
+#slides .slide._3 .container-pagina > * {
+  position: relative;
+  z-index: 1;
+}
 .header-menu-wrap {
   justify-content: flex-end;
   align-items: center;
@@ -212,13 +235,43 @@
   grid-template-columns: 1fr 1fr 1fr;
   gap: 20px;
   width: 66%;
-  margin-left: 17vw;
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 20px;
+}
+.home-contact-card .contact {
+  overflow-wrap: anywhere;
+  word-break: break-word;
+}
+#slides .slide._2.contatti .section._5 {
+  position: static;
+  width: 100%;
+  max-width: 1000px;
+  margin: 0 auto;
+  height: auto;
+  padding: 30px;
+  background-color: transparent;
+  border-radius: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#slides .slide._2.contatti .section._4-5._2 {
+  display: none;
+}
+#slides .slide._2.contatti .container-pagina {
+  flex-flow: column;
+  justify-content: center;
+  align-items: center;
 }
 @media screen and (max-width: 991px) {
   .home-contact-grid {
     grid-template-columns: 1fr;
     width: 90%;
-    margin-left: 5%;
+    margin: 0 auto;
+  }
+  #slides .slide._2.contatti .section._5 {
+    padding: 20px 10px;
   }
   .nav-link._1 {
     padding: 20px 16px;
@@ -241,7 +294,7 @@
           <a href="chi-siamo.html" class="dropdown-link-5 w-dropdown-link">Chi Siamo</a>
           <a href="aree.html" class="dropdown-link-5 w-dropdown-link">Aree di Attività</a>
           <a href="contatti-2.html" class="dropdown-link-5 w-dropdown-link">Contatti</a>
-          <a href="https://calendly.com/romeomike2003/30min" class="dropdown-link-5 w-dropdown-link">Prenota</a>
+          <a href="prenota.html" class="dropdown-link-5 w-dropdown-link">Prenota</a>
         </nav>
       </div>
     </div>
@@ -253,7 +306,7 @@
             <a href="chi-siamo.html" class="nav-link _1 w-nav-link">Chi Siamo</a>
             <a href="aree.html" class="nav-link _1 w-nav-link">Aree di Attività</a>
             <a href="contatti-2.html" class="nav-link _1 w-nav-link">Contatti</a>
-            <a href="https://calendly.com/romeomike2003/30min" class="nav-link _1 w-nav-link">Prenota</a>
+            <a href="prenota.html" class="nav-link _1 w-nav-link">Prenota</a>
           </nav>
         </div>
       </div>
