@@ -137,6 +137,97 @@
 .dropdown-link-5:hover {
   color: #c99669;
 }
+.image-2 {
+  max-width: 28svh !important;
+  margin-left: 1vh;
+  transition: max-width .4s ease;
+}
+.header-menu-wrap {
+  justify-content: flex-end;
+  align-items: center;
+  width: 70vw;
+  display: flex;
+  gap: 0;
+}
+.nav-link._1 {
+  flex: 0 0 auto;
+  margin-left: 0;
+  margin-right: 0;
+  padding: 40px 28px;
+  font-size: 15px;
+  letter-spacing: .5px;
+  transition: color .25s ease;
+  text-decoration: none;
+}
+.nav-link._1:hover {
+  color: #c99669;
+}
+.navbar {
+  transition: background-color .5s ease, box-shadow .5s ease, padding .5s ease;
+}
+.navbar.nav-banner-visible {
+  background-color: rgba(50, 51, 54, 0.82);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  box-shadow: 0 2px 24px rgba(0,0,0,.18);
+}
+.navbar.nav-banner-visible .nav-link._1 {
+  text-shadow: 0 1px 4px rgba(0,0,0,.3);
+}
+.home-contact-card {
+  background-color: rgba(50, 51, 54, 0.88);
+  border: 1px solid rgba(201, 150, 105, 0.25);
+  border-radius: 10px;
+  padding: 24px 30px;
+  margin-bottom: 16px;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  transition: border-color .3s ease, transform .3s ease;
+}
+.home-contact-card:hover {
+  border-color: rgba(201, 150, 105, 0.5);
+  transform: translateY(-2px);
+}
+.home-contact-card .text-block-4 {
+  color: #c99669;
+  font-size: 16px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  margin-bottom: 12px;
+}
+.home-contact-card .contact {
+  color: #fff;
+  font-size: 14px;
+  line-height: 1.7;
+  font-weight: 400;
+  text-decoration: none;
+  display: block;
+}
+.home-contact-card .contact:hover {
+  color: #c99669;
+}
+.home-contact-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 20px;
+  width: 66%;
+  margin-left: 17vw;
+}
+@media screen and (max-width: 991px) {
+  .home-contact-grid {
+    grid-template-columns: 1fr;
+    width: 90%;
+    margin-left: 5%;
+  }
+  .nav-link._1 {
+    padding: 20px 16px;
+    font-size: 14px;
+  }
+  .image-2 {
+    max-width: 20svh !important;
+  }
+}
 </style>
 </head>
 <body>
@@ -147,10 +238,10 @@
           <div class="text-block-11">MENU</div>
         </div>
         <nav class="dropdown-list-9 mobile w-dropdown-list">
-          <a href="chi-siamo.html" class="dropdown-link-5 w-dropdown-link">Chi siamo</a>
-          <a href="civile.html" class="dropdown-link-5 w-dropdown-link">Diritto Civile</a>
-          <a href="penale.html" class="dropdown-link-5 w-dropdown-link">Diritto Penale</a>
+          <a href="chi-siamo.html" class="dropdown-link-5 w-dropdown-link">Chi Siamo</a>
+          <a href="aree.html" class="dropdown-link-5 w-dropdown-link">Aree di Attività</a>
           <a href="contatti-2.html" class="dropdown-link-5 w-dropdown-link">Contatti</a>
+          <a href="https://calendly.com/romeomike2003/30min" class="dropdown-link-5 w-dropdown-link">Prenota</a>
         </nav>
       </div>
     </div>
@@ -160,45 +251,9 @@
           <a id="w-node-b7fd4cbe-efc0-7bc8-3552-aee496ea060e-e56a7909" href="#" class="logo w-nav-brand"><img width="113" height="Auto" alt="" src="images/PINCA_logo_web_optimized.png" loading="lazy" class="image-2"></a>
           <nav role="navigation" id="w-node-b7fd4cbe-efc0-7bc8-3552-aee496ea0610-e56a7909" class="header-menu-wrap w-nav-menu">
             <a href="chi-siamo.html" class="nav-link _1 w-nav-link">Chi Siamo</a>
-            <div data-delay="1000" data-hover="true" class="dropdown-9 w-dropdown">
-              <div class="dropdown-toggle-9 _1 w-dropdown-toggle">
-                <div class="text-block-10 _1">Aree di Attività</div>
-              </div>
-              <nav class="dropdown-list-9 mobile w-dropdown-list">
-                <a href="https://studiolegalepinca.webflow.io/pubblico#Persona-e-Minori" class="dropdown-link-5 w-dropdown-link">Persona e Minori (penale)</a>
-                <a href="https://studiolegalepinca.webflow.io/pubblico#Patrimonio-e-impresa" class="dropdown-link-5 w-dropdown-link">Patrimonio e Impresa (penale)</a>
-                <a href="https://studiolegalepinca.webflow.io/pubblico#Sicurezza" class="dropdown-link-5 w-dropdown-link">Sicurezza e Tecnologia (penale)</a>
-                <a href="civile.html" class="dropdown-link-5 w-dropdown-link">Impresa e Contratti (civile)</a>
-                <a href="civile.html" class="dropdown-link-5 w-dropdown-link">Patrimoni (civile)</a>
-                <a href="civile.html" class="dropdown-link-5 w-dropdown-link">Responsabilità (civile)</a>
-              </nav>
-            </div>
-            <a href="professionisti.html" class="nav-link _1 w-nav-link"></a>
-            <a href="insight.html" class="nav-link _1 w-nav-link"></a>
+            <a href="aree.html" class="nav-link _1 w-nav-link">Aree di Attività</a>
             <a href="contatti-2.html" class="nav-link _1 w-nav-link">Contatti</a>
             <a href="https://calendly.com/romeomike2003/30min" class="nav-link _1 w-nav-link">Prenota</a>
-            <div class="menu-link menu2">
-              <div data-delay="1000" data-hover="false" class="dropdown-5 w-dropdown">
-                <div class="dropdown-toggle-6 w-dropdown-toggle">
-                  <div class="text-block-7">MENU</div>
-                </div>
-                <nav class="dropdown-list-7 mobile w-dropdown-list">
-                  <a href="#" class="dropdown-link-4 w-dropdown-link">Chi siamo</a>
-                  <div data-delay="2000" data-hover="true" class="dropdown-6 w-dropdown">
-                    <div class="dropdown-toggle-7 w-dropdown-toggle">
-                      <div>Servizi</div><img loading="lazy" src="images/icon.svg" alt="">
-                    </div>
-                    <figure class="dropdown-list-6 w-dropdown-list">
-                      <a href="#" class="w-dropdown-link">Per ospedali</a>
-                      <a href="#" class="w-dropdown-link">Per medici</a>
-                      <a href="#" class="w-dropdown-link">Per assicurazioni</a>
-                      <a href="#" class="w-dropdown-link">Per privati</a>
-                    </figure>
-                  </div>
-                  <a href="#" class="dropdown-link-4 w-dropdown-link">Contatti</a>
-                </nav>
-              </div>
-            </div>
           </nav>
         </div>
       </div>
@@ -320,45 +375,41 @@
               </a>
             </div>
             <section data-w-id="178eb010-927f-a1be-7dd6-6f1efcbb7f2a" style="-webkit-transform:translate3d(-111px, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(-111px, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-ms-transform:translate3d(-111px, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(-111px, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);opacity:0" class="section-3-wrapper aree">
-              <div class="section-3-block a _1"><img src="images/icon-two-8.svg" loading="lazy" alt="" class="icon">
+              <div class="section-3-block a _1">
                 <div class="div-block-8"></div>
-                <div class="text-block-2">Persona e Minori (penale)</div>
+                <div class="text-block-2">DIRITTO DI FAMIGLIA</div>
                 <div class="div-block-8"></div>
-                <a href="https://studiolegalepinca.webflow.io/pubblico#Persona-e-Minori" class="leggitutto">LEGGI TUTTO</a>
+                <a href="aree.html" class="leggitutto">LEGGI TUTTO</a>
               </div>
-              <div class="section-3-block b"><img src="images/icon-four-3.svg" loading="lazy" alt="" class="icon">
+              <div class="section-3-block b">
                 <div class="div-block-8"></div>
-                <div class="text-block-2">Patrimoni e Impresa (penale)</div>
+                <div class="text-block-2">RESPONSABILITÀ CIVILE</div>
                 <div class="div-block-8"></div>
-                <a href="https://studiolegalepinca.webflow.io/pubblico#Patrimonio-e-impresa" class="leggitutto">LEGGI TUTTO</a>
+                <a href="aree.html" class="leggitutto">LEGGI TUTTO</a>
               </div>
-              <div class="section-3-block a"><img src="images/icon-two-8.svg" loading="lazy" alt="" class="icon">
+              <div class="section-3-block a">
                 <div class="div-block-8"></div>
+                <div class="text-block-2">DIRITTO SOCIETARIO</div>
                 <div class="div-block-8"></div>
-                <div class="text-block-2">Sicurezza e Tecnologia (penale)</div>
-                <div class="div-block-8"></div>
-                <a href="https://studiolegalepinca.webflow.io/pubblico#Sicurezza" class="leggitutto">LEGGI TUTTO</a>
+                <a href="aree.html" class="leggitutto">LEGGI TUTTO</a>
               </div>
-              <div class="section-3-block b"><img src="images/icon-three-4.svg" loading="lazy" alt="" class="icon">
+              <div class="section-3-block b">
                 <div class="div-block-8"></div>
+                <div class="text-block-2">REATI CONTRO LA PERSONA</div>
                 <div class="div-block-8"></div>
-                <div class="text-block-2">Impresa e Contratti (civile)</div>
-                <div class="div-block-8"></div>
-                <a href="https://studiolegalepinca.webflow.io/copia-brain#impresacivile" class="leggitutto">LEGGI TUTTO</a>
+                <a href="aree.html" class="leggitutto">LEGGI TUTTO</a>
               </div>
-              <div class="section-3-block a"><img src="images/icon-four-3.svg" loading="lazy" alt="" class="icon">
+              <div class="section-3-block a">
                 <div class="div-block-8"></div>
+                <div class="text-block-2">REATI CONTRO IL PATRIMONIO</div>
                 <div class="div-block-8"></div>
-                <div class="text-block-2">Patrimoni (civile)</div>
-                <div class="div-block-8"></div>
-                <a href="https://studiolegalepinca.webflow.io/copia-brain#patrimonicivile" class="leggitutto">LEGGI TUTTO</a>
+                <a href="aree.html" class="leggitutto">LEGGI TUTTO</a>
               </div>
-              <div class="section-3-block b _1"><img src="images/icon-one-7.svg" loading="lazy" alt="" class="icon">
+              <div class="section-3-block b _1">
                 <div class="div-block-8"></div>
+                <div class="text-block-2">REATI CONTRO LA P.A.</div>
                 <div class="div-block-8"></div>
-                <div class="text-block-2">Responsabilitìà (civile)</div>
-                <div class="div-block-8"></div>
-                <a href="https://studiolegalepinca.webflow.io/copia-brain#responsabilitacivile" class="leggitutto">LEGGI TUTTO</a>
+                <a href="aree.html" class="leggitutto">LEGGI TUTTO</a>
               </div>
             </section>
             <div class="w-layout-vflex contatore2 contatore">
@@ -383,40 +434,39 @@
             <section class="section _4-5 _2">
               <div class="div-block-9 a">
                 <div class="div-block-10">
-                  <div class="text-block-3">E-mail: a@pinca.it<br></div>
-                  <div class="text-block-3">Telefono: 389823428</div>
-                  <div class="text-block-3">Indirizzo: Via Malesia 18, Roma (RO), Italia</div>
+                  <div class="text-block-3">Tel. 0833 864251<br></div>
+                  <div class="text-block-3">studiolegalepinca@pec.it</div>
+                  <div class="text-block-3">Galatone - Via Garibaldi, 42 - 73044 Lecce</div>
                 </div>
               </div>
             </section>
             <section style="opacity:0;-webkit-transform:translate3d(-187px, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(-187px, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-ms-transform:translate3d(-187px, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(-187px, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)" class="section _5">
-              <div class="div-block-13">
-                <div class="block-5">
-                  <div class="div-block-10">
-                    <div class="text-block-4">Telefono</div>
-                    <div class="contact">389876123</div>
-                    <div class="contact">389876123</div>
-                    <div class="contact">389876123</div>
-                  </div>
+              <div class="home-contact-grid">
+                <div class="home-contact-card">
+                  <div class="text-block-4">Telefono</div>
+                  <a href="tel:+390833864251" class="contact">Tel. 0833 864251</a>
                 </div>
-                <div class="block-5">
-                  <div class="div-block-10">
-                    <div class="text-block-4">E-mail</div>
-                    <div class="contact">mail@pinca.it<br></div>
-                    <div class="contact">mail@pinca.it<br></div>
-                    <div class="contact">mail@pinca.it<br></div>
-                  </div>
+                <div class="home-contact-card">
+                  <div class="text-block-4">E-mail</div>
+                  <a href="mailto:studiolegalepinca@pec.it" class="contact">studiolegalepinca@pec.it</a>
+                  <a href="mailto:studiopinca@gmail.com" class="contact">studiopinca@gmail.com</a>
+                  <a href="mailto:maurizio.pinca@studiolegalepinca.it" class="contact">maurizio.pinca@studiolegalepinca.it</a>
+                  <a href="mailto:alberto.pinca@studiolegalepinca.it" class="contact">alberto.pinca@studiolegalepinca.it</a>
+                  <a href="mailto:nadia.altiero@studiolegalepinca.it" class="contact">nadia.altiero@studiolegalepinca.it</a>
                 </div>
-                <div class="block-5 s">
-                  <div class="div-block-10">
-                    <div class="text-block-4">Indirizzo</div>
-                    <div class="contact">Via Malesia 18, Roma (RO), Italia</div>
-                  </div>
+                <div class="home-contact-card">
+                  <div class="text-block-4">Indirizzo</div>
+                  <div class="contact"><strong>Galatone</strong></div>
+                  <div class="contact">Via Garibaldi, 42</div>
+                  <div class="contact">73044 Lecce</div>
+                  <div class="contact" style="margin-top:10px;"><strong>Lecce</strong></div>
+                  <div class="contact">Corte Conte Accardo, 2</div>
+                  <div class="contact">73100</div>
                 </div>
               </div>
             </section>
             <a href="contatti-2.html" class="button-3 mobile chi-siamo w-inline-block">
-              <div class="text-block-16">Prenota una call</div>
+              <div class="text-block-16">Tutti i contatti</div>
             </a>
           </div>
           <div style="opacity:0" class="w-layout-vflex contatore2 contatore">
@@ -550,6 +600,20 @@ document.addEventListener('DOMContentLoaded', function () {
     }
   });
 });
+// Navbar banner visibility from slide 2+
+(function() {
+  var navbar = document.querySelector('.navbar');
+  if (!navbar) return;
+  var slides = document.querySelectorAll('#slides .slide');
+  function updateBanner(e) {
+    var idx = e ? e.detail.index : 0;
+    if (idx > 0) navbar.classList.add('nav-banner-visible');
+    else navbar.classList.remove('nav-banner-visible');
+  }
+  slides.forEach(function(s) {
+    s.addEventListener('slideenter', updateBanner);
+  });
+})();
 </script>
 </body>
 </html>

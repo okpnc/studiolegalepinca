@@ -17,86 +17,205 @@
   <script type="text/javascript">!function(o,c){var n=c.documentElement,t=" w-mod-";n.className+=t+"js",("ontouchstart"in o||o.DocumentTouch&&c instanceof DocumentTouch)&&(n.className+=t+"touch")}(window,document);</script>
   <link href="images/favicon.png" rel="shortcut icon" type="image/x-icon">
   <link href="images/webclip.png" rel="apple-touch-icon">
+  <style>
+    .nav-link { color: #fff; text-decoration: none; padding: 40px 28px; font-size: 15px; letter-spacing: .5px; transition: color .25s ease; }
+    .nav-link:hover { color: #c99669; }
+    .image-2 { max-width: 28svh !important; transition: max-width .4s ease; }
+    .header-menu-wrap { gap: 0; }
+    .navbar.nav-banner-visible {
+      background-color: rgba(50, 51, 54, 0.82);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      box-shadow: 0 2px 24px rgba(0,0,0,.18);
+    }
+    .pinca-timeline-section {
+      background-color: #f5f3f0;
+      padding: 100px 30px;
+      position: relative;
+    }
+    .pinca-timeline-container {
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+    .pinca-timeline-header {
+      text-align: center;
+      margin-bottom: 70px;
+    }
+    .pinca-timeline-title {
+      color: #ae000b;
+      font-size: 32px;
+      font-weight: 600;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      margin-bottom: 0;
+    }
+    .pinca-timeline-divider {
+      width: 60px;
+      height: 2px;
+      background-color: #c99669;
+      margin: 20px auto;
+    }
+    .pinca-timeline-subtitle {
+      color: #666;
+      font-size: 16px;
+      font-style: italic;
+    }
+    .pinca-timeline {
+      position: relative;
+      padding: 0;
+    }
+    .pinca-timeline-line {
+      position: absolute;
+      left: 50%;
+      top: 0;
+      bottom: 0;
+      width: 2px;
+      background: linear-gradient(to bottom, transparent, #c99669 10%, #c99669 90%, transparent);
+      transform: translateX(-50%);
+    }
+    .pinca-timeline-item {
+      display: flex;
+      align-items: center;
+      margin-bottom: 80px;
+      position: relative;
+    }
+    .pinca-timeline-item:last-child { margin-bottom: 0; }
+    .pinca-timeline-item.reverse { flex-direction: row-reverse; }
+    .pinca-timeline-marker {
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      background-color: #ae000b;
+      border: 3px solid #c99669;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+      font-size: 18px;
+      font-weight: 700;
+      z-index: 2;
+      box-shadow: 0 4px 16px rgba(174,0,11,.3);
+      transition: transform .3s ease, box-shadow .3s ease;
+    }
+    .pinca-timeline-marker:hover {
+      transform: translateX(-50%) scale(1.1);
+      box-shadow: 0 6px 24px rgba(174,0,11,.4);
+    }
+    .pinca-timeline-content {
+      width: 42%;
+      padding: 0 40px;
+    }
+    .pinca-timeline-item.reverse .pinca-timeline-content { text-align: right; }
+    .pinca-timeline-gen {
+      color: #c99669;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      margin-bottom: 8px;
+    }
+    .pinca-timeline-name {
+      color: #323336;
+      font-size: 22px;
+      font-weight: 600;
+      margin-bottom: 12px;
+    }
+    .pinca-timeline-text {
+      color: #555;
+      font-size: 14px;
+      line-height: 1.7;
+      margin-bottom: 12px;
+    }
+    .pinca-timeline-year {
+      color: #ae000b;
+      font-size: 28px;
+      font-weight: 700;
+      opacity: .8;
+    }
+    .pinca-timeline-image {
+      width: 42%;
+      padding: 0 40px;
+    }
+    .pinca-timeline-image img {
+      width: 100%;
+      height: 280px;
+      object-fit: cover;
+      border-radius: 10px;
+      box-shadow: 0 8px 32px rgba(0,0,0,.15);
+      transition: transform .4s ease, box-shadow .4s ease;
+    }
+    .pinca-timeline-image img:hover {
+      transform: scale(1.02);
+      box-shadow: 0 12px 40px rgba(0,0,0,.2);
+    }
+    .pinca-timeline-footer {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 0;
+      margin-top: 80px;
+      padding-top: 50px;
+      border-top: 1px solid #e0dcd7;
+    }
+    .pinca-timeline-value {
+      text-align: center;
+      padding: 0 50px;
+    }
+    .pinca-timeline-value-icon {
+      color: #ae000b;
+      font-size: 42px;
+      font-weight: 700;
+      margin-bottom: 8px;
+    }
+    .pinca-timeline-value-label {
+      color: #666;
+      font-size: 13px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+    .pinca-timeline-value-divider {
+      width: 1px;
+      height: 60px;
+      background-color: #e0dcd7;
+    }
+    @media screen and (max-width: 991px) {
+      .pinca-timeline-line { left: 24px; }
+      .pinca-timeline-marker { left: 24px; }
+      .pinca-timeline-item, .pinca-timeline-item.reverse { flex-direction: row; }
+      .pinca-timeline-content, .pinca-timeline-item.reverse .pinca-timeline-content {
+        width: calc(100% - 80px);
+        margin-left: 56px;
+        text-align: left;
+        padding: 0;
+      }
+      .pinca-timeline-image {
+        display: none;
+      }
+      .image-2 { max-width: 20svh !important; }
+      .nav-link { padding: 20px 16px; font-size: 14px; }
+    }
+    @media screen and (max-width: 479px) {
+      .pinca-timeline-section { padding: 60px 20px; }
+      .pinca-timeline-footer { flex-wrap: wrap; gap: 20px; }
+      .pinca-timeline-value { padding: 0 20px; }
+      .pinca-timeline-value-divider { display: none; }
+    }
+  </style>
 </head>
 <body class="body">
-  <div data-animation="default" data-collapse="medium" data-duration="400" data-easing="ease" data-easing2="ease" role="banner" class="navbar w-nav">
+  <div data-animation="default" data-collapse="medium" data-duration="400" data-easing="ease" data-easing2="ease" role="banner" class="navbar w-nav nav-banner-visible">
     <div class="w-layout-blockcontainer container-big w-container">
       <div class="w-layout-hflex navbar-wrapper">
-        <a id="w-node-_1294b8f0-1caf-e1e7-affc-6ca65b6cc215-5b6cc212" href="index.html" class="logo w-nav-brand"><img width="113" height="Auto" alt="" src="images/PINCA_logo_web_optimized.png" loading="lazy" class="image-2"></a>
+        <a id="w-node-_1294b8f0-1caf-e1e7-affc-6ca65b6cc215-5b6cc212" href="index.html" class="logo w-nav-brand"><img width="140" height="Auto" alt="Studio Legale Pinca" src="images/PINCA_logo_web_optimized.png" loading="lazy" class="image-2"></a>
         <nav role="navigation" id="w-node-_1294b8f0-1caf-e1e7-affc-6ca65b6cc217-5b6cc212" class="header-menu-wrap w-nav-menu">
           <a href="chi-siamo.html" aria-current="page" class="nav-link w-nav-link w--current">Chi Siamo</a>
-          <div data-delay="1000" data-hover="true" class="dropdown-9 w-dropdown">
-            <div class="dropdown-toggle-9 w-dropdown-toggle">
-              <div class="text-block-10">Aree di Attività</div>
-            </div>
-            <nav class="dropdown-list-9 mobile w-dropdown-list">
-              <a href="penale.html" class="dropdown-link-5 w-dropdown-link">Persona e Minori (penale)</a>
-              <a href="penale.html" class="dropdown-link-5 w-dropdown-link">Patrimonio e Impresa (penale)</a>
-              <a href="penale.html" class="dropdown-link-5 w-dropdown-link">Sicurezza e Tecnologia (penale)</a>
-              <a href="civile.html" class="dropdown-link-5 w-dropdown-link">Impresa e Contratti (civile)</a>
-              <a href="civile.html" class="dropdown-link-5 w-dropdown-link">Patrimoni (civile)</a>
-              <a href="civile.html" class="dropdown-link-5 w-dropdown-link">Responsabilità (civile)</a>
-            </nav>
-          </div>
+          <a href="aree.html" class="nav-link w-nav-link">Aree di Attività</a>
           <a href="contatti-2.html" class="nav-link w-nav-link">Contatti</a>
           <a href="https://calendly.com/romeomike2003/30min" class="nav-link w-nav-link">Prenota</a>
-          <div class="menu-link menu2">
-            <div data-delay="1000" data-hover="false" class="dropdown-5 w-dropdown">
-              <div class="dropdown-toggle-6 w-dropdown-toggle">
-                <div class="text-block-7">MENU</div>
-              </div>
-              <nav class="dropdown-list-7 mobile w-dropdown-list">
-                <a href="#" class="dropdown-link-4 w-dropdown-link">Chi siamo</a>
-                <div data-delay="2000" data-hover="true" class="dropdown-6 w-dropdown">
-                  <div class="dropdown-toggle-7 w-dropdown-toggle">
-                    <div>Servizi</div><img loading="lazy" src="images/icon.svg" alt="">
-                  </div>
-                  <figure class="dropdown-list-6 w-dropdown-list">
-                    <a href="#" class="w-dropdown-link">Per ospedali</a>
-                    <a href="#" class="w-dropdown-link">Per medici</a>
-                    <a href="#" class="w-dropdown-link">Per assicurazioni</a>
-                    <a href="#" class="w-dropdown-link">Per privati</a>
-                  </figure>
-                </div>
-                <a href="#" class="dropdown-link-4 w-dropdown-link">Contatti</a>
-              </nav>
-            </div>
-          </div>
         </nav>
-      </div>
-    </div>
-    <div class="desktop-hamburgar-menu">
-      <div class="w-layout-vflex desktop-menu">
-        <a href="#" class="margin-bottom-thirty-five w-inline-block"><img width="170" height="37" alt="" src="images/logo-4.svg" loading="lazy" class="logo-image"></a>
-        <div class="desktop-menu-content">Lorem ipsum dolor sit amet consectetur interdum quam duis varius facilis.</div>
-        <div class="w-layout-vflex latest-article-wrap">
-          <div class="heading-style-h4">Latest articles</div>
-          <div class="w-dyn-list">
-            <div role="list" class="menu-blog-collection w-dyn-items">
-              <div role="listitem" class="w-dyn-item"></div>
-            </div>
-            <div class="w-dyn-empty">
-              <div>No items found.</div>
-            </div>
-          </div>
-        </div>
-        <div class="w-layout-vflex menu-social-media-wrap">
-          <div class="heading-style-h4">Follow Us</div>
-          <div class="w-layout-hflex menu-social-media-wrapper">
-            <a href="https://www.facebook.com/" target="_blank" class="menu-social-link w-inline-block"><img width="9" height="16" alt="Preview Icon" src="images/facebook.svg" loading="lazy"></a>
-            <a href="https://x.com/" target="_blank" class="menu-social-link w-inline-block"><img width="14" height="14" alt="Preview Icon" src="images/twitter.svg" loading="lazy"></a>
-            <a href="https://in.linkedin.com/" target="_blank" class="menu-social-link w-inline-block"><img width="16" height="15" alt="Preview-icon" src="images/Linkedin.svg" loading="lazy"></a>
-            <a href="https://instagram.com/" target="_blank" class="menu-social-link w-inline-block"><img width="15" height="15" alt="Preview Icon" src="images/instagram.svg" loading="lazy"></a>
-          </div>
-        </div>
-        <div data-w-id="1294b8f0-1caf-e1e7-affc-6ca65b6cc23d" class="menu-cross-icon">
-          <div class="cross-line-one">
-            <div class="hamburgar-line one"></div>
-          </div>
-          <div class="cross-line-two">
-            <div class="hamburgar-line two"></div>
-          </div>
-        </div>
       </div>
     </div>
   </div>
@@ -156,7 +275,7 @@
               </div>
               <p text-split="" letters-slide-up="" class="paragraph-text-13">Nel lontano 2 Marzo 1963, data di conseguimento della laurea in giurisprudenza all’Università degli Studi di Siena di Antonio Salvatore Pinca. Lo stesso, di ritorno nella penisola salentina, svolgeva il praticantato legale presso lo studio dell’Avv. Flascassovitti (Don Nicola).<br>Per poi, all’esito degli esami di stato, divenire dapprima procuratore legale nel 1966 e solo in un secondo momento, come da disciplina ante ‘89, AVVOCATO, precisamente nel 1972.</p>
             </div>
-            <div class="hero-split-18"><img sizes="100vw" srcset="images/antonio2-p-500.jpeg 500w, images/antonio2-p-800.jpeg 800w, images/antonio2-p-1080.jpeg 1080w, images/antonio2-p-1600.jpeg 1600w, images/antonio2-p-2000.jpeg 2000w, images/antonio2-p-2600.jpeg 2600w, images/antonio2-p-3200.jpeg 3200w, images/antonio2.jpeg 3862w" alt="" src="images/antonio2.jpeg" loading="lazy" class="image-9"><img loading="lazy" src="images/akram-huseyn-fKC9eWRnlGY-unsplash-1_1akram-huseyn-fKC9eWRnlGY-unsplash-1.avif" alt="" class="image-1-3 d"></div>
+            <div class="hero-split-18"><img sizes="100vw" srcset="images/antonio2-p-500.jpeg 500w, images/antonio2-p-800.jpeg 800w, images/antonio2-p-1080.jpeg 1080w, images/antonio2-p-1600.jpeg 1600w, images/antonio2-p-2000.jpeg 2000w, images/antonio2-p-2600.jpeg 2600w, images/antonio2-p-3200.jpeg 3200w, images/antonio2.jpeg 3862w" alt="" src="images/antonio2.jpeg" loading="lazy" class="image-9"><img loading="lazy" src="images/akram-huseyn-fKC9eWRnlGY-unsplash-1_1akram-huseyn-fKC9eWRnlGY-unsplash 1.avif" alt="" class="image-1-3 d"></div>
           </div>
           <div class="hero-wrapper-16 _2 mobile">
             <div class="hero-split-18 new">
@@ -174,7 +293,7 @@
               </div>
               <p text-split="" letters-slide-up="" class="paragraph-text-13">Maurizio Pinca, classe ’67, laureatosi in Giurisprudenza all’Alma Mater Studiorum di Bologna il 28 Maggio 1992. È avvocato autodidatta iscritto all’albo dal 22 Febbraio 1996, già procuratore legale dal ’93.</p>
             </div>
-            <div class="hero-split-18"><img loading="lazy" src="images/467753523_10230529137805531_9184239137292197161_n.jpg" alt="" class="image-9"><img loading="lazy" src="images/akram-huseyn-fKC9eWRnlGY-unsplash-1_1akram-huseyn-fKC9eWRnlGY-unsplash-1.avif" alt="" class="image-1-3 d"></div>
+            <div class="hero-split-18"><img loading="lazy" src="images/467753523_10230529137805531_9184239137292197161_n.jpg" alt="" class="image-9"><img loading="lazy" src="images/akram-huseyn-fKC9eWRnlGY-unsplash-1_1akram-huseyn-fKC9eWRnlGY-unsplash 1.avif" alt="" class="image-1-3 d"></div>
           </div>
           <div class="hero-wrapper-16 _2 mobile">
             <div class="hero-split-18 new">
@@ -192,7 +311,7 @@
               </div>
               <p text-split="" letters-slide-up="" class="paragraph-text-13">Alberto Maria Pinca, concludeva gli studi giuridici presso l’Alma Mater Studiorum di Bologna in data 2 Luglio 2024, è attualmente praticante presso lo studio di famiglia, sebbene protenda maggiormente verso il diritto amministrativo e tributario.</p>
             </div>
-            <div class="hero-split-18"><img sizes="100vw" srcset="images/624d4cc3-81b2-4c1d-8178-dbc01c4d0561-p-500.jpg 500w, images/624d4cc3-81b2-4c1d-8178-dbc01c4d0561-p-800.jpg 800w, images/624d4cc3-81b2-4c1d-8178-dbc01c4d0561-p-1080.jpg 1080w, images/624d4cc3-81b2-4c1d-8178-dbc01c4d0561-p-1600.jpg 1600w, images/624d4cc3-81b2-4c1d-8178-dbc01c4d0561-p-2000.jpg 2000w, images/624d4cc3-81b2-4c1d-8178-dbc01c4d0561.JPG 2048w" alt="" src="images/624d4cc3-81b2-4c1d-8178-dbc01c4d0561.JPG" loading="lazy" class="image-9"><img loading="lazy" src="images/akram-huseyn-fKC9eWRnlGY-unsplash-1_1akram-huseyn-fKC9eWRnlGY-unsplash-1.avif" alt="" class="image-1-3 d"></div>
+            <div class="hero-split-18"><img sizes="100vw" srcset="images/624d4cc3-81b2-4c1d-8178-dbc01c4d0561-p-500.jpg 500w, images/624d4cc3-81b2-4c1d-8178-dbc01c4d0561-p-800.jpg 800w, images/624d4cc3-81b2-4c1d-8178-dbc01c4d0561-p-1080.jpg 1080w, images/624d4cc3-81b2-4c1d-8178-dbc01c4d0561-p-1600.jpg 1600w, images/624d4cc3-81b2-4c1d-8178-dbc01c4d0561-p-2000.jpg 2000w, images/624d4cc3-81b2-4c1d-8178-dbc01c4d0561.JPG 2048w" alt="" src="images/624d4cc3-81b2-4c1d-8178-dbc01c4d0561.JPG" loading="lazy" class="image-9"><img loading="lazy" src="images/akram-huseyn-fKC9eWRnlGY-unsplash-1_1akram-huseyn-fKC9eWRnlGY-unsplash 1.avif" alt="" class="image-1-3 d"></div>
           </div>
           <div class="hero-wrapper-16 _2 desktop">
             <div class="hero-split-18 new">
@@ -210,10 +329,10 @@
               </div>
               <p text-split="" letters-slide-up="" class="paragraph-text-13">In data 2 Marzo 1963, <strong>Antonio Salvatore Pinca </strong>conseguiva la laurea in giurisprudenza presso l&#x27;Università degli Studi di Siena. Lo stesso, di ritorno nella penisola salentina, svolgeva il praticantato legale presso lo studio dell’Avv. Flascassovitti (Don Nicola).<br>Per poi, all’esito degli esami di stato, divenire dapprima procuratore legale nel 1966 e solo in un secondo momento, come da disciplina ante ‘89, AVVOCATO, precisamente nel 1972.</p>
             </div>
-            <div class="hero-split-18"><img sizes="(max-width: 767px) 100vw, (max-width: 991px) 728px, 940px" srcset="images/antonio-p-500.jpeg 500w, images/antonio-p-800.jpeg 800w, images/antonio-p-1080.jpeg 1080w, images/antonio-p-1600.jpeg 1600w, images/antonio-p-2000.jpeg 2000w, images/antonio-p-2600.jpeg 2600w, images/antonio-p-3200.jpeg 3200w, images/antonio.jpeg 3734w" alt="" src="images/antonio.jpeg" loading="lazy" class="image-9"><img loading="lazy" src="images/akram-huseyn-fKC9eWRnlGY-unsplash-1_1akram-huseyn-fKC9eWRnlGY-unsplash-1.avif" alt="" class="image-1-3 d"></div>
+            <div class="hero-split-18"><img sizes="(max-width: 767px) 100vw, (max-width: 991px) 728px, 940px" srcset="images/antonio-p-500.jpeg 500w, images/antonio-p-800.jpeg 800w, images/antonio-p-1080.jpeg 1080w, images/antonio-p-1600.jpeg 1600w, images/antonio-p-2000.jpeg 2000w, images/antonio-p-2600.jpeg 2600w, images/antonio-p-3200.jpeg 3200w, images/antonio.jpeg 3734w" alt="" src="images/antonio.jpeg" loading="lazy" class="image-9"><img loading="lazy" src="images/akram-huseyn-fKC9eWRnlGY-unsplash-1_1akram-huseyn-fKC9eWRnlGY-unsplash 1.avif" alt="" class="image-1-3 d"></div>
           </div>
           <div class="hero-wrapper-16 _2 desktop">
-            <div class="hero-split-18"><img loading="lazy" src="images/467753523_10230529137805531_9184239137292197161_n.jpg" alt="" class="image-9 maurizio"><img loading="lazy" src="images/akram-huseyn-fKC9eWRnlGY-unsplash-1_1akram-huseyn-fKC9eWRnlGY-unsplash-1.avif" alt="" class="image-1-3 d"></div>
+            <div class="hero-split-18"><img loading="lazy" src="images/467753523_10230529137805531_9184239137292197161_n.jpg" alt="" class="image-9 maurizio"><img loading="lazy" src="images/akram-huseyn-fKC9eWRnlGY-unsplash-1_1akram-huseyn-fKC9eWRnlGY-unsplash 1.avif" alt="" class="image-1-3 d"></div>
             <div class="hero-split-18 new">
               <div class="secondary-box-wrap new">
                 <div data-w-id="9eac6d2a-dee0-3f0f-f521-bf97a10acbc5" class="secondary-title-box-2">
@@ -246,296 +365,74 @@
               </div>
               <p text-split="" letters-slide-up="" class="paragraph-text-13"><strong>Alberto Maria Pinca</strong>, concludeva gli studi giuridici presso l’Alma Mater Studiorum di Bologna in data 2 Luglio 2024, è attualmente praticante presso lo studio di famiglia, sebbene protenda maggiormente verso il diritto amministrativo e tributario.</p>
             </div>
-            <div class="hero-split-18"><img sizes="(max-width: 767px) 100vw, (max-width: 991px) 728px, 940px" srcset="images/624d4cc3-81b2-4c1d-8178-dbc01c4d0561_1-p-500.jpg 500w, images/624d4cc3-81b2-4c1d-8178-dbc01c4d0561_1-p-800.jpg 800w, images/624d4cc3-81b2-4c1d-8178-dbc01c4d0561_1-p-1080.jpg 1080w, images/624d4cc3-81b2-4c1d-8178-dbc01c4d0561_1.JPG 1469w" alt="" src="images/624d4cc3-81b2-4c1d-8178-dbc01c4d0561_1.JPG" loading="lazy" class="image-9 alberto"><img loading="lazy" src="images/akram-huseyn-fKC9eWRnlGY-unsplash-1_1akram-huseyn-fKC9eWRnlGY-unsplash-1.avif" alt="" class="image-1-3 d"></div>
+            <div class="hero-split-18"><img sizes="(max-width: 767px) 100vw, (max-width: 991px) 728px, 940px" srcset="images/624d4cc3-81b2-4c1d-8178-dbc01c4d0561_1-p-500.jpg 500w, images/624d4cc3-81b2-4c1d-8178-dbc01c4d0561_1-p-800.jpg 800w, images/624d4cc3-81b2-4c1d-8178-dbc01c4d0561_1-p-1080.jpg 1080w, images/624d4cc3-81b2-4c1d-8178-dbc01c4d0561_1.JPG 1469w" alt="" src="images/624d4cc3-81b2-4c1d-8178-dbc01c4d0561_1.JPG" loading="lazy" class="image-9 alberto"><img loading="lazy" src="images/akram-huseyn-fKC9eWRnlGY-unsplash-1_1akram-huseyn-fKC9eWRnlGY-unsplash 1.avif" alt="" class="image-1-3 d"></div>
           </div>
         </div>
       </section>
     </section>
-    <section class="success-section-2">
-      <div class="w-layout-blockcontainer container-large-5 w-container">
-        <div class="success-wrapper-2">
-          <div class="top-title-box-2">
-            <div data-w-id="43fa687a-5356-9ceb-e84e-93138ed2981c" class="secondary-title-box-2">
-              <h2 letters-slide-up-hero="" text-split="" style="-webkit-transform:translate3d(0, 90%, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(0, 90%, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-ms-transform:translate3d(0, 90%, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(0, 90%, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)" class="secondary-title-2">IL SUCCESSO IN TRE NUMERI</h2>
+    <section class="pinca-timeline-section">
+      <div class="pinca-timeline-container">
+        <div class="pinca-timeline-header">
+          <h2 class="pinca-timeline-title">LA NOSTRA STORIA</h2>
+          <div class="pinca-timeline-divider"></div>
+          <p class="pinca-timeline-subtitle">Tre generazioni di avvocati, una sola tradizione</p>
+        </div>
+        <div class="pinca-timeline">
+          <div class="pinca-timeline-line"></div>
+          <div class="pinca-timeline-item">
+            <div class="pinca-timeline-marker"><span>1</span></div>
+            <div class="pinca-timeline-content">
+              <div class="pinca-timeline-gen">PRIMA GENERAZIONE</div>
+              <h3 class="pinca-timeline-name">Antonio Salvatore Pinca</h3>
+              <p class="pinca-timeline-text">Laureato a Siena nel 1963, praticato sotto la guida dell'Avv. Flascassovitti. Procuratore dal 1966, avvocato dal 1972. Ha fondato le radici dello studio.</p>
+              <div class="pinca-timeline-year">1963</div>
+            </div>
+            <div class="pinca-timeline-image">
+              <img src="images/antonio.jpeg" alt="Antonio Salvatore Pinca" loading="lazy">
             </div>
           </div>
-          <div class="card-wrapper-2">
-            <div class="w-layout-blockcontainer container-small-2 w-container">
-              <div class="card-box new">
-                <div class="card-2">
-                  <div data-w-id="43fa687a-5356-9ceb-e84e-93138ed29823" class="card-title-box">
-                    <h6 style="-webkit-transform:translate3d(0, 90%, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(0, 90%, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-ms-transform:translate3d(0, 90%, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(0, 90%, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)" class="card-title-2">AREE DI ATTIVITà</h6>
-                  </div>
-                  <div data-w-id="43fa687a-5356-9ceb-e84e-93138ed29826" class="card-count-title-box">
-                    <h2 style="-webkit-transform:translate3d(0, 90%, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(0, 90%, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-ms-transform:translate3d(0, 90%, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(0, 90%, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)" class="cart-count-title-2">25+</h2>
-                  </div>
-                  <p class="paragraph-text-3 color">Esperti in oltre 25 aree di attività</p>
-                </div>
-                <div class="card-2">
-                  <div class="card-title-box">
-                    <h6 style="-webkit-transform:translate3d(0, 90%, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(0, 90%, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-ms-transform:translate3d(0, 90%, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(0, 90%, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)" class="card-title-2">ANNI D’ESPERIENZA</h6>
-                  </div>
-                  <div class="card-count-title-box">
-                    <h2 style="-webkit-transform:translate3d(0, 90%, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(0, 90%, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-ms-transform:translate3d(0, 90%, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(0, 90%, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)" class="cart-count-title-2">60</h2>
-                  </div>
-                  <p class="paragraph-text-3 color">Ci hanno permesso di accumulare conoscenze trasversali e credibilità</p>
-                </div>
-                <div class="card-2 _3">
-                  <div class="card-title-box">
-                    <h6 style="-webkit-transform:translate3d(0, 90%, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(0, 90%, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-ms-transform:translate3d(0, 90%, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(0, 90%, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)" class="card-title-2">Generazioni</h6>
-                  </div>
-                  <div class="card-count-title-box">
-                    <h2 style="-webkit-transform:translate3d(0, 90%, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(0, 90%, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-ms-transform:translate3d(0, 90%, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(0, 90%, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)" class="cart-count-title-2">3</h2>
-                  </div>
-                  <p class="paragraph-text-3 color">3 generazioni di avvocati che portano avanti la tradizione di padre in figlio</p>
-                </div>
-              </div>
+          <div class="pinca-timeline-item reverse">
+            <div class="pinca-timeline-marker"><span>2</span></div>
+            <div class="pinca-timeline-content">
+              <div class="pinca-timeline-gen">SECONDA GENERAZIONE</div>
+              <h3 class="pinca-timeline-name">Maurizio Pinca</h3>
+              <p class="pinca-timeline-text">Dottore in Giurisprudenza presso l'Alma Mater Studiorum di Bologna dal 28 Maggio 1992. Avvocato iscritto all'albo dal 22 Febbraio 1996, già procuratore legale dal '93.</p>
+              <div class="pinca-timeline-year">1992</div>
+            </div>
+            <div class="pinca-timeline-image">
+              <img src="images/467753523_10230529137805531_9184239137292197161_n.jpg" alt="Maurizio Pinca" loading="lazy">
+            </div>
+          </div>
+          <div class="pinca-timeline-item">
+            <div class="pinca-timeline-marker"><span>3</span></div>
+            <div class="pinca-timeline-content">
+              <div class="pinca-timeline-gen">TERZA GENERAZIONE</div>
+              <h3 class="pinca-timeline-name">Alberto Maria Pinca</h3>
+              <p class="pinca-timeline-text">Laureato a Bologna il 2 Luglio 2024, attualmente pratica nello studio. Si orienta verso il diritto amministrativo e tributario, portando freschezza e nuove competenze.</p>
+              <div class="pinca-timeline-year">2024</div>
+            </div>
+            <div class="pinca-timeline-image">
+              <img src="images/624d4cc3-81b2-4c1d-8178-dbc01c4d0561_1.JPG" alt="Alberto Maria Pinca" loading="lazy">
             </div>
           </div>
         </div>
-      </div>
-    </section>
-    <section class="perch-sceglierci">
-      <div class="w-layout-blockcontainer container-large-10 w-container">
-        <div class="norstri-section-wrapper"></div>
-      </div>
-    </section>
-    <section class="mission-sticky-card">
-      <div class="w-layout-blockcontainer container-large-9 w-container">
-        <div class="mission-sticky-wrapper">
-          <div class="sticky-wrapper">
-            <div class="stikcy-card-left">
-              <div class="sticky-card-text-wrapper">
-                <div class="secondary-box-wrap">
-                  <div data-w-id="43fa687a-5356-9ceb-e84e-93138ed2986e" class="secondary-title-box">
-                    <h1 text-split="" letters-slide-up="" style="-webkit-transform:translate3d(0, 90%, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(0, 90%, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-ms-transform:translate3d(0, 90%, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(0, 90%, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)" class="secondary-title">PERCHè SCEGLIERCI</h1>
-                  </div>
-                </div>
-                <p text-split="" letters-slide-up="" class="paragraph-text-14">Semplifichiamo i processi, siamo rigorosi e sopratutto siamo trasparenti. L’efficienza, la rigorositá e la tasparenza, non sono tre valori fine a se stessi ma dei concetti che abbiamo sempre seguito al massimo delle nostre capacitá.</p>
-              </div>
-            </div>
+        <div class="pinca-timeline-footer">
+          <div class="pinca-timeline-value">
+            <div class="pinca-timeline-value-icon">60+</div>
+            <div class="pinca-timeline-value-label">Anni di esperienza</div>
+          </div>
+          <div class="pinca-timeline-value-divider"></div>
+          <div class="pinca-timeline-value">
+            <div class="pinca-timeline-value-icon">3</div>
+            <div class="pinca-timeline-value-label">Generazioni</div>
+          </div>
+          <div class="pinca-timeline-value-divider"></div>
+          <div class="pinca-timeline-value">
+            <div class="pinca-timeline-value-icon">25+</div>
+            <div class="pinca-timeline-value-label">Aree di attività</div>
           </div>
         </div>
       </div>
-    </section>
-    <section class="sticky-card-section mission">
-      <div class="c-cloneable">
-        <div class="_w-cloneable">
-          <div class="cloneable-area">
-            <div class="c-cards-list">
-              <div class="_w-cards-list">
-                <div class="c-card _1">
-                  <div class="_w-card _1">
-                    <div class="c-card-details">
-                      <div class="hero-wrapper-11">
-                        <div>
-                          <div class="div-block-36">
-                            <h3 class="card-main-title">PER OSPEDALI</h3>
-                            <div class="div-block-36 _1 _2">
-                              <p class="cart-small-title">Servizi di consulenza</p>
-                            </div>
-                          </div>
-                          <div class="space"></div><img sizes="100vw" srcset="images/Group-32_1Group-32.avif 500w, images/Group-32_1Group-32.avif 1372w" alt="" src="images/Group-32_1Group-32.avif" loading="lazy" class="shadow-two-3">
-                        </div>
-                        <div class="hero-split-4">
-                          <div class="div-block-36 test">
-                            <p class="cart-small-title">Servizi di consulenza</p>
-                          </div>
-                          <div class="space"></div>
-                          <div class="item-wrapper">
-                            <p class="paragraph-text-14">La gestione dei sinistri, dei servizi assicurativi e delle controversie legali è tra le sfide più complesse per ospedali, assicurazioni e medici. In Brain gestiamo per conto vostro le pratiche assicurative e medico-legali, garantendo una gestione semplificata, maggiore efficienza e, sopratutto, massima trasparenza.</p>
-                            <div class="button-wrapper">
-                              <a href="#" class="link-block w-inline-block">
-                                <div class="per-medic-title">Scopri di più</div><img loading="lazy" src="https://cdn.prod.website-files.com/6720c480d8ff421446076c6c/6720c480d8ff421446076c80_icon.svg" alt="">
-                              </a>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div class="c-card _2">
-                  <div class="_w-card _2">
-                    <div class="c-card-details">
-                      <div class="hero-wrapper-11">
-                        <div>
-                          <div class="div-block-36">
-                            <h3 class="card-main-title">PER MEDICI</h3>
-                            <div class="div-block-36 _1 _2">
-                              <p class="cart-small-title">Servizi di consulenza</p>
-                            </div>
-                          </div>
-                          <div class="space"></div><img sizes="100vw" srcset="images/Group-32_1Group-32.avif 500w, images/Group-32_1Group-32.avif 1372w" alt="" src="images/Group-32_1Group-32.avif" loading="lazy" class="shadow-two-3">
-                        </div>
-                        <div class="hero-split-4">
-                          <div class="div-block-36 test">
-                            <p class="cart-small-title">Servizi di consulenza</p>
-                          </div>
-                          <div class="space"></div>
-                          <div class="item-wrapper">
-                            <p class="paragraph-text-14">La gestione dei sinistri, dei servizi assicurativi e delle controversie legali è tra le sfide più complesse per ospedali, assicurazioni e medici. In Brain gestiamo per conto vostro le pratiche assicurative e medico-legali, garantendo una gestione semplificata, maggiore efficienza e, sopratutto, massima trasparenza.</p>
-                            <div class="button-wrapper">
-                              <a href="#" class="link-block w-inline-block">
-                                <div class="per-medic-title">Scopri di più</div><img loading="lazy" src="https://cdn.prod.website-files.com/6720c480d8ff421446076c6c/6720c480d8ff421446076c80_icon.svg" alt="">
-                              </a>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div class="c-card _3">
-                  <div class="_w-card _3">
-                    <div class="c-card-details">
-                      <div class="hero-wrapper-11">
-                        <div class="div-block-38">
-                          <div class="div-block-36 servizie">
-                            <h3 class="card-main-title">PER COMPAGNIE ASSICURATIVE</h3>
-                            <div class="div-block-36 _1 _2">
-                              <p class="cart-small-title">Servizi di consulenza</p>
-                            </div>
-                          </div>
-                          <div class="space"></div><img sizes="100vw" srcset="images/Group-32_1Group-32.avif 500w, images/Group-32_1Group-32.avif 1372w" alt="" src="images/Group-32_1Group-32.avif" loading="lazy" class="shadow-two-3">
-                        </div>
-                        <div class="hero-split-4">
-                          <div class="div-block-36 test">
-                            <p class="cart-small-title">Servizi di consulenza</p>
-                          </div>
-                          <div class="space"></div>
-                          <div class="item-wrapper">
-                            <p class="paragraph-text-14">La gestione dei sinistri, dei servizi assicurativi e delle controversie legali è tra le sfide più complesse per ospedali, assicurazioni e medici. In Brain gestiamo per conto vostro le pratiche assicurative e medico-legali, garantendo una gestione semplificata, maggiore efficienza e, sopratutto, massima trasparenza.</p>
-                            <div class="button-wrapper">
-                              <a href="#" class="link-block w-inline-block">
-                                <div class="per-medic-title">Scopri di più</div><img loading="lazy" src="https://cdn.prod.website-files.com/6720c480d8ff421446076c6c/6720c480d8ff421446076c80_icon.svg" alt="">
-                              </a>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div class="c-card _4">
-                  <div class="_w-card _4">
-                    <div class="c-card-details">
-                      <div class="hero-wrapper-11">
-                        <div>
-                          <div class="div-block-36">
-                            <h3 class="card-main-title">PER PRIVATI</h3>
-                            <div class="div-block-36 _1 _2">
-                              <p class="cart-small-title">Servizi di consulenza</p>
-                            </div>
-                          </div>
-                          <div class="space"></div><img sizes="100vw" srcset="images/Group-32_1Group-32.avif 500w, images/Group-32_1Group-32.avif 1372w" alt="" src="images/Group-32_1Group-32.avif" loading="lazy" class="shadow-two-3">
-                        </div>
-                        <div class="hero-split-4">
-                          <div class="div-block-36 test">
-                            <p class="cart-small-title">Servizi di consulenza</p>
-                          </div>
-                          <div class="space"></div>
-                          <div class="item-wrapper">
-                            <p class="paragraph-text-14">La gestione dei sinistri, dei servizi assicurativi e delle controversie legali è tra le sfide più complesse per ospedali, assicurazioni e medici. In Brain gestiamo per conto vostro le pratiche assicurative e medico-legali, garantendo una gestione semplificata, maggiore efficienza e, sopratutto, massima trasparenza.</p>
-                            <div class="button-wrapper">
-                              <a href="#" class="link-block w-inline-block">
-                                <div class="per-medic-title">Scopri di più</div><img loading="lazy" src="https://cdn.prod.website-files.com/6720c480d8ff421446076c6c/6720c480d8ff421446076c80_icon.svg" alt="">
-                              </a>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-    <section class="card-div-3 mission">
-      <section class="sticky-card-section-2 mission">
-        <div class="c-cloneable mission">
-          <div class="_w-cloneable mission">
-            <div class="cloneable-area mission">
-              <div class="c-cards-list mission">
-                <div class="_w-cards-list-2 mission">
-                  <div class="c-card _1 mission efficienza">
-                    <div class="_w-card _1 mission efficienza increase">
-                      <div class="c-card-details mission">
-                        <div class="hero-wrapper-10 mission">
-                          <div class="mission">
-                            <div class="div-block-37">
-                              <div data-w-id="43fa687a-5356-9ceb-e84e-93138ed298ee" class="card-main-title-box">
-                                <h3 style="-webkit-transform:translate3d(0, 90%, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(0, 90%, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-ms-transform:translate3d(0, 90%, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(0, 90%, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)" class="card-main-title-8"><strong class="bold-text-8">STORIA</strong></h3>
-                              </div>
-                              <div class="div-block-37 _1 _2"></div>
-                            </div>
-                          </div>
-                          <div class="hero-split-4 mission">
-                            <div class="div-block-37 test mission">
-                              <div data-w-id="43fa687a-5356-9ceb-e84e-93138ed298f4" class="card-small-title-box">
-                                <p class="cart-small-title-11 mission">Competenze maturate in oltre 60 anni di espereinza</p>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="c-card _1 mission">
-                    <div class="_w-card _1 mission rigorosit increase">
-                      <div class="c-card-details mission">
-                        <div class="hero-wrapper-10 mission">
-                          <div class="mission">
-                            <div class="div-block-37">
-                              <div data-w-id="43fa687a-5356-9ceb-e84e-93138ed298fd" class="card-main-title-box">
-                                <h3 style="-webkit-transform:translate3d(0, 90%, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(0, 90%, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-ms-transform:translate3d(0, 90%, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(0, 90%, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)" class="card-main-title-8"><strong class="bold-text-7">RIGOROSITà</strong></h3>
-                              </div>
-                              <div class="div-block-37 _1 _2"></div>
-                            </div>
-                          </div>
-                          <div class="hero-split-4 mission">
-                            <div class="div-block-37 test mission">
-                              <div data-w-id="43fa687a-5356-9ceb-e84e-93138ed29903" class="card-small-title-box">
-                                <p class="cart-small-title-11 mission">Rigorosi e chiari in ogni area di attività</p>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="c-card _1 mission trasparenza">
-                    <div class="_w-card _1 mission trasparenza increase">
-                      <div class="c-card-details mission">
-                        <div class="hero-wrapper-10 mission">
-                          <div class="mission">
-                            <div class="div-block-37">
-                              <div data-w-id="43fa687a-5356-9ceb-e84e-93138ed2990c" class="card-main-title-box">
-                                <h3 style="-webkit-transform:translate3d(0, 90%, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(0, 90%, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-ms-transform:translate3d(0, 90%, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(0, 90%, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)" class="card-main-title-8"><strong class="bold-text-6">TRASPARENZA</strong></h3>
-                              </div>
-                              <div class="div-block-37 _1 _2"></div>
-                            </div>
-                          </div>
-                          <div class="hero-split-4 mission">
-                            <div class="div-block-37 test mission">
-                              <div data-w-id="43fa687a-5356-9ceb-e84e-93138ed29912" class="card-small-title-box">
-                                <p class="cart-small-title-11 mission">Processi di lavoro sempre completamente trasparenti</p>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
     </section>
   </div>
   <section class="footer-light">
@@ -544,18 +441,16 @@
         <a href="#" class="footer-brand w-inline-block"><img src="images/PINCA_logo_web_optimized.png" loading="lazy" width="100" height="100" alt=""></a>
         <div class="footer-block-two">
           <div class="footer-title">Su di noi</div>
-          <a href="#" class="footer-link-two">Chi Siamo</a>
-          <a href="#" class="footer-link-two"></a>
-          <a href="#" class="footer-link-two"></a>
+          <a href="chi-siamo.html" class="footer-link-two">Chi Siamo</a>
         </div>
         <div class="footer-block-two">
           <div class="footer-title">Aree di attività</div>
-          <a href="#" class="footer-link-two">Diritto Privato</a>
-          <a href="#" class="footer-link-two">Diritto Pubblico</a>
+          <a href="aree.html" class="footer-link-two">Diritto Civile</a>
+          <a href="aree.html" class="footer-link-two">Diritto Penale</a>
         </div>
         <div class="footer-block-two">
           <div class="footer-title">Contatti</div>
-          <a href="#" class="footer-link-two">Contatti</a>
+          <a href="contatti-2.html" class="footer-link-two">Contatti</a>
         </div>
       </div>
       <div class="footer-divider-two"></div>

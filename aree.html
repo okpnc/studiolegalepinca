@@ -1,0 +1,675 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="utf-8">
+  <title>Aree di Attività - Studio Legale Pinca</title>
+  <meta content="width=device-width, initial-scale=1" name="viewport">
+  <link href="css/normalize.css" rel="stylesheet" type="text/css">
+  <link href="css/webflow.css" rel="stylesheet" type="text/css">
+  <link href="css/studiolegalepinca.webflow.css" rel="stylesheet" type="text/css">
+  <link href="images/favicon.png" rel="shortcut icon" type="image/x-icon">
+  <link href="images/webclip.png" rel="apple-touch-icon">
+  <style>
+    .nav-link { color: #fff; text-decoration: none; padding: 40px 28px; font-size: 15px; letter-spacing: .5px; transition: color .25s ease; }
+    .nav-link:hover { color: #c99669; }
+    .image-2 { max-width: 28svh !important; transition: max-width .4s ease; }
+    .header-menu-wrap { gap: 0; }
+    .navbar.nav-banner-visible {
+      background-color: rgba(50, 51, 54, 0.82);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      box-shadow: 0 2px 24px rgba(0,0,0,.18);
+    }
+    .aree-hero {
+      background-color: #323336;
+      background-image: linear-gradient(rgba(50,51,54,.7), rgba(50,51,54,.9)), url('images/IMG_2192.jpg');
+      background-position: 50%;
+      background-size: cover;
+      padding: 160px 30px 100px;
+      text-align: center;
+    }
+    .aree-hero-title {
+      color: #c99669;
+      font-size: 44px;
+      font-weight: 600;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      margin-bottom: 12px;
+    }
+    .aree-hero-divider {
+      width: 80px; height: 2px; background-color: #c99669; margin: 16px auto 20px;
+    }
+    .aree-hero-sub {
+      color: #ddd; font-size: 16px; font-style: italic;
+    }
+    .aree-index {
+      background-color: #f5f3f0;
+      padding: 50px 30px;
+      text-align: center;
+      border-bottom: 1px solid #e8e4df;
+    }
+    .aree-index-title {
+      color: #323336; font-size: 16px; font-weight: 600; margin-bottom: 24px;
+      text-transform: uppercase; letter-spacing: 2px;
+    }
+    .aree-index-links {
+      display: flex; justify-content: center; gap: 40px; flex-wrap: wrap;
+    }
+    .aree-index-link {
+      color: #ae000b; text-decoration: none; font-size: 15px; font-weight: 600;
+      padding: 12px 28px; border: 1px solid #ae000b; border-radius: 6px;
+      transition: all .3s ease;
+    }
+    .aree-index-link:hover {
+      background-color: #ae000b; color: #fff; transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(174,0,11,.25);
+    }
+    .aree-macro-section {
+      padding: 80px 30px;
+    }
+    .aree-macro-section.alt-bg {
+      background-color: #f5f3f0;
+    }
+    .aree-macro-header {
+      max-width: 1100px; margin: 0 auto 50px; text-align: center;
+    }
+    .aree-macro-title {
+      color: #ae000b; font-size: 34px; font-weight: 600;
+      letter-spacing: 1px; text-transform: uppercase; margin-bottom: 0;
+    }
+    .aree-macro-divider {
+      width: 60px; height: 2px; background-color: #c99669; margin: 16px auto 20px;
+    }
+    .aree-macro-sub {
+      color: #666; font-size: 15px; font-style: italic;
+    }
+    .aree-accordion-item {
+      max-width: 1100px; margin: 0 auto 30px;
+      background-color: #fff; border: 1px solid #e8e4df; border-radius: 10px;
+      overflow: hidden; transition: box-shadow .3s ease;
+    }
+    .aree-accordion-item:hover {
+      box-shadow: 0 6px 24px rgba(0,0,0,.08);
+    }
+    .aree-accordion-item.alt {
+      background-color: #faf8f5;
+    }
+    .aree-accordion-header {
+      display: flex; align-items: stretch; cursor: pointer;
+    }
+    .aree-accordion-img {
+      width: 320px; min-width: 320px; height: 220px; overflow: hidden; flex-shrink: 0;
+    }
+    .aree-accordion-img img {
+      width: 100%; height: 100%; object-fit: cover;
+      transition: transform .5s ease;
+    }
+    .aree-accordion-item:hover .aree-accordion-img img {
+      transform: scale(1.05);
+    }
+    .aree-accordion-img-right {
+      order: 2;
+    }
+    .aree-accordion-body {
+      padding: 28px 36px; flex: 1;
+    }
+    .aree-accordion-title {
+      color: #323336; font-size: 22px; font-weight: 600; margin-bottom: 10px;
+    }
+    .aree-accordion-intro {
+      color: #666; font-size: 14px; line-height: 1.6; margin-bottom: 16px;
+    }
+    .aree-accordion-toggle {
+      color: #ae000b; font-size: 14px; font-weight: 600; cursor: pointer;
+      display: inline-flex; align-items: center; gap: 8px;
+      transition: color .25s ease;
+    }
+    .aree-accordion-toggle::after {
+      content: '\25BC'; font-size: 10px; transition: transform .3s ease;
+    }
+    .aree-accordion-item.open .aree-accordion-toggle::after {
+      transform: rotate(180deg);
+    }
+    .aree-accordion-content {
+      max-height: 0; overflow: hidden; transition: max-height .4s ease, margin-top .4s ease;
+    }
+    .aree-accordion-item.open .aree-accordion-content {
+      max-height: 800px; margin-top: 20px;
+    }
+    .aree-accordion-fulltext {
+      color: #444; font-size: 14px; line-height: 1.8; margin-bottom: 20px;
+    }
+    .aree-accordion-cta {
+      display: inline-flex; align-items: center; background-color: #323336; color: #fff;
+      text-decoration: none; padding: 12px 24px; border-radius: 6px;
+      font-size: 13px; font-weight: 600; transition: all .3s ease;
+    }
+    .aree-accordion-cta:hover {
+      background-color: #ae000b; transform: translateY(-2px);
+      box-shadow: 0 4px 16px rgba(174,0,11,.25);
+    }
+    .aree-cta-section {
+      background-color: #323336; padding: 60px 30px; text-align: center;
+    }
+    .aree-cta-text {
+      color: #c99669; font-size: 22px; font-weight: 600; margin-bottom: 24px;
+    }
+    .aree-cta-btn {
+      display: inline-flex; background-color: #ae000b; color: #fff;
+      text-decoration: none; padding: 16px 36px; border-radius: 6px;
+      font-size: 15px; font-weight: 600; transition: all .3s ease;
+    }
+    .aree-cta-btn:hover {
+      background-color: #c99669; transform: translateY(-2px);
+      box-shadow: 0 8px 28px rgba(201,150,105,.3);
+    }
+    @media screen and (max-width: 991px) {
+      .aree-accordion-header { flex-direction: column; }
+      .aree-accordion-img { width: 100%; min-width: 100%; height: 200px; }
+      .aree-accordion-img-right { order: 0; }
+      .aree-accordion-body { padding: 24px; }
+      .image-2 { max-width: 20svh !important; }
+      .nav-link { padding: 20px 16px; font-size: 14px; }
+    }
+    @media screen and (max-width: 479px) {
+      .aree-hero { padding: 120px 20px 70px; }
+      .aree-hero-title { font-size: 30px; }
+      .aree-macro-section { padding: 50px 20px; }
+      .aree-index-links { gap: 16px; }
+      .aree-index-link { padding: 10px 20px; font-size: 14px; }
+    }
+  </style>
+</head>
+<body>
+  <div data-animation="default" data-collapse="medium" data-duration="400" data-easing="ease" data-easing2="ease" role="banner" class="navbar w-nav nav-banner-visible">
+    <div class="w-layout-blockcontainer container-big w-container">
+      <div class="w-layout-hflex navbar-wrapper">
+        <a href="index.html" class="logo w-nav-brand"><img width="140" height="Auto" alt="Studio Legale Pinca" src="images/PINCA_logo_web_optimized.png" loading="lazy" class="image-2"></a>
+        <nav role="navigation" class="header-menu-wrap w-nav-menu">
+          <a href="chi-siamo.html" class="nav-link w-nav-link">Chi Siamo</a>
+          <a href="aree.html" aria-current="page" class="nav-link w-nav-link w--current">Aree di Attività</a>
+          <a href="contatti-2.html" class="nav-link w-nav-link">Contatti</a>
+          <a href="https://calendly.com/romeomike2003/30min" class="nav-link w-nav-link">Prenota</a>
+        </nav>
+      </div>
+    </div>
+  </div>
+
+  <section class="aree-hero">
+    <h1 class="aree-hero-title">Practice Areas</h1>
+    <div class="aree-hero-divider"></div>
+    <p class="aree-hero-sub">Le aree di attività dello Studio Legale Pinca</p>
+  </section>
+
+  <section class="aree-index">
+    <div class="aree-index-title">Indice</div>
+    <div class="aree-index-links">
+      <a href="#diritto-civile" class="aree-index-link">Diritto Civile</a>
+      <a href="#diritto-penale" class="aree-index-link">Diritto Penale</a>
+    </div>
+  </section>
+
+  <section class="aree-macro-section" id="diritto-civile">
+    <div class="aree-macro-header">
+      <h2 class="aree-macro-title">Diritto Civile</h2>
+      <div class="aree-macro-divider"></div>
+      <p class="aree-macro-sub">13 aree di pratica civile</p>
+    </div>
+    <div class="aree-accordion-item " id="contratti">
+      <div class="aree-accordion-header" onclick="toggleAreeAccordion(this)">
+        <div class="aree-accordion-img ">
+          <img src="images/Contrattualistica.jpg" alt="Contratti" loading="lazy">
+        </div>
+        <div class="aree-accordion-body">
+          <h3 class="aree-accordion-title">Contratti</h3>
+          <p class="aree-accordion-intro">Assistenza completa in ogni fase del ciclo di vita del contratto.</p>
+          <div class="aree-accordion-toggle">Leggi di più</div>
+          <div class="aree-accordion-content">
+            <p class="aree-accordion-fulltext">Grazie a un'esperienza trasversale in ambito civile e commerciale, assistiamo imprese e privati in tutte le fasi del ciclo di vita del contratto: analisi dei rischi, due diligence documentale, redazione e negoziazione di clausole, interpretazione e gestione dell'esecuzione. Progettiamo accordi di compravendita, appalto, fornitura, distribuzione, agenzia, franchising, licenza e cessione di diritti, NDA e patti di non concorrenza, condizioni generali di vendita B2B e B2C e termini e condizioni online. Inseriamo clausole su penali, limiti di responsabilità, garanzie, manleva, price adjustment, hardship, force majeure, risoluzione espressa, mediazione, arbitrato e foro competente, calibrandole sul settore del cliente. In fase precontrattuale curiamo lettere d'intenti e term sheet, prevenendo responsabilità da culpa in contrahendo e definendo il perimetro della confidenzialità. Durante l'esecuzione supportiamo su variazioni d'ordine, ritardi, inadempimenti e risoluzioni per giusta causa, mantenendo la prova contrattuale e la tracciabilità degli scambi. In caso di crisi del rapporto, attiviamo diffide ad adempiere, negoziazioni assistite, mediazioni e, se necessario, il contenzioso per adempimento, risoluzione e risarcimento del danno. L'obiettivo è ridurre il rischio legale e i tempi decisionali, trasformando il contratto in uno strumento di tutela e crescita.</p>
+            <a href="contatti-2.html" class="aree-accordion-cta">Prenota una consulenza</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="aree-accordion-item alt" id="responsabilita-civile">
+      <div class="aree-accordion-header" onclick="toggleAreeAccordion(this)">
+        <div class="aree-accordion-img aree-accordion-img-right">
+          <img src="images/Responsabilità civile e risarcimento del danno.jpg" alt="Responsabilità civile e risarcimento del danno" loading="lazy">
+        </div>
+        <div class="aree-accordion-body">
+          <h3 class="aree-accordion-title">Responsabilità civile e risarcimento del danno</h3>
+          <p class="aree-accordion-intro">Tutela di chi ha subito un pregiudizio, con risarcimento integrale del danno.</p>
+          <div class="aree-accordion-toggle">Leggi di più</div>
+          <div class="aree-accordion-content">
+            <p class="aree-accordion-fulltext">Tuteliamo chi ha subito un pregiudizio ottenendo il risarcimento delle voci di danno patrimoniale e non patrimoniale. Agiamo in responsabilità contrattuale ed extracontrattuale, curando accertamento del nesso causale, colpa o dolo, quantificazione del danno e azione di rivalsa contro i responsabili e le compagnie assicurative. Assistiamo in sinistri stradali, malpractice medica e sanitaria, responsabilità professionale, cadute e cose in custodia, difetti di prodotto, illeciti diffamatori a mezzo stampa e social. Predisponiamo denunce di sinistro, perizie medico-legali, consulenze tecniche, trattative e mediazioni, puntando a un ristoro rapido e integrale. Ove necessario promuoviamo giudizi per accertamento e condanna, provvedimenti d'urgenza e sequestri conservativi. Il nostro metodo combina rigore probatorio e negoziazione efficace, per trasformare il torto subito in una tutela concreta.</p>
+            <a href="contatti-2.html" class="aree-accordion-cta">Prenota una consulenza</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="aree-accordion-item " id="diritto-famiglia">
+      <div class="aree-accordion-header" onclick="toggleAreeAccordion(this)">
+        <div class="aree-accordion-img ">
+          <img src="images/Diritto di Famiglia e delle person.jpg" alt="Diritto di Famiglia e delle Persone" loading="lazy">
+        </div>
+        <div class="aree-accordion-body">
+          <h3 class="aree-accordion-title">Diritto di Famiglia e delle Persone</h3>
+          <p class="aree-accordion-intro">Cura e sensibilità nelle questioni familiari più delicate.</p>
+          <div class="aree-accordion-toggle">Leggi di più</div>
+          <div class="aree-accordion-content">
+            <p class="aree-accordion-fulltext">Dedichiamo particolare cura al diritto di famiglia e delle persone, consapevoli della delicatezza di tali questioni. Lo Studio affianca i propri assistiti nelle procedure di separazione e divorzio, sia consensuali che giudiziali, curando gli accordi relativi all'affidamento dei figli minori, al diritto di visita, all'assegnazione della casa coniugale e alla determinazione dell'assegno di mantenimento o divorzile. Forniamo consulenza anche in materia di filiazione, riconoscimento e disconoscimento di paternità, adozione nazionale e internazionale. Inoltre tuteliamo le persone fragili predisponendo e seguendo ricorsi per amministrazione di sostegno, interdizione e inabilitazione. Il nostro approccio è umano e professionale, orientato a soluzioni il meno conflittuali possibile e alla tutela del benessere dei minori e del nucleo familiare.</p>
+            <a href="contatti-2.html" class="aree-accordion-cta">Prenota una consulenza</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="aree-accordion-item alt" id="successioni">
+      <div class="aree-accordion-header" onclick="toggleAreeAccordion(this)">
+        <div class="aree-accordion-img aree-accordion-img-right">
+          <img src="images/Successioni e Donazioni.jpg" alt="Successioni e Donazioni" loading="lazy">
+        </div>
+        <div class="aree-accordion-body">
+          <h3 class="aree-accordion-title">Successioni e Donazioni</h3>
+          <p class="aree-accordion-intro">Pianificazione successoria e gestione delle controversie tra eredi.</p>
+          <div class="aree-accordion-toggle">Leggi di più</div>
+          <div class="aree-accordion-content">
+            <p class="aree-accordion-fulltext">Lo Studio offre consulenza completa in materia di successioni ereditarie e donazioni, supportando i clienti nella pianificazione successoria e nella gestione di controversie tra eredi. Assistiamo nella predisposizione di testamenti chiari e validi, nell'istituzione di trust o patti di famiglia per il passaggio generazionale di patrimoni e imprese, nonché nell'effettuare donazioni e altre liberalità in sicurezza. Seguiamo gli eredi nelle pratiche successive all'apertura della successione, tra cui accettazione o rinuncia dell'eredità e divisioni ereditarie. In caso di contenzioso, rappresentiamo i clienti in cause di impugnazione testamentaria e azioni a tutela dei legittimari lesi.</p>
+            <a href="contatti-2.html" class="aree-accordion-cta">Prenota una consulenza</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="aree-accordion-item " id="diritti-reali">
+      <div class="aree-accordion-header" onclick="toggleAreeAccordion(this)">
+        <div class="aree-accordion-img ">
+          <img src="images/Diritti Reali e Proprietà.jpg" alt="Diritti Reali e Proprietà" loading="lazy">
+        </div>
+        <div class="aree-accordion-body">
+          <h3 class="aree-accordion-title">Diritti Reali e Proprietà</h3>
+          <p class="aree-accordion-intro">Tutela della proprietà e dei diritti reali su beni immobili e mobili.</p>
+          <div class="aree-accordion-toggle">Leggi di più</div>
+          <div class="aree-accordion-content">
+            <p class="aree-accordion-fulltext">In materia di diritti reali e tutela della proprietà, lo Studio assiste proprietari e possessori in ogni questione riguardante beni immobili e mobili. Prestiamo consulenza e difesa nelle azioni a difesa della proprietà, come rivendicazione e azione negatoria, e tuteliamo il possesso con le azioni possessorie, denunce di nuova opera o di danno temuto. Ci occupiamo di usucapione, servitù, controversie condominiali e di vicinato, immissioni moleste, distanze, regolamenti condominiali e limitazioni illegittime della proprietà.</p>
+            <a href="contatti-2.html" class="aree-accordion-cta">Prenota una consulenza</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="aree-accordion-item alt" id="locazioni">
+      <div class="aree-accordion-header" onclick="toggleAreeAccordion(this)">
+        <div class="aree-accordion-img aree-accordion-img-right">
+          <img src="images/Locazioni, Comodato e Gestione Immobiliare.jpg" alt="Locazioni, Comodato e Gestione Immobiliare" loading="lazy">
+        </div>
+        <div class="aree-accordion-body">
+          <h3 class="aree-accordion-title">Locazioni, Comodato e Gestione Immobiliare</h3>
+          <p class="aree-accordion-intro">Assistenza in tutte le fasi del rapporto locatizio e dei contratti di comodato.</p>
+          <div class="aree-accordion-toggle">Leggi di più</div>
+          <div class="aree-accordion-content">
+            <p class="aree-accordion-fulltext">Lo Studio assiste le parti in tutte le fasi del rapporto locatizio e nei contratti di comodato. Offriamo consulenza nella redazione e stipula dei contratti di locazione, curando clausole a tutela del locatore o del conduttore, e supportiamo nella gestione del rapporto: proroghe, adeguamenti, recesso, uso dell'immobile e contestazioni. In caso di inadempimenti, attiviamo procedure di sfratto per morosità o finita locazione e assistiamo anche i conduttori nelle opposizioni quando vi siano motivi validi. Ci occupiamo inoltre di controversie condominiali, ripartizione spese, impugnazione delibere e rapporti con amministratori.</p>
+            <a href="contatti-2.html" class="aree-accordion-cta">Prenota una consulenza</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="aree-accordion-item " id="commerciale">
+      <div class="aree-accordion-header" onclick="toggleAreeAccordion(this)">
+        <div class="aree-accordion-img ">
+          <img src="images/Diritto Commerciale e Societario.jpg" alt="Diritto Commerciale e Societario" loading="lazy">
+        </div>
+        <div class="aree-accordion-body">
+          <h3 class="aree-accordion-title">Diritto Commerciale e Societario</h3>
+          <p class="aree-accordion-intro">Consulenza specialistica in ogni fase della vita aziendale.</p>
+          <div class="aree-accordion-toggle">Leggi di più</div>
+          <div class="aree-accordion-content">
+            <p class="aree-accordion-fulltext">Il nostro Studio offre consulenza specialistica in diritto commerciale e societario, affiancando gli imprenditori in ogni fase della vita aziendale. Assistiamo nella costituzione di società, nella predisposizione di atti costitutivi, statuti e patti sociali, nella governance societaria e negli adempimenti ordinari. Abbiamo esperienza in fusioni, scissioni, trasformazioni, acquisizioni, cessioni di quote e rami d'azienda. Predisponiamo patti parasociali personalizzati e difendiamo i clienti in controversie societarie, azioni di responsabilità, impugnazione di delibere e conflitti tra soci.</p>
+            <a href="contatti-2.html" class="aree-accordion-cta">Prenota una consulenza</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="aree-accordion-item alt" id="recupero-crediti">
+      <div class="aree-accordion-header" onclick="toggleAreeAccordion(this)">
+        <div class="aree-accordion-img aree-accordion-img-right">
+          <img src="images/Recupero Crediti ed Esecuzioni Forzate.jpg" alt="Recupero Crediti ed Esecuzioni Forzate" loading="lazy">
+        </div>
+        <div class="aree-accordion-body">
+          <h3 class="aree-accordion-title">Recupero Crediti ed Esecuzioni Forzate</h3>
+          <p class="aree-accordion-intro">Strategie rapide e mirate per il recupero dei crediti.</p>
+          <div class="aree-accordion-toggle">Leggi di più</div>
+          <div class="aree-accordion-content">
+            <p class="aree-accordion-fulltext">Lo Studio assiste i creditori nelle attività finalizzate al recupero dei crediti, con strategie rapide e mirate. Predisponiamo ricorsi per decreto ingiuntivo, atti di precetto, pignoramenti mobiliari, immobiliari e presso terzi. Seguiamo le procedure esecutive e le vendite forzate, tutelando anche il debitore quando vi siano ragioni di opposizione all'esecuzione o agli atti esecutivi. L'approccio è pragmatico e orientato al risultato, con attenzione a tempi, costi e possibilità di soluzioni stragiudiziali.</p>
+            <a href="contatti-2.html" class="aree-accordion-cta">Prenota una consulenza</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="aree-accordion-item " id="lavoro">
+      <div class="aree-accordion-header" onclick="toggleAreeAccordion(this)">
+        <div class="aree-accordion-img ">
+          <img src="images/Diritto del Lavoro e Previdenza.jpg" alt="Diritto del Lavoro e Previdenza" loading="lazy">
+        </div>
+        <div class="aree-accordion-body">
+          <h3 class="aree-accordion-title">Diritto del Lavoro e Previdenza</h3>
+          <p class="aree-accordion-intro">Assistenza a aziende e lavoratori nella gestione dei rapporti di lavoro.</p>
+          <div class="aree-accordion-toggle">Leggi di più</div>
+          <div class="aree-accordion-content">
+            <p class="aree-accordion-fulltext">In materia di diritto del lavoro e previdenza sociale, lo Studio assiste aziende e lavoratori nella gestione dei rapporti di lavoro. Offriamo consulenza nella predisposizione di contratti, applicazione dei contratti collettivi, gestione disciplinare, trasferimenti, mansioni, licenziamenti individuali e collettivi. Rappresentiamo i clienti in controversie relative a differenze retributive, demansionamento, mobbing, infortuni, malattie professionali e impugnazione del licenziamento. Assistiamo inoltre nei rapporti con INPS, INAIL e organi ispettivi.</p>
+            <a href="contatti-2.html" class="aree-accordion-cta">Prenota una consulenza</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="aree-accordion-item alt" id="assicurativo">
+      <div class="aree-accordion-header" onclick="toggleAreeAccordion(this)">
+        <div class="aree-accordion-img aree-accordion-img-right">
+          <img src="images/Diritto Assicurativo.jpg" alt="Diritto Assicurativo" loading="lazy">
+        </div>
+        <div class="aree-accordion-body">
+          <h3 class="aree-accordion-title">Diritto Assicurativo</h3>
+          <p class="aree-accordion-intro">Consulenza su contratti assicurativi e gestione dei sinistri.</p>
+          <div class="aree-accordion-toggle">Leggi di più</div>
+          <div class="aree-accordion-content">
+            <p class="aree-accordion-fulltext">Lo Studio assiste privati, aziende e compagnie nelle questioni relative ai contratti assicurativi e alla gestione dei sinistri. Offriamo consulenza nella stipula delle polizze, interpretazione delle clausole, denuncia dei sinistri e trattative con periti e liquidatori. In caso di controversie per diniego di copertura, liquidazione insufficiente o ritardo nel pagamento, rappresentiamo il cliente in sede stragiudiziale e giudiziale.</p>
+            <a href="contatti-2.html" class="aree-accordion-cta">Prenota una consulenza</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="aree-accordion-item " id="bancario">
+      <div class="aree-accordion-header" onclick="toggleAreeAccordion(this)">
+        <div class="aree-accordion-img ">
+          <img src="images/Diritto Bancario e Finanziario.jpg" alt="Diritto Bancario e Finanziario" loading="lazy">
+        </div>
+        <div class="aree-accordion-body">
+          <h3 class="aree-accordion-title">Diritto Bancario e Finanziario</h3>
+          <p class="aree-accordion-intro">Tutela di privati e imprese in controversie con banche e intermediari.</p>
+          <div class="aree-accordion-toggle">Leggi di più</div>
+          <div class="aree-accordion-content">
+            <p class="aree-accordion-fulltext">Nell'ambito del diritto bancario e finanziario, lo Studio tutela privati e imprese coinvolti in controversie con banche e intermediari. Analizziamo conti correnti, mutui, leasing, finanziamenti e rapporti bancari per individuare interessi illegittimi, anatocismo, usura, commissioni indebite e clausole nulle. Ci occupiamo anche di contenzioso su strumenti finanziari complessi, derivati, segnalazioni errate in Centrale Rischi e responsabilità degli intermediari.</p>
+            <a href="contatti-2.html" class="aree-accordion-cta">Prenota una consulenza</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="aree-accordion-item alt" id="responsabilita-medica-civile">
+      <div class="aree-accordion-header" onclick="toggleAreeAccordion(this)">
+        <div class="aree-accordion-img aree-accordion-img-right">
+          <img src="images/Responsabilità civile e risarcimento del danno.jpg" alt="Responsabilità Medica e Sanitaria (sede civile)" loading="lazy">
+        </div>
+        <div class="aree-accordion-body">
+          <h3 class="aree-accordion-title">Responsabilità Medica e Sanitaria (sede civile)</h3>
+          <p class="aree-accordion-intro">Assistenza a pazienti e familiari per errori medici o disservizi sanitari.</p>
+          <div class="aree-accordion-toggle">Leggi di più</div>
+          <div class="aree-accordion-content">
+            <p class="aree-accordion-fulltext">Lo Studio assiste pazienti e familiari che abbiano subito un danno per errori medici o disservizi sanitari. Ci occupiamo di malpractice medica, responsabilità di strutture sanitarie e professionisti, errore diagnostico, errore chirurgico, consenso informato, infezioni ospedaliere e altri eventi avversi. Analizziamo la documentazione medica con il supporto di consulenti, promuoviamo mediazioni e trattative con assicurazioni e, se necessario, azioni giudiziali risarcitorie.</p>
+            <a href="contatti-2.html" class="aree-accordion-cta">Prenota una consulenza</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="aree-accordion-item " id="mediazione">
+      <div class="aree-accordion-header" onclick="toggleAreeAccordion(this)">
+        <div class="aree-accordion-img ">
+          <img src="images/Mediazione, Negoziazione Assistita e ADR.jpg" alt="Mediazione, Negoziazione Assistita e ADR" loading="lazy">
+        </div>
+        <div class="aree-accordion-body">
+          <h3 class="aree-accordion-title">Mediazione, Negoziazione Assistita e ADR</h3>
+          <p class="aree-accordion-intro">Risoluzione alternativa delle controversie: soluzioni rapide e riservate.</p>
+          <div class="aree-accordion-toggle">Leggi di più</div>
+          <div class="aree-accordion-content">
+            <p class="aree-accordion-fulltext">Lo Studio crede nell'efficacia degli strumenti di risoluzione alternativa delle controversie. Assistiamo i clienti in mediazioni civili e commerciali, negoziazioni assistite e procedimenti arbitrali. Prepariamo la strategia, redigiamo istanze e atti, partecipiamo agli incontri e cerchiamo soluzioni transattive rapide, riservate e meno onerose rispetto al contenzioso ordinario.</p>
+            <a href="contatti-2.html" class="aree-accordion-cta">Prenota una consulenza</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="aree-macro-section alt-bg" id="diritto-penale">
+    <div class="aree-macro-header">
+      <h2 class="aree-macro-title">Diritto Penale</h2>
+      <div class="aree-macro-divider"></div>
+      <p class="aree-macro-sub">12 aree di pratica penale</p>
+    </div>
+    <div class="aree-accordion-item " id="reati-persona">
+      <div class="aree-accordion-header" onclick="toggleAreeAccordion(this)">
+        <div class="aree-accordion-img ">
+          <img src="images/Reati contro la Persona.jpg" alt="Reati contro la Persona" loading="lazy">
+        </div>
+        <div class="aree-accordion-body">
+          <h3 class="aree-accordion-title">Reati contro la Persona</h3>
+          <p class="aree-accordion-intro">Difesa in ogni fase del procedimento penale per delitti contro vita e incolumità.</p>
+          <div class="aree-accordion-toggle">Leggi di più</div>
+          <div class="aree-accordion-content">
+            <p class="aree-accordion-fulltext">Nell'ambito dei reati contro la persona, lo Studio fornisce assistenza in ogni fase del procedimento penale. Offriamo difesa a indagati e imputati accusati di omicidio, lesioni personali, percosse, minacce, stalking e altri delitti contro vita, incolumità e libertà personale. Analizziamo prove, testimonianze, perizie, immagini e intercettazioni per costruire una strategia difensiva solida. Assistiamo anche le persone offese constituendoci parte civile per ottenere giustizia e risarcimento.</p>
+            <a href="contatti-2.html" class="aree-accordion-cta">Prenota una consulenza</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="aree-accordion-item alt" id="reati-patrimonio">
+      <div class="aree-accordion-header" onclick="toggleAreeAccordion(this)">
+        <div class="aree-accordion-img aree-accordion-img-right">
+          <img src="images/Reati contro il Patrimonio.jpg" alt="Reati contro il Patrimonio" loading="lazy">
+        </div>
+        <div class="aree-accordion-body">
+          <h3 class="aree-accordion-title">Reati contro il Patrimonio</h3>
+          <p class="aree-accordion-intro">Difesa e tutela per reati come furto, rapina, truffa, appropriazione indebita.</p>
+          <div class="aree-accordion-toggle">Leggi di più</div>
+          <div class="aree-accordion-content">
+            <p class="aree-accordion-fulltext">Lo Studio assiste nei procedimenti relativi ai reati contro il patrimonio, come furto, rapina, ricettazione, estorsione, truffa, appropriazione indebita e danneggiamento. Valutiamo con attenzione le prove, individuiamo strategie difensive e rappresentiamo le persone offese per ottenere il risarcimento dei danni subiti.</p>
+            <a href="contatti-2.html" class="aree-accordion-cta">Prenota una consulenza</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="aree-accordion-item " id="reati-pa">
+      <div class="aree-accordion-header" onclick="toggleAreeAccordion(this)">
+        <div class="aree-accordion-img ">
+          <img src="images/Reati contro la Pubblica Amministrazione.jpg" alt="Reati contro la Pubblica Amministrazione" loading="lazy">
+        </div>
+        <div class="aree-accordion-body">
+          <h3 class="aree-accordion-title">Reati contro la Pubblica Amministrazione</h3>
+          <p class="aree-accordion-intro">Tutela e difesa in procedimenti per corruzione, concussione, peculato, abuso d'ufficio.</p>
+          <div class="aree-accordion-toggle">Leggi di più</div>
+          <div class="aree-accordion-content">
+            <p class="aree-accordion-fulltext">Offriamo tutela e difesa nei procedimenti per reati contro la Pubblica Amministrazione, come corruzione, concussione, peculato, abuso d'ufficio, falso in atti pubblici e rivelazione di segreti d'ufficio. Assistiamo funzionari, amministratori, imprenditori e privati coinvolti in procedimenti complessi, curando anche l'analisi degli atti amministrativi sottostanti.</p>
+            <a href="contatti-2.html" class="aree-accordion-cta">Prenota una consulenza</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="aree-accordion-item alt" id="reati-societari">
+      <div class="aree-accordion-header" onclick="toggleAreeAccordion(this)">
+        <div class="aree-accordion-img aree-accordion-img-right">
+          <img src="images/Reati societari e fallimentari.jpg" alt="Reati Societari e Fallimentari" loading="lazy">
+        </div>
+        <div class="aree-accordion-body">
+          <h3 class="aree-accordion-title">Reati Societari e Fallimentari</h3>
+          <p class="aree-accordion-intro">Difesa di amministratori e imprenditori in procedimenti societari e fallimentari.</p>
+          <div class="aree-accordion-toggle">Leggi di più</div>
+          <div class="aree-accordion-content">
+            <p class="aree-accordion-fulltext">Lo Studio offre difesa ad amministratori, sindaci, dirigenti e imprenditori coinvolti in procedimenti per reati societari, economici e fallimentari. Ci occupiamo di false comunicazioni sociali, aggiotaggio, bancarotta, indebita restituzione dei conferimenti, ostacolo alle autorità di vigilanza e reati connessi alla crisi d'impresa. L'approccio prevede analisi di bilanci, movimenti bancari e documentazione societaria.</p>
+            <a href="contatti-2.html" class="aree-accordion-cta">Prenota una consulenza</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="aree-accordion-item " id="sicurezza-lavoro">
+      <div class="aree-accordion-header" onclick="toggleAreeAccordion(this)">
+        <div class="aree-accordion-img ">
+          <img src="images/Sicurezza sul lavoro.jpg" alt="Sicurezza sul Lavoro" loading="lazy">
+        </div>
+        <div class="aree-accordion-body">
+          <h3 class="aree-accordion-title">Sicurezza sul Lavoro</h3>
+          <p class="aree-accordion-intro">Difesa in procedimenti penali relativi alla sicurezza sul lavoro e infortuni.</p>
+          <div class="aree-accordion-toggle">Leggi di più</div>
+          <div class="aree-accordion-content">
+            <p class="aree-accordion-fulltext">Prestiamo assistenza nei procedimenti penali relativi alla sicurezza sul lavoro. Difendiamo datori di lavoro, dirigenti e preposti in casi di violazioni della normativa antinfortunistica, infortuni, lesioni e omicidio colposo. Analizziamo DVR, formazione, dispositivi di protezione, manutenzioni e dinamica dell'evento, anche con consulenti tecnici.</p>
+            <a href="contatti-2.html" class="aree-accordion-cta">Prenota una consulenza</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="aree-accordion-item alt" id="reati-informatici">
+      <div class="aree-accordion-header" onclick="toggleAreeAccordion(this)">
+        <div class="aree-accordion-img aree-accordion-img-right">
+          <img src="images/Reati Informatici e Cybercrime.jpg" alt="Reati Informatici e Cybercrime" loading="lazy">
+        </div>
+        <div class="aree-accordion-body">
+          <h3 class="aree-accordion-title">Reati Informatici e Cybercrime</h3>
+          <p class="aree-accordion-intro">Assistenza per reati informatici: accesso abusivo, frodi, phishing, cyberstalking.</p>
+          <div class="aree-accordion-toggle">Leggi di più</div>
+          <div class="aree-accordion-content">
+            <p class="aree-accordion-fulltext">Lo Studio assiste nei procedimenti relativi a reati informatici e cybercrime, come accesso abusivo, frodi informatiche, phishing, diffusione illecita di dati, violazioni della privacy, malware, revenge porn, cyberstalking e cyberbullismo. Collaboriamo con consulenti informatici forensi per analizzare dispositivi, tracce digitali e attribuibilità delle condotte.</p>
+            <a href="contatti-2.html" class="aree-accordion-cta">Prenota una consulenza</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="aree-accordion-item " id="reati-sessuali">
+      <div class="aree-accordion-header" onclick="toggleAreeAccordion(this)">
+        <div class="aree-accordion-img ">
+          <img src="images/Reati Sessuali.jpg" alt="Reati Sessuali" loading="lazy">
+        </div>
+        <div class="aree-accordion-body">
+          <h3 class="aree-accordion-title">Reati Sessuali</h3>
+          <p class="aree-accordion-intro">Assistenza con professionalità e riservatezza in procedimenti per reati sessuali.</p>
+          <div class="aree-accordion-toggle">Leggi di più</div>
+          <div class="aree-accordion-content">
+            <p class="aree-accordion-fulltext">Lo Studio fornisce assistenza nelle vicende relative ai reati sessuali, garantendo professionalità e riservatezza. Difendiamo imputati e assistiamo persone offese in procedimenti per violenza sessuale, atti sessuali con minorenne, corruzione di minorenne, pornografia minorile e altre fattispecie contro la libertà sessuale. Operiamo con rigore tecnico e sensibilità.</p>
+            <a href="contatti-2.html" class="aree-accordion-cta">Prenota una consulenza</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="aree-accordion-item alt" id="reati-stradali">
+      <div class="aree-accordion-header" onclick="toggleAreeAccordion(this)">
+        <div class="aree-accordion-img aree-accordion-img-right">
+          <img src="images/Reati stradali.jpg" alt="Reati Stradali" loading="lazy">
+        </div>
+        <div class="aree-accordion-body">
+          <h3 class="aree-accordion-title">Reati Stradali</h3>
+          <p class="aree-accordion-intro">Assistenza per omicidio stradale, lesioni stradali gravi e reati connessi.</p>
+          <div class="aree-accordion-toggle">Leggi di più</div>
+          <div class="aree-accordion-content">
+            <p class="aree-accordion-fulltext">Assistiamo imputati e vittime nei procedimenti per omicidio stradale, lesioni personali stradali gravi o gravissime e altri reati connessi alla circolazione. Analizziamo dinamica del sinistro, accertamenti tecnici, tasso alcolemico, condizioni del veicolo e condotta delle parti. Assistiamo anche nelle azioni risarcitorie verso compagnie assicurative.</p>
+            <a href="contatti-2.html" class="aree-accordion-cta">Prenota una consulenza</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="aree-accordion-item " id="stupefacenti">
+      <div class="aree-accordion-header" onclick="toggleAreeAccordion(this)">
+        <div class="aree-accordion-img ">
+          <img src="images/Reati in materia di stupefacenti.jpg" alt="Reati in Materia di Stupefacenti" loading="lazy">
+        </div>
+        <div class="aree-accordion-body">
+          <h3 class="aree-accordion-title">Reati in Materia di Stupefacenti</h3>
+          <p class="aree-accordion-intro">Difesa per produzione, traffico, detenzione e cessione di sostanze stupefacenti.</p>
+          <div class="aree-accordion-toggle">Leggi di più</div>
+          <div class="aree-accordion-content">
+            <p class="aree-accordion-fulltext">Lo Studio presta assistenza nei procedimenti riguardanti sostanze stupefacenti e psicotrope. Difendiamo persone accusate di produzione, traffico, detenzione, cessione, importazione ed esportazione di sostanze. Analizziamo perquisizioni, sequestri, principio attivo, intercettazioni e qualificazione del fatto, valutando anche percorsi terapeutici o misure alternative quando applicabili.</p>
+            <a href="contatti-2.html" class="aree-accordion-cta">Prenota una consulenza</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="aree-accordion-item alt" id="responsabilita-medica-penale">
+      <div class="aree-accordion-header" onclick="toggleAreeAccordion(this)">
+        <div class="aree-accordion-img aree-accordion-img-right">
+          <img src="images/Responsabilità civile e risarcimento del danno.jpg" alt="Responsabilità Medica Penale" loading="lazy">
+        </div>
+        <div class="aree-accordion-body">
+          <h3 class="aree-accordion-title">Responsabilità Medica Penale</h3>
+          <p class="aree-accordion-intro">Assistenza in procedimenti penali per responsabilità medica e errori sanitari.</p>
+          <div class="aree-accordion-toggle">Leggi di più</div>
+          <div class="aree-accordion-content">
+            <p class="aree-accordion-fulltext">Lo Studio assiste medici, operatori sanitari, pazienti e familiari in procedimenti penali per responsabilità medica. Trattiamo casi di omicidio colposo, lesioni colpose, errori diagnostici, chirurgici o terapeutici. La difesa si fonda sull'analisi della documentazione sanitaria, del nesso causale e degli standard scientifici, con il supporto di consulenti medico-legali.</p>
+            <a href="contatti-2.html" class="aree-accordion-cta">Prenota una consulenza</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="aree-accordion-item " id="diffamazione">
+      <div class="aree-accordion-header" onclick="toggleAreeAccordion(this)">
+        <div class="aree-accordion-img ">
+          <img src="images/Diffamazione a Mezzo Stampa e tramite Social Media.jpg" alt="Diffamazione a Mezzo Stampa e tramite Social Media" loading="lazy">
+        </div>
+        <div class="aree-accordion-body">
+          <h3 class="aree-accordion-title">Diffamazione a Mezzo Stampa e tramite Social Media</h3>
+          <p class="aree-accordion-intro">Consulenza e difesa per diffamazione a mezzo stampa, siti web e social network.</p>
+          <div class="aree-accordion-toggle">Leggi di più</div>
+          <div class="aree-accordion-content">
+            <p class="aree-accordion-fulltext">Lo Studio fornisce consulenza e difesa nei procedimenti per diffamazione a mezzo stampa, siti web, blog e social network. Assistiamo persone offese nella rimozione di contenuti lesivi, querele e costituzioni di parte civile, e difendiamo giornalisti, utenti social o autori accusati, valutando diritto di cronaca, critica, verità della notizia e continenza espressiva.</p>
+            <a href="contatti-2.html" class="aree-accordion-cta">Prenota una consulenza</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="aree-accordion-item alt" id="penale-minorile">
+      <div class="aree-accordion-header" onclick="toggleAreeAccordion(this)">
+        <div class="aree-accordion-img aree-accordion-img-right">
+          <img src="images/Diritto penale minorile.jpg" alt="Diritto Penale Minorile" loading="lazy">
+        </div>
+        <div class="aree-accordion-body">
+          <h3 class="aree-accordion-title">Diritto Penale Minorile</h3>
+          <p class="aree-accordion-intro">Assistenza a minorenni imputati e vittime davanti al Tribunale per i Minorenni.</p>
+          <div class="aree-accordion-toggle">Leggi di più</div>
+          <div class="aree-accordion-content">
+            <p class="aree-accordion-fulltext">Lo Studio assiste minorenni imputati e minorenni vittime di reato davanti al Tribunale per i Minorenni. L'approccio coniuga tutela processuale, finalità rieducativa e attenzione alla persona. Valutiamo messa alla prova, progetti di reinserimento, supporto della famiglia e dei servizi sociali, oltre alla tutela del minore persona offesa.</p>
+            <a href="contatti-2.html" class="aree-accordion-cta">Prenota una consulenza</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="aree-cta-section">
+    <div class="aree-cta-text">Hai bisogno di una consulenza legale?</div>
+    <a href="contatti-2.html" class="aree-cta-btn">Contattaci</a>
+  </section>
+
+  <section class="footer-light">
+    <div class="container-2">
+      <div class="footer-wrapper-two">
+        <a href="index.html" class="footer-brand w-inline-block"><img src="images/PINCA_logo_web_optimized.png" loading="lazy" width="100" height="100" alt="Studio Legale Pinca"></a>
+        <div class="footer-block-two">
+          <div class="footer-title">Su di noi</div>
+          <a href="chi-siamo.html" class="footer-link-two">Chi Siamo</a>
+        </div>
+        <div class="footer-block-two">
+          <div class="footer-title">Aree di attività</div>
+          <a href="aree.html#diritto-civile" class="footer-link-two">Diritto Civile</a>
+          <a href="aree.html#diritto-penale" class="footer-link-two">Diritto Penale</a>
+        </div>
+        <div class="footer-block-two">
+          <div class="footer-title">Contatti</div>
+          <a href="contatti-2.html" class="footer-link-two">Contatti</a>
+        </div>
+      </div>
+      <div class="footer-divider-two"></div>
+      <div class="footer-bottom">
+        <div class="footer-copyright">© 2025 Studio Legale Pinca. All rights reserved</div>
+        <div class="footer-social-block-two">
+          <a href="https://www.facebook.com/" target="_blank" class="footer-social-link w-inline-block"><img src="images/facebook.svg" loading="lazy" alt="Facebook" width="20"></a>
+          <a href="https://www.linkedin.com/" target="_blank" class="footer-social-link w-inline-block"><img src="images/Linkedin.svg" loading="lazy" alt="LinkedIn" width="20"></a>
+          <a href="https://instagram.com/" target="_blank" class="footer-social-link w-inline-block"><img src="images/instagram.svg" loading="lazy" alt="Instagram" width="20"></a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <script src="https://d3e54v103j8qbb.cloudfront.net/js/jquery-3.5.1.min.dc5e7f18c8.js?site=68dbe52f8f32c732e56a77fc" type="text/javascript" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
+  <script src="js/webflow.js" type="text/javascript"></script>
+  <script>
+    function toggleAreeAccordion(header) {
+      var item = header.closest('.aree-accordion-item');
+      var isOpen = item.classList.contains('open');
+      var allItems = document.querySelectorAll('.aree-accordion-item');
+      allItems.forEach(function(el) { el.classList.remove('open'); });
+      if (!isOpen) item.classList.add('open');
+    }
+  </script>
+</body>
+</html>
