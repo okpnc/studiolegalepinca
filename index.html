@@ -166,12 +166,19 @@
 }
 .section-3-block {
   position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  gap: 10px;
+  padding: 8px 6px;
 }
 .section-3-block::before {
   content: '';
   position: absolute;
   inset: 0;
-  background-color: rgba(0,0,0,.25);
+  background-color: rgba(0,0,0,.18);
   z-index: 0;
   pointer-events: none;
   border-radius: inherit;
@@ -179,6 +186,20 @@
 .section-3-block > * {
   position: relative;
   z-index: 1;
+}
+.practice-icon {
+  width: 36px;
+  height: 36px;
+  display: block;
+  margin: 0 auto;
+  flex-shrink: 0;
+  opacity: .92;
+}
+@media screen and (max-width: 991px) {
+  .practice-icon { width: 28px; height: 28px; }
+}
+@media screen and (max-width: 479px) {
+  .practice-icon { width: 24px; height: 24px; }
 }
 .text-block-2 {
   font-size: 12px;
@@ -309,35 +330,95 @@
   text-transform: uppercase;
   margin: 10px 0 4px;
 }
-#slides .slide._2.contatti .section._5 {
-  position: static;
-  width: 100%;
-  height: auto;
-  padding: 20px 20vw 20px 8vw;
-  background-color: transparent;
-  border-radius: 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  box-sizing: border-box;
+#slides .slide._2.contatti .container-pagina {
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: center !important;
+  align-items: center !important;
+  gap: 20px !important;
+  padding: 110px clamp(110px, 20vw, 200px) 70px clamp(60px, 8vw, 120px) !important;
+  box-sizing: border-box !important;
+  position: relative !important;
+}
+#slides .slide._2.contatti .section._4._7 {
+  position: relative !important;
+  width: 100% !important;
+  height: auto !important;
+  inset: auto !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  background-color: transparent !important;
+  z-index: 3 !important;
+  align-self: flex-start !important;
+}
+#slides .slide._2.contatti .section._4._7 .heading-2 {
+  position: relative !important;
+  z-index: 4 !important;
+  margin: 0 !important;
+}
+#slides .slide._2.contatti .section._4._7 .div-block-7 {
+  margin-top: 10px !important;
 }
 #slides .slide._2.contatti .section._4-5._2 {
-  display: none;
+  display: none !important;
 }
-#slides .slide._2.contatti .container-pagina {
-  flex-flow: column;
-  justify-content: center;
-  align-items: center;
+#slides .slide._2.contatti .section._5 {
+  position: relative !important;
+  width: 100% !important;
+  height: auto !important;
+  inset: auto !important;
+  padding: 0 !important;
+  background-color: transparent !important;
+  border-radius: 0 !important;
+  display: block !important;
+  transform: none !important;
+  -webkit-transform: none !important;
+  z-index: 2 !important;
+  opacity: 1 !important;
+}
+#slides .slide._2.contatti .home-contact-unified {
+  width: 100% !important;
+  max-width: 560px !important;
+  margin: 0 !important;
+  box-sizing: border-box !important;
+}
+#slides .slide._2.contatti .button-3.mobile.chi-siamo {
+  position: relative !important;
+  align-self: flex-start !important;
+  z-index: 3 !important;
+  transform: none !important;
+  margin: 0 !important;
+}
+#slides .slide._2.contatti .contatore2.contatore {
+  position: absolute !important;
+  right: 0 !important;
+  bottom: 0 !important;
+  top: auto !important;
+  left: auto !important;
+  z-index: 5 !important;
 }
 @media screen and (max-width: 991px) {
-  .home-contact-unified { padding: 24px 20px; width: 95%; }
-  #slides .slide._2.contatti .section._5 { padding: 16px 5vw; }
+  .home-contact-unified { padding: 24px 20px; }
+  #slides .slide._2.contatti .container-pagina {
+    padding: 110px 20px 60px !important;
+    gap: 16px !important;
+  }
+  #slides .slide._2.contatti .section._4._7,
+  #slides .slide._2.contatti .section._5 {
+    width: 100% !important;
+  }
+  #slides .slide._2.contatti .home-contact-unified {
+    max-width: 100% !important;
+  }
   .nav-link._1 { padding: 20px 16px; font-size: 14px; }
   .image-2 { max-width: 20svh !important; }
 }
 @media screen and (max-width: 479px) {
-  .home-contact-unified { padding: 20px 16px; }
-  #slides .slide._2.contatti .section._5 { padding: 10px; }
+  .home-contact-unified { padding: 18px 14px !important; }
+  #slides .slide._2.contatti .container-pagina {
+    padding: 95px 14px 50px !important;
+    gap: 12px !important;
+  }
   .home-contact-unified-label { font-size: 10px; }
   .home-contact-unified .contact { font-size: 12.5px; }
 }
@@ -489,39 +570,33 @@
             </div>
             <section data-w-id="178eb010-927f-a1be-7dd6-6f1efcbb7f2a" style="-webkit-transform:translate3d(-111px, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(-111px, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-ms-transform:translate3d(-111px, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(-111px, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);opacity:0" class="section-3-wrapper aree">
               <div class="section-3-block a _1">
-                <div class="div-block-8"></div>
+                <svg class="practice-icon" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M20 6c-2.8 0-5 2.2-5 5s2.2 5 5 5 5-2.2 5-5-2.2-5-5-5zm-8 18c0-4.4 3.6-8 8-8s8 3.6 8 8v2H12v-2zm-4 4h24v2H8v-2z" fill="white"/></svg>
                 <div class="text-block-2">DIRITTO DI FAMIGLIA</div>
-                <div class="div-block-8"></div>
                 <a href="aree.html" class="leggitutto">LEGGI TUTTO</a>
               </div>
               <div class="section-3-block b">
-                <div class="div-block-8"></div>
+                <svg class="practice-icon" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M20 4l-2 4H8l2 4-6 10h10l2 4h8l2-4h10L30 12l2-4H22l-2-4zm0 6l1.5 3H27l-4 7h-6l-4-7h5.5L20 10zm-8 16h4v2h-4v-2zm12 0h4v2h-4v-2z" fill="white"/></svg>
                 <div class="text-block-2">RESPONSABILITÀ CIVILE</div>
-                <div class="div-block-8"></div>
                 <a href="aree.html" class="leggitutto">LEGGI TUTTO</a>
               </div>
               <div class="section-3-block a">
-                <div class="div-block-8"></div>
+                <svg class="practice-icon" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><rect x="6" y="14" width="28" height="20" rx="2" stroke="white" stroke-width="2.2" fill="none"/><path d="M14 14v-3a6 6 0 0112 0v3" stroke="white" stroke-width="2.2" fill="none"/><rect x="15" y="21" width="10" height="6" rx="1" fill="white"/></svg>
                 <div class="text-block-2">DIRITTO SOCIETARIO</div>
-                <div class="div-block-8"></div>
                 <a href="aree.html" class="leggitutto">LEGGI TUTTO</a>
               </div>
               <div class="section-3-block b">
-                <div class="div-block-8"></div>
+                <svg class="practice-icon" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><circle cx="20" cy="13" r="6" stroke="white" stroke-width="2.2" fill="none"/><path d="M8 34c0-6.6 5.4-12 12-12s12 5.4 12 12" stroke="white" stroke-width="2.2" fill="none" stroke-linecap="round"/><path d="M14 28l2 4 4-6 4 6 2-4" stroke="white" stroke-width="1.8" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
                 <div class="text-block-2">REATI CONTRO LA PERSONA</div>
-                <div class="div-block-8"></div>
                 <a href="aree.html" class="leggitutto">LEGGI TUTTO</a>
               </div>
               <div class="section-3-block a">
-                <div class="div-block-8"></div>
+                <svg class="practice-icon" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M8 30V16l12-8 12 8v14H8z" stroke="white" stroke-width="2.2" fill="none" stroke-linejoin="round"/><rect x="15" y="21" width="10" height="9" rx="1" fill="white"/></svg>
                 <div class="text-block-2">REATI CONTRO IL PATRIMONIO</div>
-                <div class="div-block-8"></div>
                 <a href="aree.html" class="leggitutto">LEGGI TUTTO</a>
               </div>
               <div class="section-3-block b _1">
-                <div class="div-block-8"></div>
+                <svg class="practice-icon" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><rect x="6" y="18" width="28" height="16" rx="1" stroke="white" stroke-width="2.2" fill="none"/><path d="M6 22h28" stroke="white" stroke-width="2.2"/><path d="M10 18V14a10 10 0 0120 0v4" stroke="white" stroke-width="2.2" fill="none"/><circle cx="20" cy="28" r="2.5" fill="white"/></svg>
                 <div class="text-block-2">REATI CONTRO LA P.A.</div>
-                <div class="div-block-8"></div>
                 <a href="aree.html" class="leggitutto">LEGGI TUTTO</a>
               </div>
             </section>
@@ -540,7 +615,7 @@
               <h1 class="heading-2 mobile">Contatti</h1>
               <div class="div-block-7 mobile"></div>
             </section>
-            <section class="section _4 _7">
+            <section style="position:relative;inset:auto;" class="section _4 _7">
               <h1 class="heading-2">Contatti</h1>
               <div class="div-block-7"></div>
             </section>
@@ -553,7 +628,7 @@
                 </div>
               </div>
             </section>
-            <section style="opacity:0;-webkit-transform:translate3d(-187px, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(-187px, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-ms-transform:translate3d(-187px, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(-187px, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)" class="section _5">
+            <section style="" class="section _5">
               <div class="home-contact-unified">
                 <div class="home-contact-unified-row">
                   <div class="home-contact-unified-label">Telefono</div>
