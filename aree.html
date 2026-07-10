@@ -43,11 +43,32 @@
     .aree-hero-sub {
       color: #ddd; font-size: 16px; font-style: italic;
     }
-    .aree-index {
+    .aree-cover-photo {
+      width: 100%;
+      max-width: 1100px;
+      margin: 0 auto;
+      display: block;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 8px 32px rgba(0,0,0,.15);
+    }
+    .aree-cover-photo img {
+      width: 100%;
+      height: 420px;
+      object-fit: cover;
+      display: block;
+    }
+    .aree-cover-section {
       background-color: #f5f3f0;
-      padding: 50px 30px;
-      text-align: center;
-      border-bottom: 1px solid #e8e4df;
+      padding: 50px 30px 0;
+    }
+    @media screen and (max-width: 991px) {
+      .aree-cover-photo img { height: 280px; }
+    }
+    @media screen and (max-width: 479px) {
+      .aree-cover-section { padding: 30px 16px 0; }
+      .aree-cover-photo img { height: 200px; }
+      .aree-cover-photo { border-radius: 8px; }
     }
     .aree-index-title {
       color: #323336; font-size: 16px; font-weight: 600; margin-bottom: 24px;
@@ -284,6 +305,12 @@
     <h1 class="aree-hero-title">Practice Areas</h1>
     <div class="aree-hero-divider"></div>
     <p class="aree-hero-sub">Le aree di attività dello Studio Legale Pinca</p>
+  </section>
+
+  <section class="aree-cover-section">
+    <div class="aree-cover-photo">
+      <img src="images/duedue.jpg" alt="Studio Legale Pinca - Practice Areas" loading="lazy">
+    </div>
   </section>
 
   <section class="aree-index">

@@ -266,9 +266,8 @@
   border: 1px solid rgba(201, 150, 105, 0.3);
   border-radius: 12px;
   padding: 32px 40px;
-  max-width: 620px;
-  width: 90%;
-  margin: 0 auto;
+  width: 100%;
+  max-width: 560px;
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
 }
@@ -314,12 +313,13 @@
   position: static;
   width: 100%;
   height: auto;
-  padding: 20px 30px;
+  padding: 20px 17vw;
   background-color: transparent;
   border-radius: 0;
   display: flex;
   justify-content: center;
   align-items: center;
+  box-sizing: border-box;
 }
 #slides .slide._2.contatti .section._4-5._2 {
   display: none;
@@ -331,12 +331,13 @@
 }
 @media screen and (max-width: 991px) {
   .home-contact-unified { padding: 24px 20px; width: 95%; }
-  #slides .slide._2.contatti .section._5 { padding: 16px 10px; }
+  #slides .slide._2.contatti .section._5 { padding: 16px 5vw; }
   .nav-link._1 { padding: 20px 16px; font-size: 14px; }
   .image-2 { max-width: 20svh !important; }
 }
 @media screen and (max-width: 479px) {
   .home-contact-unified { padding: 20px 16px; }
+  #slides .slide._2.contatti .section._5 { padding: 10px; }
   .home-contact-unified-label { font-size: 10px; }
   .home-contact-unified .contact { font-size: 12.5px; }
 }
