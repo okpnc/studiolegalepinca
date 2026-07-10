@@ -143,27 +143,58 @@
   transition: max-width .4s ease;
 }
 #slides .slide._1 {
-  background-color: #1a0808;
+  background-color: #0d0606;
 }
 #slides .slide._1 .container-pagina {
+  background-image: linear-gradient(rgba(13,6,6,.45), rgba(13,6,6,.45)), url('images/primaslide.jpg') !important;
   background-size: cover, cover !important;
-  background-position: 50% 50%, 50% 50% !important;
+  background-position: center center, center center !important;
+  background-repeat: no-repeat, no-repeat !important;
 }
 #slides .slide._3 .container-pagina {
+  background-image: linear-gradient(rgba(30,10,10,.55), rgba(30,10,10,.55)), url('images/IMG_2183.jpg') !important;
   background-size: cover, cover !important;
-  background-position: 50% 50%, 50% 50% !important;
+  background-position: center center, center center !important;
+  background-repeat: no-repeat, no-repeat !important;
 }
-#slides .slide._3 .container-pagina::after {
+#slides .slide._3 .contatore2.contatore {
+  position: absolute !important;
+  left: auto !important;
+  right: 0 !important;
+  bottom: 0 !important;
+  top: auto !important;
+}
+.section-3-block {
+  position: relative;
+}
+.section-3-block::before {
   content: '';
   position: absolute;
   inset: 0;
-  background: linear-gradient(135deg, rgba(49,13,13,.55), rgba(50,51,54,.45));
+  background-color: rgba(0,0,0,.25);
   z-index: 0;
   pointer-events: none;
+  border-radius: inherit;
 }
-#slides .slide._3 .container-pagina > * {
+.section-3-block > * {
   position: relative;
   z-index: 1;
+}
+.text-block-2 {
+  font-size: 12px;
+  letter-spacing: .5px;
+}
+.leggitutto {
+  background-color: rgba(201,150,105,.15);
+  border: 1px solid rgba(201,150,105,.7);
+  border-radius: 3px;
+  padding: 4px 10px;
+  font-size: 11px;
+  letter-spacing: 1px;
+}
+.leggitutto:hover {
+  background-color: rgba(201,150,105,.3);
+  color: #fff;
 }
 .header-menu-wrap {
   justify-content: flex-end;
@@ -230,26 +261,60 @@
 .home-contact-card .contact:hover {
   color: #c99669;
 }
-.home-contact-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  gap: 20px;
-  width: 66%;
-  max-width: 900px;
+.home-contact-unified {
+  background-color: rgba(50, 51, 54, 0.92);
+  border: 1px solid rgba(201, 150, 105, 0.3);
+  border-radius: 12px;
+  padding: 32px 40px;
+  max-width: 620px;
+  width: 90%;
   margin: 0 auto;
-  padding: 20px;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
 }
-.home-contact-card .contact {
+.home-contact-unified-row {
+  padding: 18px 0;
+  border-bottom: 1px solid rgba(201,150,105,.15);
+}
+.home-contact-unified-row:last-child {
+  border-bottom: none;
+  padding-bottom: 0;
+}
+.home-contact-unified-label {
+  color: #c99669;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  margin-bottom: 10px;
+}
+.home-contact-unified-label + .contact,
+.home-contact-unified-label + a.contact,
+.home-contact-unified .contact {
+  color: #e8e8e8;
+  font-size: 13.5px;
+  line-height: 1.75;
+  font-weight: 400;
+  text-decoration: none;
+  display: block;
   overflow-wrap: anywhere;
   word-break: break-word;
+}
+.home-contact-unified .contact:hover { color: #c99669; }
+.home-contact-unified .contact strong { color: #fff; font-weight: 600; }
+.home-contact-unified .sub-label {
+  color: rgba(201,150,105,.8);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  margin: 10px 0 4px;
 }
 #slides .slide._2.contatti .section._5 {
   position: static;
   width: 100%;
-  max-width: 1000px;
-  margin: 0 auto;
   height: auto;
-  padding: 30px;
+  padding: 20px 30px;
   background-color: transparent;
   border-radius: 0;
   display: flex;
@@ -265,21 +330,15 @@
   align-items: center;
 }
 @media screen and (max-width: 991px) {
-  .home-contact-grid {
-    grid-template-columns: 1fr;
-    width: 90%;
-    margin: 0 auto;
-  }
-  #slides .slide._2.contatti .section._5 {
-    padding: 20px 10px;
-  }
-  .nav-link._1 {
-    padding: 20px 16px;
-    font-size: 14px;
-  }
-  .image-2 {
-    max-width: 20svh !important;
-  }
+  .home-contact-unified { padding: 24px 20px; width: 95%; }
+  #slides .slide._2.contatti .section._5 { padding: 16px 10px; }
+  .nav-link._1 { padding: 20px 16px; font-size: 14px; }
+  .image-2 { max-width: 20svh !important; }
+}
+@media screen and (max-width: 479px) {
+  .home-contact-unified { padding: 20px 16px; }
+  .home-contact-unified-label { font-size: 10px; }
+  .home-contact-unified .contact { font-size: 12.5px; }
 }
 </style>
 </head>
@@ -420,10 +479,10 @@
               <div class="text-block-6">Studio legale multidisciplinare che assiste privati e imprese in materia civile e penale: contratti, società, proprietà, lavoro, assicurazioni, bancario, successioni e recupero crediti; difesa e tutela in reati contro persona, patrimonio, PA, impresa, sicurezza, informatica e sanità.<br></div>
             </section>
             <div style="opacity:0;-webkit-transform:translate3d(-10vw, 0px, 0px) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(-10vw, 0px, 0px) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-ms-transform:translate3d(-10vw, 0px, 0px) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(-10vw, 0px, 0px) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);transform-style:preserve-3d" class="div-block-39">
-              <a href="civile.html" class="button-3 _2 w-inline-block">
+              <a href="aree.html#diritto-civile" class="button-3 _2 w-inline-block">
                 <div class="text-block-16">DIRITTO CIVILE<br></div>
               </a>
-              <a href="penale.html" class="button-3 _2 w-inline-block">
+              <a href="aree.html#diritto-penale" class="button-3 _2 w-inline-block">
                 <div class="text-block-16">DIRITTO PENALE</div>
               </a>
             </div>
@@ -494,27 +553,26 @@
               </div>
             </section>
             <section style="opacity:0;-webkit-transform:translate3d(-187px, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(-187px, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-ms-transform:translate3d(-187px, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(-187px, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)" class="section _5">
-              <div class="home-contact-grid">
-                <div class="home-contact-card">
-                  <div class="text-block-4">Telefono</div>
+              <div class="home-contact-unified">
+                <div class="home-contact-unified-row">
+                  <div class="home-contact-unified-label">Telefono</div>
                   <a href="tel:+390833864251" class="contact">Tel. 0833 864251</a>
                 </div>
-                <div class="home-contact-card">
-                  <div class="text-block-4">E-mail</div>
+                <div class="home-contact-unified-row">
+                  <div class="home-contact-unified-label">E-mail</div>
+                  <div class="sub-label">PEC</div>
                   <a href="mailto:studiolegalepinca@pec.it" class="contact">studiolegalepinca@pec.it</a>
+                  <div class="sub-label">Generale</div>
                   <a href="mailto:studiopinca@gmail.com" class="contact">studiopinca@gmail.com</a>
+                  <div class="sub-label">Mail personali</div>
                   <a href="mailto:maurizio.pinca@studiolegalepinca.it" class="contact">maurizio.pinca@studiolegalepinca.it</a>
                   <a href="mailto:alberto.pinca@studiolegalepinca.it" class="contact">alberto.pinca@studiolegalepinca.it</a>
                   <a href="mailto:nadia.altiero@studiolegalepinca.it" class="contact">nadia.altiero@studiolegalepinca.it</a>
                 </div>
-                <div class="home-contact-card">
-                  <div class="text-block-4">Indirizzo</div>
-                  <div class="contact"><strong>Galatone</strong></div>
-                  <div class="contact">Via Garibaldi, 42</div>
-                  <div class="contact">73044 Lecce</div>
-                  <div class="contact" style="margin-top:10px;"><strong>Lecce</strong></div>
-                  <div class="contact">Corte Conte Accardo, 2</div>
-                  <div class="contact">73100</div>
+                <div class="home-contact-unified-row">
+                  <div class="home-contact-unified-label">Indirizzo</div>
+                  <div class="contact"><strong>Galatone</strong> — Via Garibaldi, 42, 73044 Lecce</div>
+                  <div class="contact"><strong>Lecce</strong> — Corte Conte Accardo, 2, 73100</div>
                 </div>
               </div>
             </section>
