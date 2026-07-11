@@ -188,18 +188,19 @@
   z-index: 1;
 }
 .practice-icon {
-  width: 36px;
-  height: 36px;
-  display: block;
-  margin: 0 auto;
-  flex-shrink: 0;
-  opacity: .92;
+  width: 78px !important;
+  height: 78px !important;
+  object-fit: contain !important;
+  display: block !important;
+  margin: 0 auto 8px auto !important;
+  flex-shrink: 0 !important;
+  opacity: .98 !important;
 }
 @media screen and (max-width: 991px) {
-  .practice-icon { width: 28px; height: 28px; }
+  .practice-icon { width: 58px !important; height: 58px !important; }
 }
 @media screen and (max-width: 479px) {
-  .practice-icon { width: 24px; height: 24px; }
+  .practice-icon { width: 46px !important; height: 46px !important; }
 }
 .text-block-2 {
   font-size: 12px;
@@ -216,6 +217,24 @@
 .leggitutto:hover {
   background-color: rgba(201,150,105,.3);
   color: #fff;
+}
+/* Safe Slide 3 click/layout refinement: keep cards in place and make only buttons clickable. */
+#slides .slide._3 .section-3-wrapper.aree {
+  pointer-events: auto !important;
+}
+#slides .slide._3 .section-3-block {
+  overflow: visible !important;
+  pointer-events: auto !important;
+}
+#slides .slide._3 .section-3-block::before {
+  pointer-events: none !important;
+}
+#slides .slide._3 .leggitutto {
+  position: relative !important;
+  z-index: 9999 !important;
+  pointer-events: auto !important;
+  cursor: pointer !important;
+  text-decoration: none !important;
 }
 .header-menu-wrap {
   justify-content: flex-end;
@@ -422,6 +441,45 @@
   .home-contact-unified-label { font-size: 10px; }
   .home-contact-unified .contact { font-size: 12.5px; }
 }
+
+/* Slide 3 cards clickable: preserves layout, turns each red card into a link */
+#slides .slide._3 .section-3-block {
+  cursor: pointer !important;
+}
+#slides .slide._3 .section-3-block .leggitutto {
+  pointer-events: auto !important;
+}
+
+
+/* Definitive fix: Webflow ix-trigger/ix-reset must never cover Slide 3 clickable cards. */
+#slides .slide._3 > .ix-trigger,
+#slides .slide._3 > .ix-reset {
+  position: absolute !important;
+  width: 1px !important;
+  height: 1px !important;
+  min-width: 0 !important;
+  min-height: 0 !important;
+  left: -9999px !important;
+  top: -9999px !important;
+  right: auto !important;
+  bottom: auto !important;
+  opacity: 0 !important;
+  visibility: hidden !important;
+  overflow: hidden !important;
+  pointer-events: none !important;
+  z-index: -1 !important;
+}
+#slides .slide._3 .section-3-wrapper.aree,
+#slides .slide._3 .section-3-block,
+#slides .slide._3 .section-3-block * {
+  pointer-events: auto !important;
+}
+#slides .slide._3 .section-3-block {
+  cursor: pointer !important;
+}
+#slides .slide._3 .leggitutto {
+  cursor: pointer !important;
+}
 </style>
 </head>
 <body>
@@ -570,32 +628,32 @@
             </div>
             <section data-w-id="178eb010-927f-a1be-7dd6-6f1efcbb7f2a" style="-webkit-transform:translate3d(-111px, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(-111px, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-ms-transform:translate3d(-111px, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(-111px, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);opacity:0" class="section-3-wrapper aree">
               <div class="section-3-block a _1">
-                <svg class="practice-icon" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M20 6c-2.8 0-5 2.2-5 5s2.2 5 5 5 5-2.2 5-5-2.2-5-5-5zm-8 18c0-4.4 3.6-8 8-8s8 3.6 8 8v2H12v-2zm-4 4h24v2H8v-2z" fill="white"/></svg>
+                <img class="practice-icon" src="images/dfamiglia.png" alt="Diritto di famiglia" loading="lazy" onerror="if(!this.dataset.fallback){this.dataset.fallback='jpg';this.src='images/dfamiglia.jpg';}else if(this.dataset.fallback==='jpg'){this.dataset.fallback='jpeg';this.src='images/dfamiglia.jpeg';}else if(this.dataset.fallback==='jpeg'){this.dataset.fallback='webp';this.src='images/dfamiglia.webp';}else if(this.dataset.fallback==='webp'){this.dataset.fallback='svg';this.src='images/dfamiglia.svg';}else{this.style.display='none';}" >
                 <div class="text-block-2">DIRITTO DI FAMIGLIA</div>
                 <a href="aree.html" class="leggitutto">LEGGI TUTTO</a>
               </div>
               <div class="section-3-block b">
-                <svg class="practice-icon" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M20 4l-2 4H8l2 4-6 10h10l2 4h8l2-4h10L30 12l2-4H22l-2-4zm0 6l1.5 3H27l-4 7h-6l-4-7h5.5L20 10zm-8 16h4v2h-4v-2zm12 0h4v2h-4v-2z" fill="white"/></svg>
+                <img class="practice-icon" src="images/rcivile.png" alt="Responsabilità civile" loading="lazy" onerror="if(!this.dataset.fallback){this.dataset.fallback='jpg';this.src='images/rcivile.jpg';}else if(this.dataset.fallback==='jpg'){this.dataset.fallback='jpeg';this.src='images/rcivile.jpeg';}else if(this.dataset.fallback==='jpeg'){this.dataset.fallback='webp';this.src='images/rcivile.webp';}else if(this.dataset.fallback==='webp'){this.dataset.fallback='svg';this.src='images/rcivile.svg';}else{this.style.display='none';}" >
                 <div class="text-block-2">RESPONSABILITÀ CIVILE</div>
                 <a href="aree.html" class="leggitutto">LEGGI TUTTO</a>
               </div>
               <div class="section-3-block a">
-                <svg class="practice-icon" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><rect x="6" y="14" width="28" height="20" rx="2" stroke="white" stroke-width="2.2" fill="none"/><path d="M14 14v-3a6 6 0 0112 0v3" stroke="white" stroke-width="2.2" fill="none"/><rect x="15" y="21" width="10" height="6" rx="1" fill="white"/></svg>
+                <img class="practice-icon" src="images/dsocietario.png" alt="Diritto societario" loading="lazy" onerror="if(!this.dataset.fallback){this.dataset.fallback='jpg';this.src='images/dsocietario.jpg';}else if(this.dataset.fallback==='jpg'){this.dataset.fallback='jpeg';this.src='images/dsocietario.jpeg';}else if(this.dataset.fallback==='jpeg'){this.dataset.fallback='webp';this.src='images/dsocietario.webp';}else if(this.dataset.fallback==='webp'){this.dataset.fallback='svg';this.src='images/dsocietario.svg';}else{this.style.display='none';}" >
                 <div class="text-block-2">DIRITTO SOCIETARIO</div>
                 <a href="aree.html" class="leggitutto">LEGGI TUTTO</a>
               </div>
               <div class="section-3-block b">
-                <svg class="practice-icon" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><circle cx="20" cy="13" r="6" stroke="white" stroke-width="2.2" fill="none"/><path d="M8 34c0-6.6 5.4-12 12-12s12 5.4 12 12" stroke="white" stroke-width="2.2" fill="none" stroke-linecap="round"/><path d="M14 28l2 4 4-6 4 6 2-4" stroke="white" stroke-width="1.8" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                <img class="practice-icon" src="images/rcontrolapersona.png" alt="Reati contro la persona" loading="lazy" onerror="if(!this.dataset.fallback){this.dataset.fallback='jpg';this.src='images/rcontrolapersona.jpg';}else if(this.dataset.fallback==='jpg'){this.dataset.fallback='jpeg';this.src='images/rcontrolapersona.jpeg';}else if(this.dataset.fallback==='jpeg'){this.dataset.fallback='webp';this.src='images/rcontrolapersona.webp';}else if(this.dataset.fallback==='webp'){this.dataset.fallback='svg';this.src='images/rcontrolapersona.svg';}else{this.style.display='none';}" >
                 <div class="text-block-2">REATI CONTRO LA PERSONA</div>
                 <a href="aree.html" class="leggitutto">LEGGI TUTTO</a>
               </div>
               <div class="section-3-block a">
-                <svg class="practice-icon" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M8 30V16l12-8 12 8v14H8z" stroke="white" stroke-width="2.2" fill="none" stroke-linejoin="round"/><rect x="15" y="21" width="10" height="9" rx="1" fill="white"/></svg>
+                <img class="practice-icon" src="images/rcontroilpatrimonio.png" alt="Reati contro il patrimonio" loading="lazy" onerror="if(!this.dataset.fallback){this.dataset.fallback='jpg';this.src='images/rcontroilpatrimonio.jpg';}else if(this.dataset.fallback==='jpg'){this.dataset.fallback='jpeg';this.src='images/rcontroilpatrimonio.jpeg';}else if(this.dataset.fallback==='jpeg'){this.dataset.fallback='webp';this.src='images/rcontroilpatrimonio.webp';}else if(this.dataset.fallback==='webp'){this.dataset.fallback='svg';this.src='images/rcontroilpatrimonio.svg';}else{this.style.display='none';}" >
                 <div class="text-block-2">REATI CONTRO IL PATRIMONIO</div>
                 <a href="aree.html" class="leggitutto">LEGGI TUTTO</a>
               </div>
               <div class="section-3-block b _1">
-                <svg class="practice-icon" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><rect x="6" y="18" width="28" height="16" rx="1" stroke="white" stroke-width="2.2" fill="none"/><path d="M6 22h28" stroke="white" stroke-width="2.2"/><path d="M10 18V14a10 10 0 0120 0v4" stroke="white" stroke-width="2.2" fill="none"/><circle cx="20" cy="28" r="2.5" fill="white"/></svg>
+                <img class="practice-icon" src="images/rcontrolapa.png" alt="Reati contro la P.A." loading="lazy" onerror="if(!this.dataset.fallback){this.dataset.fallback='jpg';this.src='images/rcontrolapa.jpg';}else if(this.dataset.fallback==='jpg'){this.dataset.fallback='jpeg';this.src='images/rcontrolapa.jpeg';}else if(this.dataset.fallback==='jpeg'){this.dataset.fallback='webp';this.src='images/rcontrolapa.webp';}else if(this.dataset.fallback==='webp'){this.dataset.fallback='svg';this.src='images/rcontrolapa.svg';}else{this.style.display='none';}" >
                 <div class="text-block-2">REATI CONTRO LA P.A.</div>
                 <a href="aree.html" class="leggitutto">LEGGI TUTTO</a>
               </div>
@@ -787,6 +845,22 @@ document.addEventListener('DOMContentLoaded', function () {
     }
   });
 });
+
+// Slide 3: make every red practice-area card navigate to aree.html without changing layout.
+(function() {
+  function goToAree(e) {
+    var card = e.target.closest && e.target.closest('#slides .slide._3 .section-3-block');
+    if (!card) return;
+    e.preventDefault();
+    e.stopPropagation();
+    if (e.stopImmediatePropagation) e.stopImmediatePropagation();
+    window.location.href = 'aree.html';
+  }
+  ['click', 'touchend'].forEach(function(type) {
+    document.addEventListener(type, goToAree, true);
+  });
+})();
+
 // Navbar banner visibility from slide 2+
 (function() {
   var navbar = document.querySelector('.navbar');
@@ -802,5 +876,21 @@ document.addEventListener('DOMContentLoaded', function () {
   });
 })();
 </script>
+
+  <script>
+  // Safe navigation for Slide 3 “LEGGI TUTTO” buttons only.
+  // This stops Webflow slide interactions from intercepting the link click.
+  document.addEventListener('DOMContentLoaded', function () {
+    document.querySelectorAll('#slides .slide._3 a.leggitutto').forEach(function (link) {
+      link.setAttribute('href', 'aree.html');
+      link.addEventListener('click', function (e) {
+        e.preventDefault();
+        e.stopPropagation();
+        if (typeof e.stopImmediatePropagation === 'function') e.stopImmediatePropagation();
+        window.location.href = 'aree.html';
+      }, true);
+    });
+  });
+  </script>
 </body>
 </html>
