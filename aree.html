@@ -23,7 +23,7 @@
     }
     .aree-hero {
       background-color: #323336;
-      background-image: linear-gradient(rgba(50,51,54,.7), rgba(50,51,54,.9)), url('images/IMG_2192.jpg');
+      background-image: linear-gradient(rgba(50,51,54,.7), rgba(50,51,54,.9)), url('images/IMG_2192-p-1080.jpg');
       background-position: 50%;
       background-size: cover;
       padding: 160px 30px 100px;
@@ -179,6 +179,62 @@
       .aree-index-links { gap: 16px; }
       .aree-index-link { padding: 10px 20px; font-size: 14px; }
     }
+    /* Cover photo section */
+    .aree-cover-section {
+      background-color: #f5f3f0;
+      padding: 50px 30px 0;
+    }
+    .aree-cover-photo {
+      width: 100%;
+      max-width: 1100px;
+      margin: 0 auto;
+      display: block;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 8px 32px rgba(0,0,0,.15);
+    }
+    .aree-cover-photo img {
+      width: 100%;
+      height: 420px;
+      object-fit: cover;
+      display: block;
+    }
+    @media screen and (max-width: 991px) {
+      .aree-cover-photo img { height: 280px; }
+    }
+    @media screen and (max-width: 479px) {
+      .aree-cover-section { padding: 30px 16px 0; }
+      .aree-cover-photo img { height: 200px; }
+      .aree-cover-photo { border-radius: 8px; }
+    }
+    /* Hero padding for mobile/tablet */
+    :root {
+      --header-height-desktop: 112px;
+      --header-height-tablet: 100px;
+      --header-height-mobile: 82px;
+    }
+    @media screen and (max-width: 991px) {
+      .aree-hero {
+        padding-top: calc(var(--header-height-tablet, 100px) + 30px) !important;
+      }
+    }
+    @media screen and (max-width: 479px) {
+      .aree-hero {
+        padding-top: calc(var(--header-height-mobile, 82px) + 20px) !important;
+      }
+    }
+    /* Calendly badge responsive */
+    .calendly-badge-widget { z-index: 100000 !important; }
+    @media screen and (max-width: 991px) {
+      .calendly-badge-widget {
+        display: block !important;
+        visibility: visible !important;
+        opacity: 1 !important;
+        right: 14px !important;
+        bottom: 14px !important;
+        z-index: 100000 !important;
+      }
+    }
   </style>
 <style id="pinca-footer-css">
   .pinca-footer {
@@ -284,6 +340,12 @@
     <h1 class="aree-hero-title">Practice Areas</h1>
     <div class="aree-hero-divider"></div>
     <p class="aree-hero-sub">Le aree di attività dello Studio Legale Pinca</p>
+  </section>
+
+  <section class="aree-cover-section">
+    <div class="aree-cover-photo">
+      <img src="images/duedue.jpg" alt="Studio Legale Pinca - Practice Areas" loading="lazy">
+    </div>
   </section>
 
   <section class="aree-index">
@@ -735,7 +797,7 @@
           <a href="tel:+390833864251" class="pinca-footer-link">Tel. 0833 864251</a>
           <a href="mailto:studiolegalepinca@pec.it" class="pinca-footer-link">studiolegalepinca@pec.it</a>
           <div class="pinca-footer-text">Galatone — Via Garibaldi, 42</div>
-          <div class="pinca-footer-text">Lecce — Corte Conte Accardo, 2</div>
+          <div class="pinca-footer-text">Lecce — Via Premuda, 8</div>
         </div>
       </div>
     </div>
@@ -769,10 +831,6 @@
       }
     }
   </script>
-  <style>
-    @media screen and (max-width: 767px) {
-      .calendly-badge-widget { display: none !important; }
-    }
   </style>
 </body>
 </html>
