@@ -252,6 +252,14 @@
       .header-menu-wrap { display: none !important; }
       .hamburger-trigger { display: flex; }
     }
+    /* Keep PRACTICE AREAS fully below the fixed header on phone/tablet. */
+    @media screen and (min-width: 480px) and (max-width: 991px) {
+      .aree-hero { padding-top: 165px !important; }
+    }
+    @media screen and (max-width: 479px) {
+      .aree-hero { padding-top: 142px !important; }
+    }
+
   </style>
 <style id="pinca-footer-css">
   .pinca-footer {
@@ -346,7 +354,7 @@
   </button>
   <div class="hamburger-dropdown" id="hamburgerDropdown">
     <a href="chi-siamo.html">Chi Siamo</a>
-    <a href="aree.html">Aree di Attivit\u00e0</a>
+    <a href="aree.html">Aree di Attività</a>
     <a href="contatti-2.html">Contatti</a>
     <a href="prenota.html">Prenota</a>
   </div>

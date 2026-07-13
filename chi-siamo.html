@@ -411,6 +411,31 @@
     .pinca-footer-links { flex-direction: column; gap: 24px; }
   }
 </style>
+
+<style id="pinca-history-title-fix-v3">
+@media screen and (max-width:991px) {
+  .pinca-timeline-section {
+    padding-top: 220px !important;
+    margin-top: 0 !important;
+  }
+  .pinca-timeline-header {
+    position: relative !important;
+    z-index: 2 !important;
+    margin-top: 0 !important;
+    padding-top: 0 !important;
+  }
+  .pinca-timeline-title {
+    display:block !important;
+    visibility:visible !important;
+    opacity:1 !important;
+    margin-top:0 !important;
+  }
+}
+@media screen and (max-width:479px) {
+  .pinca-timeline-section { padding-top: 205px !important; }
+}
+</style>
+
 </head>
 <body class="body">
   <div data-animation="default" data-collapse="medium" data-duration="400" data-easing="ease" data-easing2="ease" role="banner" class="navbar w-nav nav-banner-visible">

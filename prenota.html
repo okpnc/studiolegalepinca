@@ -265,6 +265,23 @@
     .pinca-footer-inner { flex-direction: column; gap: 28px; }
     .pinca-footer-links { flex-direction: column; gap: 24px; }
   }
+
+
+    /* Final iPad header clearance: keep the complete title below the fixed banner. */
+    @media screen and (min-width:480px) and (max-width:991px) {
+      .prenota-hero {
+        padding-top: 165px !important;
+        padding-bottom: 62px !important;
+        min-height: 0 !important;
+        box-sizing: border-box !important;
+      }
+      .prenota-hero-title {
+        position: relative !important;
+        z-index: 2 !important;
+        margin-top: 0 !important;
+        line-height: 1.16 !important;
+      }
+    }
 </style>
 </head>
 <body>
@@ -275,7 +292,7 @@
   </button>
   <div class="hamburger-dropdown" id="hamburgerDropdown">
     <a href="chi-siamo.html">Chi Siamo</a>
-    <a href="aree.html">Aree di Attivit\u00e0</a>
+    <a href="aree.html">Aree di Attività</a>
     <a href="contatti-2.html">Contatti</a>
     <a href="prenota.html">Prenota</a>
   </div>
