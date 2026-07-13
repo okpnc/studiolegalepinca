@@ -70,7 +70,7 @@
 }
 .div-block-7 {
   background-color: #c99669;
-  box-shadow: 0 0 14px rgba(201,150,105,.55), 0 1px 3px rgba(0,0,0,.2);
+  box-shadow: 0 0 12px rgba(201,150,105,.5);
 }
 .heading {
   text-shadow: 0 2px 16px rgba(0,0,0,.45);
@@ -86,7 +86,7 @@
 }
 .section-3-block.a:hover, .section-3-block.b:hover {
   transform: translateY(-6px);
-  box-shadow: 0 14px 36px rgba(0,0,0,.45), 0 0 0 1px rgba(201,150,105,.3);
+  box-shadow: 0 12px 30px rgba(0,0,0,.4);
 }
 .leggitutto {
   transition: color .25s ease;
@@ -262,24 +262,23 @@
   transition: background-color .5s ease, box-shadow .5s ease, padding .5s ease;
 }
 .navbar.nav-banner-visible {
-  background-color: rgba(50, 51, 54, 0.88);
-  backdrop-filter: blur(14px);
-  -webkit-backdrop-filter: blur(14px);
-  box-shadow: 0 2px 28px rgba(0,0,0,.22);
+  background-color: rgba(50, 51, 54, 0.82);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  box-shadow: 0 2px 24px rgba(0,0,0,.18);
 }
 .navbar.nav-banner-visible .nav-link._1 {
   text-shadow: 0 1px 4px rgba(0,0,0,.3);
 }
 .home-contact-card {
   background-color: rgba(50, 51, 54, 0.88);
-  border: 1px solid rgba(201, 150, 105, 0.28);
+  border: 1px solid rgba(201, 150, 105, 0.25);
   border-radius: 10px;
   padding: 24px 30px;
   margin-bottom: 16px;
   backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(8px);
-  transition: border-color .3s ease, transform .3s ease, box-shadow .3s ease;
-  box-shadow: 0 4px 18px rgba(0,0,0,.15);
+  transition: border-color .3s ease, transform .3s ease;
 }
 .home-contact-card:hover {
   border-color: rgba(201, 150, 105, 0.5);
@@ -306,14 +305,13 @@
 }
 .home-contact-unified {
   background-color: rgba(50, 51, 54, 0.92);
-  border: 1px solid rgba(201, 150, 105, 0.35);
+  border: 1px solid rgba(201, 150, 105, 0.3);
   border-radius: 12px;
   padding: 32px 40px;
   width: 100%;
   max-width: 560px;
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
-  box-shadow: 0 8px 32px rgba(0,0,0,.25);
 }
 .home-contact-unified-row {
   padding: 18px 0;
@@ -782,9 +780,8 @@ body[data-active-slide="4"] .menu-link.menu2 {
   pointer-events: none !important;
 }
 
-/* ===== PINCA CONSOLIDATED RESPONSIVE ===== */
-
-/* Hamburger: only on tablet/phone, only on slides 2-4 of index */
+/* ===== PINCA RESPONSIVE STABILIZATION V2 ===== */
+/* Hamburger exists only on phone/tablet, never on Mac/desktop. */
 @media screen and (min-width: 992px) {
   .hamburger-trigger { display: none !important; }
 }
@@ -794,337 +791,999 @@ body[data-active-slide="4"] .menu-link.menu2 {
   body[data-active-slide="4"] .hamburger-trigger { display: flex !important; }
 }
 
-/* Practice Areas icons */
+/* Slide 1 MENU: align higher on iPad. */
+@media screen and (min-width: 480px) and (max-width: 991px) {
+  body[data-active-slide="1"] .menu-link.menu2 {
+    top: 8px !important;
+    right: 18px !important;
+  }
+}
+
+/* Calendly on iPhone: centered and safely above the red counter. */
+@media screen and (max-width: 479px) {
+  body[data-active-slide="1"] .calendly-badge-widget {
+    left: 50% !important;
+    right: auto !important;
+    bottom: 92px !important;
+    transform: translateX(-50%) !important;
+    width: max-content !important;
+    max-width: calc(100vw - 28px) !important;
+  }
+}
+
+/* Uploaded Practice Areas icons: do not substitute generated inline icons. */
 #slides .slide._3 .practice-icon {
   width: 67px !important;
   height: 67px !important;
   object-fit: contain !important;
   display: block !important;
   margin: 0 auto 8px !important;
-  opacity: .95 !important;
 }
 @media screen and (min-width: 480px) and (max-width: 991px) {
-  #slides .slide._3 .practice-icon { width: 52px !important; height: 52px !important; }
-}
-@media screen and (max-width: 479px) {
-  #slides .slide._3 .practice-icon { width: 42px !important; height: 42px !important; }
+  #slides .slide._3 .practice-icon { width: 58px !important; height: 58px !important; }
 }
 
-/* --- iPad (480-991px): clean, proportional layout --- */
+/* Slide 2 iPad: clean, balanced composition with visible CTA. */
 @media screen and (min-width: 480px) and (max-width: 991px) {
-  /* Slide 1: MENU button slightly higher */
+  #slidenum2 .container-pagina {
+    padding: 118px 112px 58px 42px !important;
+    display: grid !important;
+    grid-template-columns: 1fr !important;
+    grid-template-rows: auto auto auto !important;
+    align-content: center !important;
+    justify-items: center !important;
+    gap: 22px !important;
+    text-align: center !important;
+  }
+  #slidenum2 .div-block-40 { display: none !important; }
+  #slidenum2 .section._1._2 {
+    display: block !important;
+    width: min(68vw, 590px) !important;
+    margin: 0 auto !important;
+    opacity: 1 !important;
+    transform: none !important;
+  }
+  #slidenum2 .section._1._2 .heading-2 {
+    margin: 0 !important;
+    font-size: clamp(38px, 6vw, 58px) !important;
+    line-height: 1.05 !important;
+  }
+  #slidenum2 .section._1._2 .text-block-6 {
+    max-width: 590px !important;
+    margin: 18px auto 0 !important;
+    font-size: 15px !important;
+    line-height: 1.65 !important;
+  }
+  #slidenum2 .button-3.mobile.chi-siamo.prova {
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    position: relative !important;
+    opacity: 1 !important;
+    transform: none !important;
+    margin: 0 auto !important;
+    z-index: 20 !important;
+    pointer-events: auto !important;
+  }
+  #slidenum2 .section-2 {
+    width: min(72vw, 620px) !important;
+    margin: 2px auto 0 !important;
+    display: flex !important;
+    justify-content: center !important;
+    gap: 16px !important;
+    opacity: 1 !important;
+    transform: none !important;
+  }
+  #slidenum2 .section-2-block { flex: 1 1 0 !important; min-width: 0 !important; }
+}
+
+/* Slide 4 phone: wider card, compact height, full-width composition and visible CTA. */
+@media screen and (max-width: 479px) {
+  #slidenum4 .container-pagina {
+    padding: 92px 10px 70px !important;
+    gap: 10px !important;
+  }
+  #slidenum4 .section._4._7 { width: calc(100vw - 28px) !important; align-self: center !important; }
+  #slidenum4 .section._5 {
+    width: calc(100vw - 20px) !important;
+    max-width: none !important;
+    margin: 0 auto !important;
+  }
+  #slidenum4 .home-contact-unified {
+    width: 100% !important;
+    max-width: none !important;
+    padding: 14px 16px !important;
+    border-radius: 10px !important;
+  }
+  #slidenum4 .home-contact-unified-row { padding: 10px 0 !important; }
+  #slidenum4 .button-3.mobile.chi-siamo {
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    margin: 2px auto 0 !important;
+    opacity: 1 !important;
+    transform: none !important;
+    z-index: 20 !important;
+    pointer-events: auto !important;
+  }
+}
+
+</style>
+
+<style id="pinca-final-responsive-v3">
+/* Standalone hamburger menu for index slides 2-4. */
+.hamburger-panel {
+  display: none;
+  position: fixed;
+  top: 68px;
+  right: 18px;
+  z-index: 100002;
+  min-width: 210px;
+  padding: 8px 0;
+  border: 1px solid rgba(201,150,105,.48);
+  border-radius: 10px;
+  background: rgba(35,35,37,.98);
+  box-shadow: 0 12px 34px rgba(0,0,0,.35);
+}
+.hamburger-panel.open { display: block; }
+.hamburger-panel a {
+  display: block;
+  padding: 13px 20px;
+  color: #fff;
+  text-decoration: none;
+  font-size: 14px;
+  line-height: 1.2;
+}
+.hamburger-panel a:hover,
+.hamburger-panel a:focus { background: rgba(201,150,105,.16); color: #c99669; }
+@media screen and (min-width: 992px) { .hamburger-panel { display:none !important; } }
+
+/* Slide 1 iPad MENU: visually centered inside its border and closer to the top. */
+@media screen and (min-width:480px) and (max-width:991px) {
   body[data-active-slide="1"] .menu-link.menu2 {
     top: 10px !important;
     right: 18px !important;
   }
-
-  /* Slide 2: centered title + text + CTA, stats row, counter at right */
-  #slidenum2 .container-pagina._2._9 {
-    position: relative !important;
+  body[data-active-slide="1"] .menu-link.menu2 .dropdown-toggle-10 {
+    min-width: 136px !important;
+    height: 46px !important;
+    padding: 0 20px !important;
     display: flex !important;
-    flex-direction: column !important;
     align-items: center !important;
     justify-content: center !important;
-    padding: 110px 130px 60px 40px !important;
-    gap: 20px !important;
-    text-align: center !important;
-    box-sizing: border-box !important;
-    overflow: hidden !important;
-  }
-  #slidenum2 .div-block-40 { display: none !important; }
-  #slidenum2 .section._1._2._4.desktop { display: none !important; }
-  #slidenum2 .section._1._2 {
-    position: relative !important;
-    top: auto !important; left: auto !important; right: auto !important;
-    width: min(72vw, 580px) !important;
-    height: auto !important; min-height: 0 !important;
-    margin: 0 auto !important; padding: 0 !important;
-    background: transparent !important;
-    display: block !important;
-    opacity: 1 !important; transform: none !important;
-    text-align: center !important;
-  }
-  #slidenum2 .section._1._2 .heading-2 {
-    margin: 0 0 14px !important;
-    font-size: clamp(36px, 5.5vw, 50px) !important;
-    line-height: 1.05 !important;
-    text-align: center !important;
-  }
-  #slidenum2 .section._1._2 .div-block-7 {
-    margin: 0 auto 18px !important;
-  }
-  #slidenum2 .section._1._2 .text-block-6 {
-    max-width: 540px !important;
-    margin: 0 auto !important;
-    font-size: 15px !important;
-    line-height: 1.6 !important;
-    text-align: center !important;
-  }
-  #slidenum2 .button-3.mobile.chi-siamo.prova {
-    display: inline-flex !important;
-    align-items: center !important;
-    justify-content: center !important;
-    position: relative !important;
-    top: auto !important; left: auto !important; right: auto !important; bottom: auto !important;
-    width: auto !important; min-width: 180px !important; height: 48px !important;
-    margin: 4px auto 0 !important; padding: 0 28px !important;
-    background: #303136 !important;
-    border-radius: 3px !important;
-    opacity: 1 !important; transform: none !important;
-    z-index: 20 !important;
-    pointer-events: auto !important;
-  }
-  #slidenum2 .button-3.mobile.chi-siamo.prova .text-block-16 {
-    font-size: 14px !important; line-height: 1 !important; color: #fff !important;
-  }
-  #slidenum2 .section-2 {
-    position: relative !important;
-    top: auto !important; left: auto !important; right: auto !important; bottom: auto !important;
-    width: min(80vw, 640px) !important; height: auto !important;
-    margin: 6px auto 0 !important; padding: 0 !important;
-    display: flex !important;
-    justify-content: center !important; gap: 24px !important;
-    opacity: 1 !important; transform: none !important;
-  }
-  #slidenum2 .section-2-block {
-    flex: 1 1 0 !important; min-width: 0 !important;
-    display: flex !important; flex-direction: column !important;
-    align-items: center !important; justify-content: center !important;
-  }
-  #slidenum2 .section-2-block .heading {
-    font-size: clamp(32px, 5vw, 42px) !important;
-    line-height: 1 !important; margin: 0 0 8px !important;
-  }
-  #slidenum2 .section-2-block-text {
-    font-size: 12px !important; line-height: 1.35 !important; text-align: center !important;
-  }
-  #slidenum2 .contatore2.contatore {
-    position: absolute !important;
-    right: 0 !important; left: auto !important;
-    top: 50% !important; bottom: 0 !important;
-    width: 128px !important; height: 50% !important;
-    background: rgba(189,31,42,.85) !important;
-    opacity: 1 !important; transform: none !important;
-    z-index: 30 !important;
-  }
-
-  /* Slide 3: lower the title/text block slightly */
-  #slidenum3 .section._1._2._3 {
-    margin-top: 35px !important;
-  }
-  #slidenum3 .section-3-block { padding-left: 6px !important; padding-right: 6px !important; }
-  #slidenum3 .section-3-block .text-block-2 {
-    font-size: 9px !important; line-height: 1.2 !important;
-    min-height: 23px !important;
-    display: flex !important; align-items: center !important;
-    justify-content: center !important; text-align: center !important;
-    overflow-wrap: anywhere !important;
-  }
-  #slidenum3 .label-full { display: none !important; }
-  #slidenum3 .label-tablet { display: inline !important; }
-
-  /* Slide 4: centered title + contact box + CTA, counter at right */
-  #slidenum4 .container-pagina {
-    position: relative !important;
-    display: flex !important;
-    flex-direction: column !important;
-    align-items: center !important;
-    justify-content: center !important;
-    padding: 110px 130px 60px 40px !important;
-    gap: 18px !important;
     box-sizing: border-box !important;
   }
-  #slidenum4 .section._4._7 {
-    position: relative !important;
-    top: auto !important; left: auto !important; right: auto !important;
-    width: 100% !important; margin: 0 !important;
+  body[data-active-slide="1"] .menu-link.menu2 .text-block-11 {
+    margin: 0 !important;
+    padding: 0 !important;
+    line-height: 1 !important;
     text-align: center !important;
-  }
-  #slidenum4 .section._4._7 .heading-2 {
-    text-align: center !important;
-  }
-  #slidenum4 .section._4._7 .div-block-7 {
-    margin: 0 auto 12px !important;
-  }
-  #slidenum4 .section._5 {
-    position: relative !important;
-    top: auto !important; left: auto !important; right: auto !important;
-    width: min(72vw, 560px) !important; max-width: 560px !important;
-    margin: 0 auto !important; padding: 0 !important;
     transform: none !important;
-    z-index: 20 !important;
-  }
-  #slidenum4 .home-contact-unified {
-    width: 100% !important; max-width: 100% !important;
-    box-sizing: border-box !important;
-  }
-  #slidenum4 .button-3.mobile.chi-siamo {
-    display: inline-flex !important;
-    align-items: center !important;
-    justify-content: center !important;
-    position: relative !important;
-    width: auto !important; min-width: 160px !important; height: 46px !important;
-    margin: 4px auto 0 !important; padding: 0 24px !important;
-    opacity: 1 !important; transform: none !important;
-    z-index: 25 !important;
-    pointer-events: auto !important;
-  }
-  #slidenum4 .contatore2.contatore {
-    position: absolute !important;
-    right: 0 !important; left: auto !important;
-    top: 50% !important; bottom: 0 !important;
-    width: 128px !important; height: 50% !important;
-    background: rgba(189,31,42,.85) !important;
-    opacity: 1 !important; transform: none !important;
-    z-index: 30 !important;
   }
 }
 
-/* --- iPhone (max 479px): compact, readable, no overlaps --- */
-@media screen and (max-width: 479px) {
-  /* Slide 1: MENU button */
-  body[data-active-slide="1"] .menu-link.menu2 {
-    top: 10px !important; right: 14px !important;
-  }
-
-  /* Calendly badge: centered, above red counter */
-  body[data-active-slide="1"] .calendly-badge-widget {
-    left: 50% !important; right: auto !important;
-    bottom: 92px !important;
-    transform: translateX(-50%) !important;
-    width: max-content !important;
-    max-width: calc(100vw - 28px) !important;
-  }
-
-  /* Slide 2: stacked layout */
+/* Slide 2 iPad: one clean content panel, CTA visible, counter kept free. */
+@media screen and (min-width:480px) and (max-width:991px) {
   #slidenum2 .container-pagina._2._9 {
+    display: block !important;
     position: relative !important;
+    padding: 0 128px 0 0 !important;
+    text-align: left !important;
+  }
+  #slidenum2 .container-pagina._2._9 > div:not(.div-block-40) {
+    position: static !important;
+  }
+  #slidenum2 .div-block-40 { display:none !important; }
+  #slidenum2 .section._1._2 {
+    position: absolute !important;
+    left: 34px !important;
+    top: 18% !important;
+    width: min(58vw, 455px) !important;
+    min-height: 390px !important;
+    box-sizing: border-box !important;
+    padding: 34px 30px 118px !important;
+    margin: 0 !important;
     display: flex !important;
     flex-direction: column !important;
-    align-items: center !important;
-    justify-content: center !important;
-    padding: 100px 20px 70px !important;
-    gap: 16px !important;
-    text-align: center !important;
-    box-sizing: border-box !important;
-  }
-  #slidenum2 .div-block-40 { display: none !important; }
-  #slidenum2 .section._1._2._4.desktop { display: none !important; }
-  #slidenum2 .section._1._2 {
-    position: relative !important;
-    top: auto !important; left: auto !important; right: auto !important;
-    width: 100% !important; margin: 0 !important; padding: 0 !important;
-    background: transparent !important;
-    opacity: 1 !important; transform: none !important;
-    text-align: center !important;
+    justify-content: flex-start !important;
+    align-items: flex-start !important;
+    background: rgba(189,31,42,.78) !important;
+    opacity: 1 !important;
+    transform: none !important;
+    overflow: visible !important;
+    z-index: 8 !important;
   }
   #slidenum2 .section._1._2 .heading-2 {
-    margin: 0 0 12px !important;
-    font-size: 34px !important; line-height: 1.05 !important;
-    text-align: center !important;
+    display:block !important;
+    margin:0 0 18px !important;
+    font-size: clamp(34px, 5.6vw, 52px) !important;
+    line-height: 1.02 !important;
+    text-align:left !important;
   }
-  #slidenum2 .section._1._2 .div-block-7 { margin: 0 auto 16px !important; }
+  #slidenum2 .section._1._2 .div-block-7 { margin:0 0 24px !important; }
   #slidenum2 .section._1._2 .text-block-6 {
-    font-size: 14px !important; line-height: 1.55 !important;
-    text-align: center !important;
+    font-size: 16px !important;
+    line-height: 1.55 !important;
+    text-align:left !important;
+    max-width: 100% !important;
   }
   #slidenum2 .button-3.mobile.chi-siamo.prova {
-    display: inline-flex !important;
-    align-items: center !important; justify-content: center !important;
-    position: relative !important;
-    top: auto !important; left: auto !important; right: auto !important; bottom: auto !important;
-    width: auto !important; min-width: 160px !important; height: 44px !important;
-    margin: 4px auto 0 !important; padding: 0 24px !important;
-    background: #303136 !important; border-radius: 3px !important;
-    opacity: 1 !important; transform: none !important;
-    z-index: 20 !important; pointer-events: auto !important;
+    display:inline-flex !important;
+    position:absolute !important;
+    left:64px !important;
+    top: calc(18% + 300px) !important;
+    width:auto !important;
+    min-width: 170px !important;
+    height:44px !important;
+    margin:0 !important;
+    opacity:1 !important;
+    transform:none !important;
+    z-index:40 !important;
+    pointer-events:auto !important;
+    align-items:center !important;
+    justify-content:center !important;
   }
-  #slidenum2 .button-3.mobile.chi-siamo.prova .text-block-16 {
-    font-size: 13px !important; line-height: 1 !important; color: #fff !important;
-  }
-  #slidenum2 .section-2 {
-    position: relative !important;
-    top: auto !important; left: auto !important; right: auto !important; bottom: auto !important;
-    width: 100% !important; height: auto !important;
-    margin: 4px auto 0 !important; padding: 0 !important;
-    display: flex !important; justify-content: center !important; gap: 16px !important;
-    opacity: 1 !important; transform: none !important;
-  }
-  #slidenum2 .section-2-block {
-    flex: 1 1 0 !important; min-width: 0 !important;
-    display: flex !important; flex-direction: column !important;
-    align-items: center !important; justify-content: center !important;
-  }
-  #slidenum2 .section-2-block .heading {
-    font-size: 28px !important; line-height: 1 !important; margin: 0 0 6px !important;
-  }
-  #slidenum2 .section-2-block-text {
-    font-size: 10px !important; line-height: 1.3 !important; text-align: center !important;
-  }
+  #slidenum2 .button-3.mobile.chi-siamo.prova .text-block-16 { line-height:1 !important; }
+  #slidenum2 .section._1._2._4.desktop,
+  #slidenum2 .section-2 { display:none !important; }
   #slidenum2 .contatore2.contatore {
-    position: absolute !important;
-    right: 0 !important; left: auto !important;
-    bottom: 0 !important; top: auto !important;
-    width: 90px !important; height: 80px !important;
-    background: rgba(189,31,42,.88) !important;
-    opacity: 1 !important; transform: none !important;
-    z-index: 30 !important;
+    right:0 !important;
+    top:auto !important;
+    bottom:0 !important;
+    height:50% !important;
   }
+}
 
-  /* Slide 4: compact contact panel */
+/* Slide 4 phone: wider and less tall contact card. */
+@media screen and (max-width:479px) {
   #slidenum4 .container-pagina {
-    position: relative !important;
-    display: flex !important;
-    flex-direction: column !important;
-    align-items: center !important;
-    justify-content: flex-start !important;
-    padding: 100px 14px 100px !important;
-    gap: 12px !important;
-    box-sizing: border-box !important;
+    padding: 96px 0 92px !important;
+    justify-content:flex-start !important;
   }
-  #slidenum4 .section._4._7 {
-    position: relative !important;
-    top: auto !important; left: auto !important; right: auto !important;
-    width: 100% !important; margin: 0 !important;
-    text-align: center !important;
-  }
+  #slidenum4 .section._4._7 { margin: 0 18px 12px !important; align-self:stretch !important; }
   #slidenum4 .section._5 {
-    position: relative !important;
-    top: auto !important; left: auto !important; right: auto !important;
-    width: 100% !important; max-width: none !important;
-    margin: 0 !important; padding: 0 !important;
-    transform: none !important;
-    z-index: 20 !important;
+    width: calc(100vw - 28px) !important;
+    max-width: none !important;
+    margin: 0 14px !important;
+    align-self:stretch !important;
   }
   #slidenum4 .home-contact-unified {
-    width: 100% !important; max-width: 100% !important;
-    padding: 16px 16px 20px !important;
-    box-sizing: border-box !important;
+    width:100% !important;
+    max-width:none !important;
+    min-height:0 !important;
+    padding:18px 20px 22px !important;
+    box-sizing:border-box !important;
   }
-  #slidenum4 .home-contact-unified-row { padding: 10px 0 !important; }
+  #slidenum4 .home-contact-unified-row { padding:11px 0 !important; }
   #slidenum4 .home-contact-unified .contact {
-    font-size: 11.5px !important; line-height: 1.5 !important;
-    white-space: normal !important; overflow-wrap: anywhere !important;
+    font-size:13px !important;
+    line-height:1.45 !important;
+    overflow-wrap:anywhere !important;
+    word-break:normal !important;
   }
-  #slidenum4 .home-contact-unified-label { font-size: 10px !important; }
-  #slidenum4 .home-contact-unified .sub-label { font-size: 9.5px !important; }
-  #slidenum4 .button-3.mobile.chi-siamo {
-    display: flex !important;
-    align-items: center !important; justify-content: center !important;
+  #slidenum4 .contatore2.contatore { z-index:30 !important; }
+}
+
+/* Slide 4 iPad: gray card and red counter share the same visual baseline. */
+@media screen and (min-width:480px) and (max-width:991px) {
+  #slidenum4 .container-pagina {
+    position:relative !important;
+    display:block !important;
+    padding: 150px 128px 52px 38px !important;
+  }
+  #slidenum4 .section._4._7 {
+    width:100% !important;
+    margin:0 0 28px !important;
+    text-align:right !important;
+  }
+  #slidenum4 .section._5 {
+    width:100% !important;
+    max-width:none !important;
+    margin:0 !important;
+  }
+  #slidenum4 .home-contact-unified { width:100% !important; max-width:none !important; }
+  #slidenum4 .contatore2.contatore {
+    top: 36% !important;
+    bottom: 0 !important;
+    right:0 !important;
+    height:auto !important;
+  }
+}
+
+/* Use area-specific images as the card artwork. */
+#slidenum3 .practice-icon {
+  border-radius: 6px !important;
+  object-fit: cover !important;
+  background: rgba(255,255,255,.08) !important;
+}
+
+
+/* === Final responsive refinements: iPad booking, slide 2, slide 3 icons, slide 4 counter === */
+.label-tablet { display:none; }
+
+/* Keep the original area PNG artwork intact on every breakpoint. */
+#slidenum3 .practice-icon {
+  object-fit: contain !important;
+  border-radius: 0 !important;
+  background: transparent !important;
+}
+
+@media screen and (min-width:480px) and (max-width:991px) {
+  /* Slide 2: same visual logic as slide 3 — grey information panel plus dark-red CTA
+     connected to the lighter red slide counter. */
+  #slidenum2 .container-pagina._2._9 {
     position: relative !important;
-    width: auto !important; min-width: 140px !important; height: 42px !important;
-    margin: 4px auto 0 !important; padding: 0 20px !important;
-    opacity: 1 !important; transform: none !important;
-    z-index: 25 !important; pointer-events: auto !important;
+    display: block !important;
+    padding: 0 !important;
+    overflow: hidden !important;
+  }
+  #slidenum2 .div-block-40,
+  #slidenum2 .section._1._2._4.desktop,
+  #slidenum2 .section-2 { display:none !important; }
+  #slidenum2 .container-pagina._2._9 > div:not(.div-block-40) { position:static !important; }
+  #slidenum2 .section._1._2 {
+    position:absolute !important;
+    left:40px !important;
+    right:128px !important;
+    top:190px !important;
+    width:auto !important;
+    min-height:0 !important;
+    height:auto !important;
+    margin:0 !important;
+    padding:34px 38px 36px !important;
+    box-sizing:border-box !important;
+    display:flex !important;
+    flex-direction:column !important;
+    align-items:flex-start !important;
+    justify-content:flex-start !important;
+    background:rgba(50,51,54,.92) !important;
+    border-radius:12px 0 0 0 !important;
+    opacity:1 !important;
+    transform:none !important;
+    overflow:visible !important;
+    z-index:20 !important;
+  }
+  #slidenum2 .section._1._2 .heading-2 {
+    display:block !important;
+    color:#fff !important;
+    font-size:44px !important;
+    line-height:1.05 !important;
+    text-align:left !important;
+    margin:0 0 16px !important;
+  }
+  #slidenum2 .section._1._2 .div-block-7 {
+    display:block !important;
+    width:72px !important;
+    margin:0 0 22px !important;
+  }
+  #slidenum2 .section._1._2 .text-block-6 {
+    color:#fff !important;
+    font-size:16px !important;
+    line-height:1.48 !important;
+    text-align:left !important;
+    max-width:100% !important;
+  }
+  #slidenum2 .button-3.mobile.chi-siamo.prova {
+    display:flex !important;
+    position:absolute !important;
+    left:40px !important;
+    right:128px !important;
+    top:500px !important;
+    width:auto !important;
+    min-width:0 !important;
+    height:62px !important;
+    margin:0 !important;
+    padding:0 24px !important;
+    box-sizing:border-box !important;
+    border-radius:0 0 0 12px !important;
+    background:#6f171d !important;
+    opacity:1 !important;
+    transform:none !important;
+    align-items:center !important;
+    justify-content:center !important;
+    z-index:40 !important;
+    pointer-events:auto !important;
+  }
+  #slidenum2 .button-3.mobile.chi-siamo.prova .text-block-16 {
+    color:#fff !important;
+    font-size:16px !important;
+    line-height:1 !important;
+    text-transform:uppercase !important;
+  }
+  #slidenum2 .contatore2.contatore {
+    display:flex !important;
+    position:absolute !important;
+    right:0 !important;
+    left:auto !important;
+    top:500px !important;
+    bottom:0 !important;
+    width:128px !important;
+    height:auto !important;
+    background:rgba(189,31,42,.82) !important;
+    opacity:1 !important;
+    transform:none !important;
+    z-index:30 !important;
+  }
+
+  /* Slide 3: avoid adjacent labels touching on iPad. */
+  #slidenum3 .section-3-block { padding-left:6px !important; padding-right:6px !important; }
+  #slidenum3 .section-3-block .text-block-2 {
+    font-size:9px !important;
+    line-height:1.2 !important;
+    min-height:23px !important;
+    display:flex !important;
+    align-items:center !important;
+    justify-content:center !important;
+    text-align:center !important;
+    overflow-wrap:anywhere !important;
+  }
+  #slidenum3 .label-full { display:none !important; }
+  #slidenum3 .label-tablet { display:inline !important; }
+
+  /* Slide 4: always restore the lighter red counter background. */
+  #slidenum4 .contatore2.contatore {
+    display:flex !important;
+    background:rgba(189,31,42,.82) !important;
+    opacity:1 !important;
+    transform:none !important;
+    width:128px !important;
+    right:0 !important;
+    z-index:35 !important;
+  }
+}
+
+@media screen and (max-width:479px) {
+  #slidenum4 .contatore2.contatore {
+    display:flex !important;
+    background:rgba(189,31,42,.86) !important;
+    opacity:1 !important;
+    transform:none !important;
+    z-index:35 !important;
+  }
+}
+
+
+/* === FINAL V5: iPad slide 2 mirrors desktop composition; slide 4 sizing/counter fixes === */
+@media screen and (min-width:480px) and (max-width:991px) {
+  /* Slide 2: scaled version of the MacBook layout, not the mobile stacked card. */
+  #slidenum2 .container-pagina._2._9 {
+    position:relative !important;
+    display:block !important;
+    padding:0 !important;
+    overflow:hidden !important;
+  }
+  #slidenum2 .div-block-40 { display:none !important; }
+  #slidenum2 .section._1._2 {
+    display:flex !important;
+    position:absolute !important;
+    top:13% !important;
+    left:30% !important;
+    right:12.5% !important;
+    width:auto !important;
+    height:36% !important;
+    min-height:0 !important;
+    margin:0 !important;
+    padding:34px 34px 30px !important;
+    box-sizing:border-box !important;
+    flex-direction:column !important;
+    align-items:flex-end !important;
+    justify-content:flex-start !important;
+    background:rgba(189,31,42,.76) !important;
+    border-radius:0 !important;
+    opacity:1 !important;
+    transform:none !important;
+    overflow:hidden !important;
+    z-index:12 !important;
+  }
+  #slidenum2 .section._1._2 .heading-2 {
+    display:block !important;
+    width:100% !important;
+    margin:0 0 12px !important;
+    color:#fff !important;
+    font-size:clamp(38px,6vw,52px) !important;
+    line-height:1.02 !important;
+    text-align:right !important;
+  }
+  #slidenum2 .section._1._2 .div-block-7 {
+    display:block !important;
+    width:64px !important;
+    height:8px !important;
+    margin:0 0 22px auto !important;
+  }
+  #slidenum2 .section._1._2 .text-block-6 {
+    display:block !important;
+    width:100% !important;
+    max-width:none !important;
+    margin:0 !important;
+    color:#fff !important;
+    font-size:15px !important;
+    line-height:1.48 !important;
+    text-align:right !important;
+  }
+  #slidenum2 .section._1._2._4.desktop { display:none !important; }
+  #slidenum2 .section-2 {
+    display:flex !important;
+    position:absolute !important;
+    left:22% !important;
+    right:12.5% !important;
+    bottom:20% !important;
+    width:auto !important;
+    height:23% !important;
+    margin:0 !important;
+    padding:0 !important;
+    opacity:1 !important;
+    transform:none !important;
+    z-index:10 !important;
+  }
+  #slidenum2 .section-2-block {
+    flex:1 1 0 !important;
+    min-width:0 !important;
+    display:flex !important;
+    flex-direction:column !important;
+    align-items:center !important;
+    justify-content:center !important;
+    padding:0 12px !important;
+    box-sizing:border-box !important;
+  }
+  #slidenum2 .section-2-block .heading {
+    font-size:40px !important;
+    line-height:1 !important;
+    margin:0 0 16px !important;
+  }
+  #slidenum2 .section-2-block-text {
+    font-size:12px !important;
+    line-height:1.35 !important;
+    text-align:center !important;
+  }
+  #slidenum2 .button-3.mobile.chi-siamo.prova {
+    display:flex !important;
+    position:absolute !important;
+    right:14% !important;
+    left:auto !important;
+    top:auto !important;
+    bottom:12.5% !important;
+    width:190px !important;
+    min-width:190px !important;
+    height:46px !important;
+    margin:0 !important;
+    padding:0 22px !important;
+    background:#303136 !important;
+    border-radius:3px !important;
+    opacity:1 !important;
+    transform:none !important;
+    align-items:center !important;
+    justify-content:center !important;
+    z-index:40 !important;
+    pointer-events:auto !important;
+  }
+  #slidenum2 .button-3.mobile.chi-siamo.prova .text-block-16 {
+    font-size:14px !important;
+    line-height:1 !important;
+    color:#fff !important;
+  }
+  #slidenum2 .contatore2.contatore {
+    display:flex !important;
+    position:absolute !important;
+    right:0 !important;
+    left:auto !important;
+    top:50% !important;
+    bottom:0 !important;
+    width:12.5% !important;
+    min-width:96px !important;
+    height:50% !important;
+    min-height:50% !important;
+    background:rgba(189,31,42,.82) !important;
+    opacity:1 !important;
+    transform:none !important;
+    z-index:30 !important;
+  }
+
+  /* Slide 4: force the red counter panel to exist behind 04. */
+  #slidenum4 .contatore2.contatore {
+    display:flex !important;
+    position:absolute !important;
+    right:0 !important;
+    left:auto !important;
+    top:50% !important;
+    bottom:0 !important;
+    width:128px !important;
+    height:50% !important;
+    min-height:50% !important;
+    background-color:rgba(189,31,42,.86) !important;
+    background-image:none !important;
+    opacity:1 !important;
+    visibility:visible !important;
+    transform:none !important;
+    z-index:50 !important;
+  }
+  #slidenum4 .contatore2.contatore .counter-wrap {
+    width:100% !important;
+    height:100% !important;
+    background:transparent !important;
+  }
+}
+
+@media screen and (max-width:479px) {
+  /* Slide 4 phone: make the contact panel genuinely almost full-width. */
+  #slidenum4 .container-pagina {
+    position:relative !important;
+    padding:0 !important;
+    display:block !important;
+  }
+  #slidenum4 .section._4._7 {
+    position:absolute !important;
+    top:96px !important;
+    left:18px !important;
+    right:18px !important;
+    width:auto !important;
+    margin:0 !important;
+  }
+  #slidenum4 .section._5 {
+    position:absolute !important;
+    top:170px !important;
+    left:10px !important;
+    right:10px !important;
+    bottom:88px !important;
+    width:auto !important;
+    max-width:none !important;
+    height:auto !important;
+    margin:0 !important;
+    padding:0 !important;
+    overflow-y:auto !important;
+    overflow-x:hidden !important;
+    box-sizing:border-box !important;
+  }
+  #slidenum4 .home-contact-unified {
+    width:100% !important;
+    max-width:none !important;
+    min-width:0 !important;
+    height:auto !important;
+    margin:0 !important;
+    padding:18px 18px 22px !important;
+    box-sizing:border-box !important;
+  }
+  #slidenum4 .home-contact-unified .contact {
+    width:100% !important;
+    max-width:none !important;
+    font-size:11.5px !important;
+    line-height:1.5 !important;
+    white-space:nowrap !important;
+    overflow-wrap:normal !important;
+    word-break:normal !important;
+  }
+  #slidenum4 .home-contact-unified-label { font-size:10px !important; }
+  #slidenum4 .home-contact-unified .sub-label { font-size:9.5px !important; }
+  #slidenum4 .contatore2.contatore {
+    display:flex !important;
+    position:absolute !important;
+    left:0 !important;
+    right:0 !important;
+    bottom:0 !important;
+    top:auto !important;
+    width:100% !important;
+    height:88px !important;
+    min-height:88px !important;
+    background-color:rgba(189,31,42,.9) !important;
+    opacity:1 !important;
+    visibility:visible !important;
+    transform:none !important;
+    z-index:60 !important;
+  }
+}
+
+
+/* === FINAL V6: precise iPad tangencies and phone contact panel === */
+@media screen and (min-width:480px) and (max-width:991px) {
+  /* Slide 2: desktop-like composition, grey copy panel, counter tangent to it. */
+  #slidenum2 .section._1._2 {
+    top:19% !important;
+    left:30% !important;
+    right:12.5% !important;
+    height:33% !important;
+    padding:28px 32px 26px !important;
+    background:rgba(45,46,50,.90) !important;
+    overflow:hidden !important;
+  }
+  #slidenum2 .section._1._2 .heading-2 {
+    font-size:clamp(36px,5.6vw,48px) !important;
+    margin-bottom:10px !important;
+  }
+  #slidenum2 .section._1._2 .div-block-7 {
+    margin-bottom:18px !important;
+  }
+  #slidenum2 .section._1._2 .text-block-6 {
+    font-size:14px !important;
+    line-height:1.42 !important;
+  }
+  #slidenum2 .section-2 {
+    left:22% !important;
+    right:12.5% !important;
+    top:55% !important;
+    bottom:auto !important;
+    height:22% !important;
+  }
+  #slidenum2 .button-3.mobile.chi-siamo.prova {
+    bottom:10.5% !important;
+  }
+  #slidenum2 .contatore2.contatore {
+    top:52% !important;
+    bottom:0 !important;
+    height:48% !important;
+    min-height:48% !important;
+  }
+  #slidenum2 .contatore2.contatore .counter-wrap {
+    width:100% !important;
+    height:100% !important;
+  }
+  #slidenum2 .contatore2.contatore .page-number {
+    position:absolute !important;
+    right:18px !important;
+    bottom:18px !important;
+    top:auto !important;
+  }
+
+  /* Slide 4: grey panel ends exactly where the red counter begins. */
+  #slidenum4 .section._5 {
+    left:11% !important;
+    right:128px !important;
+    width:auto !important;
+    max-width:none !important;
+    margin:0 !important;
+    transform:none !important;
+    box-sizing:border-box !important;
+  }
+  #slidenum4 .home-contact-unified {
+    width:100% !important;
+    max-width:none !important;
+    box-sizing:border-box !important;
   }
   #slidenum4 .contatore2.contatore {
-    position: absolute !important;
-    left: 0 !important; right: 0 !important;
-    bottom: 0 !important; top: auto !important;
-    width: 100% !important; height: 80px !important;
-    background: rgba(189,31,42,.9) !important;
-    opacity: 1 !important; transform: none !important;
-    z-index: 35 !important;
+    width:128px !important;
+    right:0 !important;
+    left:auto !important;
+  }
+}
+
+@media screen and (max-width:479px) {
+  /* Slide 4 phone: broad panel, readable lines, CTA above the red footer. */
+  #slidenum4 .section._5 {
+    top:164px !important;
+    left:28px !important;
+    right:28px !important;
+    bottom:150px !important;
+    width:calc(100vw - 56px) !important;
+    max-width:none !important;
+    min-width:0 !important;
+    height:auto !important;
+    margin:0 !important;
+    padding:0 !important;
+    display:block !important;
+    transform:none !important;
+    overflow:hidden !important;
+    box-sizing:border-box !important;
+  }
+  #slidenum4 .home-contact-unified {
+    width:100% !important;
+    max-width:none !important;
+    min-width:0 !important;
+    height:100% !important;
+    margin:0 !important;
+    padding:16px 16px 18px !important;
+    overflow-y:auto !important;
+    overflow-x:hidden !important;
+    box-sizing:border-box !important;
+  }
+  #slidenum4 .home-contact-unified .contact {
+    display:block !important;
+    width:100% !important;
+    max-width:100% !important;
+    font-size:10.4px !important;
+    line-height:1.42 !important;
+    white-space:normal !important;
+    overflow-wrap:anywhere !important;
+    word-break:normal !important;
+  }
+  #slidenum4 .home-contact-unified-label {
+    font-size:9.8px !important;
+  }
+  #slidenum4 .home-contact-unified .sub-label {
+    font-size:9px !important;
+  }
+  #slidenum4 .button-3.mobile.chi-siamo {
+    display:flex !important;
+    position:absolute !important;
+    left:50% !important;
+    right:auto !important;
+    bottom:96px !important;
+    top:auto !important;
+    width:150px !important;
+    height:44px !important;
+    margin:0 !important;
+    transform:translateX(-50%) !important;
+    align-items:center !important;
+    justify-content:center !important;
+    z-index:80 !important;
+    pointer-events:auto !important;
+  }
+  #slidenum4 .contatore2.contatore {
+    height:86px !important;
+    min-height:86px !important;
+  }
+}
+
+
+
+/* === FINAL V7: measured tablet tangencies and full-width phone contacts === */
+@media screen and (min-width:480px) and (max-width:991px) {
+  /* Slide 2: the counter begins exactly at the lower edge of the grey copy panel. */
+  #slidenum2 {
+    --slide2-copy-bottom: 51%;
+    --slide2-counter-width: 12.5%;
+  }
+  #slidenum2 .section._1._2 {
+    position:absolute !important;
+    top:19% !important;
+    left:30% !important;
+    right:var(--slide2-counter-width) !important;
+    bottom:var(--slide2-copy-bottom) !important;
+    width:auto !important;
+    height:auto !important;
+    min-height:0 !important;
+    background:rgba(45,46,50,.92) !important;
+    box-sizing:border-box !important;
+  }
+  #slidenum2 .contatore2.contatore {
+    position:absolute !important;
+    top:var(--slide2-copy-bottom) !important;
+    right:0 !important;
+    bottom:0 !important;
+    left:auto !important;
+    width:var(--slide2-counter-width) !important;
+    min-width:96px !important;
+    height:auto !important;
+    min-height:0 !important;
+    margin:0 !important;
+    background:rgba(189,31,42,.86) !important;
+    box-sizing:border-box !important;
+    overflow:hidden !important;
+  }
+  #slidenum2 .contatore2.contatore .page-number {
+    position:absolute !important;
+    right:18px !important;
+    bottom:28px !important;
+    top:auto !important;
+    margin:0 !important;
+    line-height:1 !important;
+    transform:none !important;
+  }
+  #slidenum2 .section-2 {
+    top:54% !important;
+    bottom:auto !important;
+    height:22% !important;
+  }
+
+  /* Slide 4: a single shared width makes grey and red panels tangent, never overlapping. */
+  #slidenum4 {
+    --slide4-counter-width:128px;
+  }
+  #slidenum4 .section._5 {
+    display:block !important;
+    position:absolute !important;
+    left:11% !important;
+    right:var(--slide4-counter-width) !important;
+    width:auto !important;
+    max-width:none !important;
+    margin:0 !important;
+    padding:0 !important;
+    transform:none !important;
+    box-sizing:border-box !important;
+    overflow:hidden !important;
+    z-index:20 !important;
+  }
+  #slidenum4 .home-contact-unified {
+    display:block !important;
+    width:100% !important;
+    max-width:100% !important;
+    margin:0 !important;
+    box-sizing:border-box !important;
+    border-top-right-radius:0 !important;
+    border-bottom-right-radius:0 !important;
+    overflow:hidden !important;
+  }
+  #slidenum4 .contatore2.contatore {
+    position:absolute !important;
+    right:0 !important;
+    left:auto !important;
+    width:var(--slide4-counter-width) !important;
+    min-width:var(--slide4-counter-width) !important;
+    max-width:var(--slide4-counter-width) !important;
+    margin:0 !important;
+    box-sizing:border-box !important;
+    z-index:30 !important;
+  }
+}
+
+@media screen and (max-width:479px) {
+  /* Keep the title fully below the fixed header. */
+  html body #slides #slidenum4.slide.contatti .section._4._7 {
+    position:absolute !important;
+    top:174px !important;
+    left:5vw !important;
+    right:5vw !important;
+    width:90vw !important;
+    max-width:90vw !important;
+    margin:0 !important;
+    transform:none !important;
+    text-align:center !important;
+    z-index:25 !important;
+  }
+
+  /* The contact panel uses almost the full phone viewport. */
+  html body #slides #slidenum4.slide.contatti .container-pagina > section.section._5 {
+    display:block !important;
+    position:absolute !important;
+    top:235px !important;
+    left:5vw !important;
+    right:auto !important;
+    bottom:148px !important;
+    width:90vw !important;
+    max-width:90vw !important;
+    min-width:90vw !important;
+    height:auto !important;
+    margin:0 !important;
+    padding:0 !important;
+    transform:none !important;
+    box-sizing:border-box !important;
+    overflow:hidden !important;
+    z-index:25 !important;
+  }
+  html body #slides #slidenum4 .home-contact-unified {
+    display:block !important;
+    width:100% !important;
+    max-width:100% !important;
+    min-width:100% !important;
+    height:100% !important;
+    margin:0 !important;
+    padding:18px 20px 20px !important;
+    box-sizing:border-box !important;
+    overflow-y:auto !important;
+    overflow-x:hidden !important;
+  }
+  html body #slides #slidenum4 .home-contact-unified .contact {
+    display:block !important;
+    width:100% !important;
+    max-width:100% !important;
+    font-size:11.5px !important;
+    line-height:1.42 !important;
+    white-space:normal !important;
+    overflow-wrap:anywhere !important;
+    word-break:normal !important;
+  }
+  html body #slides #slidenum4 .home-contact-unified-label {
+    font-size:10.5px !important;
+  }
+  html body #slides #slidenum4 .home-contact-unified .sub-label {
+    font-size:9.5px !important;
+  }
+
+  /* CTA stays centred in the free strip above the red counter footer. */
+  html body #slides #slidenum4.slide.contatti a.button-3.mobile.chi-siamo {
+    display:flex !important;
+    position:absolute !important;
+    left:50% !important;
+    right:auto !important;
+    top:auto !important;
+    bottom:94px !important;
+    width:150px !important;
+    min-width:150px !important;
+    max-width:150px !important;
+    height:44px !important;
+    margin:0 !important;
+    transform:translateX(-50%) !important;
+    align-items:center !important;
+    justify-content:center !important;
+    z-index:90 !important;
+    pointer-events:auto !important;
   }
 }
 
@@ -1288,32 +1947,32 @@ body[data-active-slide="4"] .menu-link.menu2 {
             </div>
             <section data-w-id="178eb010-927f-a1be-7dd6-6f1efcbb7f2a" style="-webkit-transform:translate3d(-111px, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(-111px, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-ms-transform:translate3d(-111px, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(-111px, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);opacity:0" class="section-3-wrapper aree">
               <div class="section-3-block a _1">
-                <svg class="practice-icon" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><circle cx="24" cy="16" r="7" stroke="#fff" stroke-width="2.5" fill="none"/><path d="M10 40c0-7.7 6.3-14 14-14s14 6.3 14 14" stroke="#fff" stroke-width="2.5" fill="none" stroke-linecap="round"/><path d="M18 32l3 5 5-7 5 7 3-5" stroke="#c99669" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                <img src="images/dfamiglia.png" loading="lazy" alt="Diritto di famiglia" class="practice-icon">
                 <div class="text-block-2">DIRITTO DI FAMIGLIA</div>
                 <a href="aree.html" class="leggitutto">LEGGI TUTTO</a>
               </div>
               <div class="section-3-block b">
-                <svg class="practice-icon" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M24 4l-3 6H10l3 6-8 14h14l3 6h10l3-6h14L36 16l3-6H27l-3-6z" stroke="#fff" stroke-width="2.5" fill="none" stroke-linejoin="round"/><path d="M18 38h4v3h-4v-3zm8 0h4v3h-4v-3z" fill="#c99669"/></svg>
+                <img src="images/rcivile.png" loading="lazy" alt="Responsabilità civile" class="practice-icon">
                 <div class="text-block-2"><span class="label-full">RESPONSABILITÀ CIVILE</span><span class="label-tablet">RESP. CIVILE</span></div>
                 <a href="aree.html" class="leggitutto">LEGGI TUTTO</a>
               </div>
               <div class="section-3-block a">
-                <svg class="practice-icon" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><rect x="8" y="18" width="32" height="24" rx="2" stroke="#fff" stroke-width="2.5" fill="none"/><path d="M16 18v-4a8 8 0 0116 0v4" stroke="#fff" stroke-width="2.5" fill="none"/><rect x="18" y="26" width="12" height="8" rx="1" fill="#c99669"/></svg>
+                <img src="images/dsocietario.png" loading="lazy" alt="Diritto societario" class="practice-icon">
                 <div class="text-block-2">DIRITTO SOCIETARIO</div>
                 <a href="aree.html" class="leggitutto">LEGGI TUTTO</a>
               </div>
               <div class="section-3-block b">
-                <svg class="practice-icon" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><circle cx="24" cy="15" r="8" stroke="#fff" stroke-width="2.5" fill="none"/><path d="M10 42c0-7.7 6.3-14 14-14s14 6.3 14 14" stroke="#fff" stroke-width="2.5" fill="none" stroke-linecap="round"/><circle cx="24" cy="32" r="3" fill="#c99669"/></svg>
+                <img src="images/rcontrolapersona.png" loading="lazy" alt="Reati contro la persona" class="practice-icon">
                 <div class="text-block-2">REATI CONTRO LA PERSONA</div>
                 <a href="aree.html" class="leggitutto">LEGGI TUTTO</a>
               </div>
               <div class="section-3-block a">
-                <svg class="practice-icon" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M8 36V20l16-10 16 10v16H8z" stroke="#fff" stroke-width="2.5" fill="none" stroke-linejoin="round"/><rect x="18" y="26" width="12" height="10" rx="1" fill="#c99669"/></svg>
+                <img src="images/rcontroilpatrimonio.png" loading="lazy" alt="Reati contro il patrimonio" class="practice-icon">
                 <div class="text-block-2">REATI CONTRO IL PATRIMONIO</div>
                 <a href="aree.html" class="leggitutto">LEGGI TUTTO</a>
               </div>
               <div class="section-3-block b _1">
-                <svg class="practice-icon" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><rect x="8" y="22" width="32" height="20" rx="1" stroke="#fff" stroke-width="2.5" fill="none"/><path d="M8 28h32" stroke="#fff" stroke-width="2.5"/><path d="M13 22v-5a11 11 0 0122 0v5" stroke="#fff" stroke-width="2.5" fill="none"/><circle cx="24" cy="34" r="3" fill="#c99669"/></svg>
+                <img src="images/rcontrolapa.png" loading="lazy" alt="Reati contro la pubblica amministrazione" class="practice-icon">
                 <div class="text-block-2">REATI CONTRO LA P.A.</div>
                 <a href="aree.html" class="leggitutto">LEGGI TUTTO</a>
               </div>
