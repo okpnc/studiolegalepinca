@@ -7,7 +7,9 @@
   <link href="css/normalize.css" rel="stylesheet" type="text/css">
   <link href="css/webflow.css" rel="stylesheet" type="text/css">
   <link href="css/studiolegalepinca.webflow.css" rel="stylesheet" type="text/css">
-  <link href="images/favicon.png" rel="shortcut icon" type="image/x-icon">
+  <link rel="icon" type="image/png" href="images/favicon.png">
+  <link rel="shortcut icon" type="image/png" href="images/favicon.png">
+  <link rel="apple-touch-icon" href="images/favicon.png">
   <link href="images/webclip.png" rel="apple-touch-icon">
   <link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet">
   <style>
@@ -23,7 +25,7 @@
     }
     .aree-hero {
       background-color: #323336;
-      background-image: linear-gradient(rgba(50,51,54,.7), rgba(50,51,54,.9)), url('images/IMG_2192.jpg');
+      background-image: linear-gradient(rgba(50,51,54,.7), rgba(50,51,54,.9)), url('images/IMG_2192-p-1080.jpg');
       background-position: 50%;
       background-size: cover;
       padding: 160px 30px 100px;
@@ -171,6 +173,7 @@
       .aree-accordion-body { padding: 24px; }
       .image-2 { max-width: 20svh !important; }
       .nav-link { padding: 20px 16px; font-size: 14px; }
+      .aree-hero { padding: 120px 30px 70px; }
     }
     @media screen and (max-width: 479px) {
       .aree-hero { padding: 120px 20px 70px; }
@@ -178,6 +181,76 @@
       .aree-macro-section { padding: 50px 20px; }
       .aree-index-links { gap: 16px; }
       .aree-index-link { padding: 10px 20px; font-size: 14px; }
+    }
+  
+    /* Hamburger menu for mobile/tablet */
+    .hamburger-trigger {
+      display: none;
+      position: fixed;
+      top: 18px;
+      right: 18px;
+      z-index: 100000;
+      width: 40px;
+      height: 40px;
+      border: 1px solid rgba(255,255,255,.6);
+      border-radius: 8px;
+      background-color: rgba(130,130,130,.3);
+      cursor: pointer;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      gap: 4px;
+      padding: 0;
+      transition: background-color .3s ease;
+    }
+    .hamburger-trigger:hover {
+      background-color: rgba(130,130,130,.5);
+    }
+    .hamburger-trigger span {
+      display: block;
+      width: 18px;
+      height: 2px;
+      background-color: #fff;
+      border-radius: 1px;
+      transition: transform .3s ease, opacity .3s ease;
+    }
+    .hamburger-trigger.active span:nth-child(1) {
+      transform: translateY(6px) rotate(45deg);
+    }
+    .hamburger-trigger.active span:nth-child(2) { opacity: 0; }
+    .hamburger-trigger.active span:nth-child(3) {
+      transform: translateY(-6px) rotate(-45deg);
+    }
+    .hamburger-dropdown {
+      display: none;
+      position: fixed;
+      top: 64px;
+      right: 18px;
+      z-index: 100001;
+      background-color: #2a2a2c;
+      border: 1px solid rgba(201,150,105,.4);
+      border-radius: 10px;
+      padding: 8px 0;
+      min-width: 200px;
+      box-shadow: 0 8px 32px rgba(0,0,0,.3);
+    }
+    .hamburger-dropdown.open { display: block; }
+    .hamburger-dropdown a {
+      display: block;
+      padding: 12px 20px;
+      color: #f5f3f0;
+      text-decoration: none;
+      font-size: 15px;
+      font-weight: 300;
+      transition: background-color .2s ease;
+    }
+    .hamburger-dropdown a:hover {
+      background-color: rgba(201,150,105,.15);
+      color: #c99669;
+    }
+    @media screen and (max-width: 991px) {
+      .header-menu-wrap { display: none !important; }
+      .hamburger-trigger { display: flex; }
     }
   </style>
 <style id="pinca-footer-css">
@@ -266,6 +339,18 @@
 </style>
 </head>
 <body>
+  <button class="hamburger-trigger" id="hamburgerBtn" aria-label="Menu">
+    <span></span>
+    <span></span>
+    <span></span>
+  </button>
+  <div class="hamburger-dropdown" id="hamburgerDropdown">
+    <a href="chi-siamo.html">Chi Siamo</a>
+    <a href="aree.html">Aree di Attivit\u00e0</a>
+    <a href="contatti-2.html">Contatti</a>
+    <a href="prenota.html">Prenota</a>
+  </div>
+
   <div data-animation="default" data-collapse="medium" data-duration="400" data-easing="ease" data-easing2="ease" role="banner" class="navbar w-nav nav-banner-visible">
     <div class="w-layout-blockcontainer container-big w-container">
       <div class="w-layout-hflex navbar-wrapper">
@@ -735,7 +820,7 @@
           <a href="tel:+390833864251" class="pinca-footer-link">Tel. 0833 864251</a>
           <a href="mailto:studiolegalepinca@pec.it" class="pinca-footer-link">studiolegalepinca@pec.it</a>
           <div class="pinca-footer-text">Galatone — Via Garibaldi, 42</div>
-          <div class="pinca-footer-text">Lecce — Corte Conte Accardo, 2</div>
+          <div class="pinca-footer-text">Lecce — Via Premuda, 8</div>
         </div>
       </div>
     </div>
@@ -770,9 +855,37 @@
     }
   </script>
   <style>
-    @media screen and (max-width: 767px) {
-      .calendly-badge-widget { display: none !important; }
+    .calendly-badge-widget { z-index: 100000 !important; }
+    @media screen and (max-width: 991px) {
+      .calendly-badge-widget {
+        display: block !important;
+        visibility: visible !important;
+        opacity: 1 !important;
+        right: 14px !important;
+        bottom: 14px !important;
+        z-index: 100000 !important;
+      }
     }
   </style>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      var btn = document.getElementById('hamburgerBtn');
+      var dd = document.getElementById('hamburgerDropdown');
+      if (!btn || !dd) return;
+      btn.addEventListener('click', function(e) {
+        e.preventDefault();
+        e.stopPropagation();
+        btn.classList.toggle('active');
+        dd.classList.toggle('open');
+      });
+      document.addEventListener('click', function(e) {
+        if (!dd.contains(e.target) && !btn.contains(e.target)) {
+          btn.classList.remove('active');
+          dd.classList.remove('open');
+        }
+      });
+    });
+  </script>
 </body>
 </html>
