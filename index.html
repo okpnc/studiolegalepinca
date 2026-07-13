@@ -480,219 +480,6 @@
 #slides .slide._3 .leggitutto {
   cursor: pointer !important;
 }
-/* ====== RESPONSIVE FIXES ====== */
-:root {
-  --header-height-desktop: 112px;
-  --header-height-tablet: 100px;
-  --header-height-mobile: 82px;
-}
-
-/* --- Menu mobile (iPhone) --- */
-@media screen and (max-width: 479px) {
-  .menu-link.menu2 {
-    display: block !important;
-    position: fixed !important;
-    top: 18px !important;
-    right: 18px !important;
-    left: auto !important;
-    z-index: 100000 !important;
-    pointer-events: auto !important;
-  }
-  .menu-link.menu2 *,
-  .dropdown-11,
-  .dropdown-toggle-10,
-  .dropdown-list-9.mobile {
-    pointer-events: auto !important;
-  }
-  .dropdown-list-9.mobile.w--open {
-    z-index: 100001 !important;
-  }
-  #slides,
-  #slides .slide,
-  #slides .container-pagina {
-    z-index: auto;
-  }
-  .navbar {
-    z-index: 99990 !important;
-  }
-}
-
-/* --- Menu tablet (iPad 480-991px) --- */
-@media screen and (min-width: 480px) and (max-width: 991px) {
-  .menu-link.menu2 {
-    display: block !important;
-    position: fixed !important;
-    top: 24px !important;
-    right: 28px !important;
-    left: auto !important;
-    z-index: 100000 !important;
-    pointer-events: auto !important;
-  }
-  .menu-link.menu2 *,
-  .dropdown-11,
-  .dropdown-toggle-10,
-  .dropdown-list-9.mobile {
-    pointer-events: auto !important;
-  }
-  .dropdown-list-9.mobile.w--open {
-    z-index: 100001 !important;
-  }
-  .header-menu-wrap {
-    display: none !important;
-  }
-  #slides,
-  #slides .slide,
-  #slides .container-pagina {
-    z-index: auto;
-  }
-  .navbar {
-    z-index: 99990 !important;
-  }
-}
-
-/* --- Slide 1 iPad: counter to right edge --- */
-@media screen and (min-width: 480px) and (max-width: 991px) {
-  #slidenum1 .contatore2.contatore {
-    position: absolute !important;
-    right: 0 !important;
-    left: auto !important;
-    top: auto !important;
-    bottom: 0 !important;
-    transform: none !important;
-    -webkit-transform: none !important;
-    z-index: 9999 !important;
-    pointer-events: auto !important;
-  }
-  #slidenum1 .counter-wrap,
-  #slidenum1 .arrow-next,
-  #slidenum1 .arrow-prev {
-    pointer-events: auto !important;
-  }
-}
-
-/* --- Slide 2 iPad: layout fix --- */
-@media screen and (min-width: 480px) and (max-width: 991px) {
-  #slidenum2 .container-pagina {
-    padding-top: 125px !important;
-    padding-right: 120px !important;
-    padding-left: 40px !important;
-    padding-bottom: 60px !important;
-    display: flex !important;
-    flex-direction: column !important;
-    justify-content: center !important;
-    align-items: center !important;
-    text-align: center !important;
-    box-sizing: border-box !important;
-  }
-  #slidenum2 .section._1._2,
-  #slidenum2 .section._1._2._4 {
-    position: relative !important;
-    width: min(78vw, 650px) !important;
-    margin: 0 auto !important;
-    transform: none !important;
-    -webkit-transform: none !important;
-    text-align: center !important;
-    opacity: 1 !important;
-  }
-  #slidenum2 .section._1._2._4.desktop {
-    display: none !important;
-  }
-  #slidenum2 .section-2 {
-    position: relative !important;
-    transform: none !important;
-    -webkit-transform: none !important;
-    width: min(82vw, 700px) !important;
-    margin: 30px auto 0 !important;
-    opacity: 1 !important;
-  }
-  #slidenum2 .contatore2.contatore {
-    position: absolute !important;
-    right: 0 !important;
-    bottom: 0 !important;
-    left: auto !important;
-    top: auto !important;
-    transform: none !important;
-    -webkit-transform: none !important;
-    z-index: 9999 !important;
-    pointer-events: auto !important;
-  }
-  #slidenum2 .button-3.mobile.chi-siamo.prova {
-    position: relative !important;
-    transform: none !important;
-    -webkit-transform: none !important;
-    opacity: 1 !important;
-    z-index: 5 !important;
-    pointer-events: auto !important;
-  }
-}
-
-/* --- Slide 3 iPad: lower title block --- */
-@media screen and (min-width: 480px) and (max-width: 991px) {
-  #slidenum3 .section._1._2._3 {
-    margin-top: 40px !important;
-  }
-}
-
-/* --- Slide 4 iPhone: title visible, button clickable --- */
-@media screen and (max-width: 479px) {
-  #slides .slide._2.contatti .container-pagina {
-    padding-top: 105px !important;
-  }
-  #slides .slide._2.contatti .section._4._7 {
-    margin-top: 0 !important;
-    position: relative !important;
-    z-index: 10 !important;
-  }
-  #slides .slide._2.contatti .button-3.mobile.chi-siamo {
-    position: relative !important;
-    z-index: 10000 !important;
-    pointer-events: auto !important;
-    cursor: pointer !important;
-  }
-  #slides .slide._2.contatti > .ix-trigger,
-  #slides .slide._2.contatti > .ix-reset {
-    pointer-events: none !important;
-  }
-}
-
-/* --- Slide 4 background image --- */
-#slides .slide._2.contatti .container-pagina {
-  background-image:
-    linear-gradient(rgba(30,10,10,.42), rgba(30,10,10,.42)),
-    url('images/IMG_4264.jpg') !important;
-  background-size: cover, cover !important;
-  background-repeat: no-repeat, no-repeat !important;
-  background-position: center center, center center !important;
-}
-@media screen and (max-width: 991px) {
-  #slides .slide._2.contatti .container-pagina {
-    background-image:
-      linear-gradient(rgba(30,10,10,.42), rgba(30,10,10,.42)),
-      url('images/IMG_4263.jpg') !important;
-  }
-}
-
-/* --- ix-trigger/ix-reset pointer-events on all slides --- */
-#slides .slide > .ix-trigger,
-#slides .slide > .ix-reset {
-  pointer-events: none !important;
-}
-
-/* --- Calendly badge responsive --- */
-.calendly-badge-widget {
-  z-index: 100000 !important;
-}
-@media screen and (max-width: 991px) {
-  .calendly-badge-widget {
-    display: block !important;
-    visibility: visible !important;
-    opacity: 1 !important;
-    right: 14px !important;
-    bottom: 14px !important;
-    z-index: 100000 !important;
-  }
-}
-
 </style>
 </head>
 <body>
@@ -919,12 +706,12 @@
                 <div class="home-contact-unified-row">
                   <div class="home-contact-unified-label">Indirizzo</div>
                   <div class="contact"><strong>Galatone</strong> — Via Garibaldi, 42, 73044 Lecce</div>
-                  <div class="contact"><strong>Lecce</strong> — Via Premuda, 8</div>
+                  <div class="contact"><strong>Lecce</strong> — Corte Conte Accardo, 2, 73100</div>
                 </div>
               </div>
             </section>
             <a href="contatti-2.html" class="button-3 mobile chi-siamo w-inline-block">
-              <div class="text-block-16">Contatti</div>
+              <div class="text-block-16">Tutti i contatti</div>
             </a>
           </div>
           <div style="opacity:0" class="w-layout-vflex contatore2 contatore">
@@ -1104,21 +891,6 @@ document.addEventListener('DOMContentLoaded', function () {
       }, true);
     });
   });
-  </script>
-  <link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet">
-  <script src="https://assets.calendly.com/assets/external/widget.js" type="text/javascript" async></script>
-  <script type="text/javascript">
-    window.onload = function() {
-      if (typeof Calendly !== 'undefined') {
-        Calendly.initBadgeWidget({
-          url: 'https://calendly.com/nadia-altiero-studiolegalepinca/30min?background_color=f7f2ed&text_color=323336&primary_color=ae000b',
-          text: 'Prenota un appuntamento',
-          color: '#ae000b',
-          textColor: '#ffffff',
-          branding: true
-        });
-      }
-    };
   </script>
 </body>
 </html>

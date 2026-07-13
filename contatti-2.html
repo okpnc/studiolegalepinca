@@ -188,34 +188,6 @@
       .pinca-contact-section { padding: 50px 20px 70px; }
       .pinca-contact-card { padding: 20px 24px; }
     }
-    /* Hero padding for mobile/tablet */
-    :root {
-      --header-height-desktop: 112px;
-      --header-height-tablet: 100px;
-      --header-height-mobile: 82px;
-    }
-    @media screen and (max-width: 991px) {
-      .contatti-wrapper {
-        padding-top: calc(var(--header-height-tablet, 100px) + 25px) !important;
-      }
-    }
-    @media screen and (max-width: 479px) {
-      .contatti-wrapper {
-        padding-top: calc(var(--header-height-mobile, 82px) + 20px) !important;
-      }
-    }
-    /* Calendly badge responsive */
-    .calendly-badge-widget { z-index: 100000 !important; }
-    @media screen and (max-width: 991px) {
-      .calendly-badge-widget {
-        display: block !important;
-        visibility: visible !important;
-        opacity: 1 !important;
-        right: 14px !important;
-        bottom: 14px !important;
-        z-index: 100000 !important;
-      }
-    }
   </style>
 <style id="pinca-footer-css">
   .pinca-footer {
@@ -363,7 +335,7 @@
             <div class="pinca-contact-item"><strong>Via Garibaldi, 42</strong></div>
             <div class="pinca-contact-item">73044 Lecce</div>
             <div class="pinca-contact-item-label">Lecce</div>
-            <div class="pinca-contact-item"><strong>Via Premuda, 8</strong></div>
+            <div class="pinca-contact-item"><strong>Corte Conte Accardo, 2</strong></div>
             <div class="pinca-contact-item">73100</div>
             <div class="pinca-contact-item" style="margin-top:14px;font-style:italic;color:#888;font-size:13px;">Si riceve per appuntamento.<br>Martedì e Giovedì dalle 17:00 alle 20:30.</div>
           </div>
@@ -410,7 +382,7 @@
           <a href="tel:+390833864251" class="pinca-footer-link">Tel. 0833 864251</a>
           <a href="mailto:studiolegalepinca@pec.it" class="pinca-footer-link">studiolegalepinca@pec.it</a>
           <div class="pinca-footer-text">Galatone — Via Garibaldi, 42</div>
-          <div class="pinca-footer-text">Lecce — Via Premuda, 8</div>
+          <div class="pinca-footer-text">Lecce — Corte Conte Accardo, 2</div>
         </div>
       </div>
     </div>
@@ -434,6 +406,10 @@
       }
     }
   </script>
+  <style>
+    @media screen and (max-width: 767px) {
+      .calendly-badge-widget { display: none !important; }
+    }
   </style>
 </body>
 </html>
