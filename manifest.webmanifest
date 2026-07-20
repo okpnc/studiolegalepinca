@@ -1,0 +1,19 @@
+{
+  "name": "Studio Legale Pinca",
+  "short_name": "Pinca",
+  "description": "Studio legale con sedi a Galatone e Lecce, attivo in materia civile e penale.",
+  "lang": "it",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "background_color": "#323336",
+  "theme_color": "#323336",
+  "icons": [
+    {
+      "src": "/images/webclip.png",
+      "sizes": "256x256",
+      "type": "image/png",
+      "purpose": "any"
+    }
+  ]
+}
